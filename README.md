@@ -2,7 +2,7 @@
 
 ## Preface
 
-<p align="justify">LazyUpscalerGui is a web UI for the upscaling of images. To be able to work with the web UI, pretrained .pb models are required. At OpenCv you will find the links to download the models. [1]</p>
+<p align="justify">LazyUpscalerGui is a web UI for the upscaling of images. To be able to work with the web UI, pretrained .pb models are required. At OpenCV you will find the links to download the models [1]. The model can also be found in [2-5]. The current version is the inital version for the web UI.</p>
 
 ## Installation
 
@@ -11,6 +11,15 @@
 ## Start
 
 <p align="justify">Open a webbrowser and open localhost on http://127.0.0.1:7860. If everything was okay so far, the web UI starts in the browser windwow.</p>
+
+## Pretrained Models
+
+Pretrained models which can be used are:
+
+* edsr
+* espcn
+* fsrcnn
+* lapsrn
 
 ## References
 
