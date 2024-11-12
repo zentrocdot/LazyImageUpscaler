@@ -10,7 +10,11 @@
 
 ## Start
 
-<p align="justify">Open a webbrowser and open localhost on http://127.0.0.1:7860. If everything was okay so far, the web UI starts in the browser windwow.</p>
+<p align="justify">Open a webbrowser and open localhost on</p>
+
+<pre>http://127.0.0.1:7860</pre>
+
+<p align="justify>If everything was okay so far, the web UI starts in the browser windwow.</p>
 
 ## Pretrained Models
 
