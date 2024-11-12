@@ -1,1 +1,1 @@
-Store the .pb models here.
+Store the pretrained .pb models here.
