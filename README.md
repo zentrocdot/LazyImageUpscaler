@@ -21,6 +21,11 @@ Pretrained models which can be used are:
 * fsrcnn
 * lapsrn
 
+## Web UI
+
+<a target="_blank" href=""><img src="./images/lazyupscaler.jpg" alt="button panel"></a>
+
+
 ## References
 
 [1] https://github.com/opencv/opencv_contrib/tree/master/modules/dnn_superres
