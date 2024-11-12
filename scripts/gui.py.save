@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+
+# Import the Python modules.
+import gradio as gr
+
+_lora_dict = {}
+
+# *************************
+# Function get_model_list()
+# *************************
+def get_lora_list() -> list:
+    '''Simple function for use with components.'''
+    global _lora_dict
+    _lora_dict = {}
+    lora_list = []
+    lora_scan(MODEL_PATH, [".safetensors"])
+    lora_list = list(_lora_dict.keys())
+    lora_list.sort(reverse=_SortDir)
+    return lora_list
+
+def predict(im):
+    return im["composite"]
+
+with gr.Blocks() as demo:
+    with gr.Row():
+        input_file = gr.Dropdown(choices=get_lora_list(), label="Models")
+    with gr.Row():
+        im_input = gr.Image()
+        im_output = gr.Image()
+    im.change(predict, outputs=im_preview, inputs=im, show_progress="hidden")
+
+def main():
+    # demo = gr.Interface(sepia, gr.Image(), "image")
+    demo.launch()
+
+if __name__ == "__main__":
+    demo.launch()
