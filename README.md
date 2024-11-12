@@ -31,6 +31,19 @@ The web UI is simple to use. One can select the pretrained model from a dropdown
 
 <a target="_blank" href=""><img src="./images/lazyupscaler.jpg" alt="button panel"></a>
 
+## Repository Structure
+
+The repository structure is as follows
+
+```main
+    ├── scripts
+    ├── resources
+    ├── outputs
+    └── images
+```
+
+Under the main branch there are four directories. In scripts are the Python scripts for the web user interface. In resources there can be the .pb models be stored. After the installation this directory is empty. Created images are saved in outputs. images is the directory where documentation related images are stored.
+
 ## References
 
 [1] https://github.com/opencv/opencv_contrib/tree/master/modules/dnn_superres
