@@ -23,10 +23,10 @@ scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <p align="justify">Pretrained models which can be used are:<p align="justify">
 
-* edsr
-* espcn
-* fsrcnn
-* lapsrn
+* EDSR
+* ESPCN
+* FSRCNN
+* LAPSRN
 
 ## Web UI
 
