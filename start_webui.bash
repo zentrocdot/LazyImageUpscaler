@@ -3,6 +3,9 @@
 # Start Script
 # Version 0.0.0.1
 
+# Get script name.
+FN=$0
+
 # Check if script is executed as sudo.
 function check_sudo {
     if [ "$EUID" -eq 0 ]; then
@@ -30,7 +33,7 @@ function make_executable {
     # Return the error code 0.
     return 0
 }
-make_executable
+make_executable "${FN}"
 
 # Start the Lazy Image Upscaler.
 python3 ./scripts/lazy_image_upscaler.py
