@@ -10,8 +10,8 @@
 
 ## Start
 
-<p align="justify">Use start_webui.bash in the main directory to start the local server. If there is a problem one can move into the subdirectory 
-scripts. From there lazy_image_upscaler.py can be started.</p>
+<p align="justify">Use <code>start_webui.bash</code> in the main directory to start the local server. If there is a problem one can move into the subdirectory 
+scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <p align="justify">Open a webbrowser and open localhost on</p>
 
