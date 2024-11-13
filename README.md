@@ -34,6 +34,18 @@ scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <a target="_blank" href=""><img src="./images/lazyimageupscaler.png" alt="button panel"></a>
 
+## Download Images
+
+<p align="justify">When a download is done image names looks like:</p>
+
+2024-11-13_16:32:48.931703.jpg
+
+<p align="justify">To make sure that each image is unique I am using the date, the time and the remaining microseconds as filename. The formatstring is:</p>
+
+<pre>"%Y-%m-%d_%H:%M:%S.%f"</pre>
+
+<p align="justify">The downloaded images can be found in the folder <code>outputs</code>.</p>
+
 ## Repository Structure
 
 The repository structure is as follows
