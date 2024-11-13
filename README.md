@@ -35,7 +35,8 @@ The web UI is simple to use. One can select the pretrained model from a dropdown
 
 The repository structure is as follows
 
-```LazyImageUpscaler
+```
+LazyImageUpscaler
     ├── scripts
     ├── resources
     ├── outputs
