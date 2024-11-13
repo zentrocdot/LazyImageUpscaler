@@ -25,7 +25,7 @@ function make_executable {
         echo -e "Script is executable!\n"
     else
         echo -e "Script is NOT executable yet!\n"
-        sudo chmod u+x "${scriptname}"
+        chmod u+x "${scriptname}"
     fi
     # Return the error code 0.
     return 0
