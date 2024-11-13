@@ -65,7 +65,17 @@ LazyImageUpscaler
 
 ## To_Do 
 
-Improvement of this documentation. The web UI has to checked that it is more fail safe. The current work was quick and dirty programming. I need to sanitize and optimize the code.
+<p align="justify">Improvement of this documentation. The web UI has to checked that it is more fail safe. The current work was quick and dirty programming. I need to sanitize and optimize the code.</p>
+
+## Test Environment
+
+<p align="justify">I developed and tested the Python script with following specification:</p>
+
+* Linux Mint 21.3 (Virginia)
+* Python 3.10.14
+* Gradio 5.0.1
+* Chromium Browser
+* Screen 1366 x 768 pixel
 
 ## References
 
