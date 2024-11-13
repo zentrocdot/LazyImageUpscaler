@@ -57,7 +57,8 @@ LazyImageUpscaler
     ├── outputs
     ├── test_images
     ├── upscaler_examples
-    └── images```
+    └── images
+```
 
 <p align="justify">In the folder <code>scripts</code> there are four Python scripts, which can be used to download the models into the <code>resources</code> folder directly.</p>
 
