@@ -14,11 +14,11 @@
 
 <pre>http://127.0.0.1:7860</pre>
 
-<p align="justify">If everything was okay so far, the web UI starts in the browser windwow.</p>
+<p align="justify">If everything was okay so far, the web UI starts in the browser windwow.<p align="justify">
 
 ## Pretrained Models
 
-Pretrained models which can be used are:
+<p align="justify">Pretrained models which can be used are:<p align="justify">
 
 * edsr
 * espcn
@@ -27,7 +27,7 @@ Pretrained models which can be used are:
 
 ## Web UI
 
-The web UI is simple to use. One can select the pretrained model from a dropdown list. Per drag and drop or per upload the image can be loaded. Using the Upscale Image button scales the image up. Download Image downloads the image to the local storage.
+<p align="justify">The web UI is simple to use. One can select the pretrained model from a dropdown list. Per drag and drop or per upload the image can be loaded. Using the Upscale Image button scales the image up. Download Image downloads the image to the local storage.</p>
 
 <a target="_blank" href=""><img src="./images/lazyimageupscaler.png" alt="button panel"></a>
 
@@ -41,11 +41,15 @@ LazyImageUpscaler
     ├── resources
     ├── outputs
     ├── testimages
-    └── images
-```
-In the folder <pre>scripts</pre> there are four Python scripts, which can be used to download the models into the <pre>resources</pre> folder directly.
+    └── images```
 
-Under the main branch there are four directories. In scripts are the Python scripts for the web user interface. In resources there can be the .pb models be stored. After the installation this directory is empty. Created images are saved in outputs. images is the directory where documentation related images are stored.
+<p align="justify">In the folder <code>scripts</code> there are four Python scripts, which can be used to download the models into the <code>resources</code> folder directly.</p>
+
+<p align="justify">Under the main branch there are four directories. In scripts are the Python scripts for the web user interface. In resources there can be the .pb models be stored. After the installation this directory is empty. Created images are saved in outputs. images is the directory where documentation related images are stored.</p>
+
+## To_Do 
+
+Improvement of this documentation. The web UI has to checked that it is more fail safe. The current work was quick and dirty programming. I need to sanitize and optimize the code.
 
 ## References
 
