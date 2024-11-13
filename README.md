@@ -2,7 +2,7 @@
 
 ## Preface
 
-<p align="justify">The Lazy Image Upscaler is a web user interface for the upscaling of images. The upscaling is done using machine learning methods using pretrained models. To be able to work with the web user interface, minimum one pretrained .pb model is required. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The current version of the Lazy Image Upscaler is the inital version for the web user interface.</p>
+<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the upscaling of images. The upscaling is done using machine learning methods using pretrained models. To be able to work with the web user interface, minimum one pretrained .pb model is required. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The current version of the Lazy Image Upscaler is the inital version for the web user interface.</p>
 
 ## Installation
 
