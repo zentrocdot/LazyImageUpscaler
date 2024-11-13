@@ -29,7 +29,7 @@ Pretrained models which can be used are:
 
 The web UI is simple to use. One can select the pretrained model from a dropdown list. Per drag and drop or per upload the image can be loaded. Using the Upscale Image button scales the image up. Download Image downloads the image to the local storage.
 
-<a target="_blank" href=""><img src="./images/lazyupscaler.jpg" alt="button panel"></a>
+<a target="_blank" href=""><img src="./images/lazyimageupscaler.jpg" alt="button panel"></a>
 
 ## Repository Structure
 
