@@ -42,6 +42,7 @@ The repository structure is as follows
     ├── testimages
     └── images
 ```
+In the folder <pre>scripts</pre> there are four Python scripts, which can be used to download the models into the <pre>resources</pre> folder directly.
 
 Under the main branch there are four directories. In scripts are the Python scripts for the web user interface. In resources there can be the .pb models be stored. After the installation this directory is empty. Created images are saved in outputs. images is the directory where documentation related images are stored.
 
