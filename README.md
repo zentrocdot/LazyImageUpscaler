@@ -74,6 +74,7 @@ LazyImageUpscaler
 
 * Linux Mint 21.3 (Virginia)
 * Python 3.10.14
+* OpenCV 4.10.0
 * Gradio 5.0.1
 * Chromium Browser
 * Screen 1366 x 768 pixel
