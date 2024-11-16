@@ -27,6 +27,14 @@ scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <p align="justify">If everything was okay so far, the web UI starts in the browser windwow.<p align="justify">
 
+## OpenCV
+
+* INTER_NEAREST
+* INTER_LINEAR
+* INTER_AREA
+* INTER_CUBIC
+* INTER_CUBIC  
+
 ## Pretrained Models
 
 <p align="justify">Pretrained models which can be used are:<p align="justify">
