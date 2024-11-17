@@ -100,13 +100,26 @@ LazyImageUpscaler
 * Chromium Browser (and others)
 * Monitor with a resolution of 1366 x 768 pixel
 
-## Known Problema
+## Limitations
 
-to-do
+<p align="justify">In the Machine Learning Tabs and in the AI Tab there are input images 
+larger than 512 x 512 pixel problematic.</p>
+
+## Known Problems
+
+<p align="justify">The critical parts of the software are the parts that use the GPU. In this
+sense, three upscaling approaches are critical. Two approaches are using pretrained models from
+Machine Learning and one is the well know AI approach.</p>
+
+<p align="justify">Common errors if on talks about the GPU usages are.</p>
+
+* RuntimeError
+* OutOfMemorError 
 
 ## Troubleshooting
 
-to-do
+<p align="justify">In the case of unexpected persistent problems, shut down the Gradio
+server in the terminal window. After relaunch of the server, refresh the Browser window.</p>
 
 ## References
 
@@ -123,3 +136,5 @@ to-do
 [6] https://github.com/cyc0102/opencv_super_resolution/tree/master
 
 [7] https://huggingface.co/
+
+[8] https://pypi.org/project/super-image/
