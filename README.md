@@ -93,9 +93,20 @@ LazyImageUpscaler
 * Linux Mint 21.3 (Virginia)
 * Python 3.10.14
 * OpenCV 4.10.0
+* PIL 10.4.0
 * Gradio 5.0.1
+* Torch 2.4.1+cu121
+* Numpy  1.26.4
 * Chromium Browser (and others)
 * Monitor with a resolution of 1366 x 768 pixel
+
+## Known Problema
+
+to-do
+
+## Troubleshooting
+
+to-do
 
 ## References
 
