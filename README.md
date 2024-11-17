@@ -94,7 +94,12 @@ LazyImageUpscaler
 
 ## Time Consumption
 
+The numerical approaches are the fastest. The AI approach is the one which takes the most time.
+
 ## Power consumption
+
+The numerical approaches use the CPU and not the GPU, so this approach saves energy. Machine Learning
+and AI use the GPU extensivly and have a high power consumption.
 
 ## Limitations
 
