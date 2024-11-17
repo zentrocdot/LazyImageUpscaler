@@ -121,3 +121,5 @@ to-do
 [5] https://github.com/fannymonori/TF-LapSRN/tree/master/export
 
 [6] https://github.com/cyc0102/opencv_super_resolution/tree/master
+
+[7] https://huggingface.co/
