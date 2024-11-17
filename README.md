@@ -169,3 +169,5 @@ to
 [9] https://huggingface.co/stabilityai/sd-x2-latent-upscaler
 
 [10] https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+
+[11] https://pillow.readthedocs.io/en/stable/reference/Image.html
