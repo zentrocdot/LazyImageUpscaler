@@ -92,6 +92,10 @@ LazyImageUpscaler
 * Chromium Browser (and others)
 * Monitor with a resolution of 1366 x 768 pixel
 
+## Time Consumption
+
+## Power consumption
+
 ## Limitations
 
 <p align="justify">In the Machine Learning Tabs and in the AI Tab there are input images 
@@ -113,6 +117,14 @@ Machine Learning and one is the well know AI approach.</p>
 <p align="justify">In the case of unexpected persistent problems, shut down the Gradio
 server in the terminal window. After relaunch of the server, refresh the Browser window.</p>
 
+<p align="justify">If there is a problem with the server and with the port, one can chnage both values in the source code e.g. from.</p>
+
+<code>webui.launch(server_name="127.0.0.1", server_port=7865)</code>
+
+to 
+
+<code>webui.launch()</code>
+
 ## References
 
 [1] https://github.com/opencv/opencv_contrib/tree/master/modules/dnn_superres
@@ -130,3 +142,7 @@ server in the terminal window. After relaunch of the server, refresh the Browser
 [7] https://huggingface.co/
 
 [8] https://pypi.org/project/super-image/
+
+[9] https://huggingface.co/stabilityai/sd-x2-latent-upscaler
+
+[10] 
