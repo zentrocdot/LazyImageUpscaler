@@ -114,6 +114,29 @@ Machine Learning and one is the well know AI approach.</p>
 
 ## Troubleshooting
 
+The error message
+
+<code>module cv2.cv2 has no attribute dnn_superres</code>
+
+or similiar error messages can be handeled as desribed bwlow. This error occured appeared from one moment to the next 
+without me being able to understand why the error message occurred.
+
+Following solved this problem:
+
+<pre>
+pip uninstall opencv-python
+pip uninstall opencv-contrib-python
+</pre>
+
+Then install latest version of OpenCV with pip3:
+
+<pre>
+pip3 install opencv-contrib-python
+</pre>
+
+<p align="justify">In the case of unexpected persistent problems, shut down the Gradio
+server in the terminal window. After relaunch of the server, refresh the Browser window.</p>
+
 <p align="justify">In the case of unexpected persistent problems, shut down the Gradio
 server in the terminal window. After relaunch of the server, refresh the Browser window.</p>
 
@@ -145,4 +168,4 @@ to
 
 [9] https://huggingface.co/stabilityai/sd-x2-latent-upscaler
 
-[10] 
+[10] https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
