@@ -30,6 +30,12 @@ scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <p align="justify">If everything was okay so far, the web UI starts in the browser windwow.<p align="justify">
 
+## Control of the Web User Interface
+
+<p align="justify">You can control the size of the visible area of the window where the
+application is shown using keyboard shortcuts. Zoom in can be done by <kbd>CTRl++</kbd>
+and zoom out can be done by <kbd>CTRl+-</kbd></p>
+
 ## OpenCV
 
 * INTER_NEAREST
