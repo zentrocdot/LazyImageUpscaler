@@ -230,7 +230,9 @@ Move to directory LazyImageUpscaler/stabilityai
 
 <code># Make sure you have git-lfs installed (https://git-lfs.com)
       git lfs install
+      
       git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+      
       # If you want to clone without large files - just their pointers
       GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
 
