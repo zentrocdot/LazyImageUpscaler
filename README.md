@@ -41,6 +41,9 @@ and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
 
 ## OpenCV
 
+<p align="justify">OpenCV can be used for upscaling images. In OpenCV
+implemented methods are:</p>
+
 * INTER_NEAREST
 * INTER_LINEAR
 * INTER_AREA
@@ -49,7 +52,8 @@ and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
 
 ## PIL
 
-<p align="justify">Next to OpenCV pillow or PIL can be used to upscale images.</p>
+<p align="justify">In addition to OpenCV, pillow or PIL can also be
+used for upscaling images. In pillow implemented methods are:</p>
 
 * NEAREST
 * BOX
@@ -58,7 +62,7 @@ and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
 * BICUBIC
 * LANCZOS"
 
-  See [12] for a description of the interpolation methods.
+See [12] for a description of the interpolation methods.
 
 ## Pretrained Models
 
