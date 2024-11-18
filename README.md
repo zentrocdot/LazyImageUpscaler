@@ -229,11 +229,11 @@ Local installation can be found in hidden directory .local in the user's main di
 Move to directory LazyImageUpscaler/stabilityai
 
 <code># Make sure you have git-lfs installed (https://git-lfs.com)
-      git lfs install
+      git lfs install</code>
       
-      git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+<code>git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
       
-      # If you want to clone without large files - just their pointers
+<code># If you want to clone without large files - just their pointers
       GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
 
 ## References
