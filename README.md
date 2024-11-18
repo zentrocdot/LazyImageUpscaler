@@ -17,11 +17,14 @@
 
 ## Installation
 
-<p align="justify">Clone this repository to a local location of of your choice. Then you need some pertrained models, which has to placed in the directory resources. After that yu are ready to work with the web UI.</p>
+<p align="justify">Clone this repository to a local location of of your choice.
+Then you need some pertrained models, which has to placed in the directory resources.
+After that yu are ready to work with the web UI.</p>
 
 ## Start
 
-<p align="justify">Use <code>start_webui.bash</code> in the main directory to start the local server. If there is a problem one can move into the subdirectory 
+<p align="justify">Use <code>start_webui.bash</code> in the main directory to start
+the local server. If there is a problem one can move into the subdirectory 
 scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <p align="justify">Open a webbrowser and open localhost on</p>
@@ -34,7 +37,7 @@ scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <p align="justify">You can control the size of the visible area of the window where the
 application is shown using keyboard shortcuts. Zoom in can be done by <kbd>CTRl++</kbd>
-and zoom out can be done by <kbd>CTRl+-</kbd></p>
+and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
 
 ## OpenCV
 
