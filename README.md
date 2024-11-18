@@ -266,7 +266,7 @@ Move to directory LazyImageUpscaler/stabilityai
 
 ## Donation
 
-<p align="justify">If you like what I present here, or if it helps you, or if it is useful, you are welcome to donate a small contribution or a cup of coffee. Or as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
+<p align="justify">If you like what I present here, or if it helps you, or if it is useful, you are welcome to donate a small contribution. Or as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
 <pre>TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7            (TRON)
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX            (DOGE)
