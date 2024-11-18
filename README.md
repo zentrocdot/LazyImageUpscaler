@@ -96,10 +96,10 @@ LazyImageUpscaler
 * Linux Mint 21.3 (Virginia)
 * Python 3.10.14
 * OpenCV 4.10.0
-* PIL 10.4.0
-* Gradio 5.0.1
+* PIL 11.0.0
+* Gradio 5.6.0
 * Torch 2.4.1+cu121
-* Numpy  1.26.4
+* Numpy  2.1.3
 * Chromium Browser (and others)
 * Monitor with a resolution of 1366 x 768 pixel
 
@@ -194,8 +194,10 @@ I am assuming that PIP is installed. Installation:
 
 <pre>pip3 install upgrade pip</pre>
 
-<pre>pip3 install gradio</pre>
-<pre>pip3 install pillow</pre>
+<pre>
+    pip3 install gradio
+    pip3 install pillow
+</pre>
 <pre>pip3 install opencv-contrib-python</pre>    
 <pre>pip3 install piexif</pre>    
 <pre>pip3 install diffuser</pre>
