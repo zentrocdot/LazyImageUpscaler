@@ -1,7 +1,7 @@
 # Lazy Image Upscaler
 
-[!NOTE]  
-Highlights information that users should take into account, even when skimming.
+> [!NOTE]  
+> This documentation is still under construction. The documentation will developed up to the point the application works as expected.
 
 ## Preface
 
