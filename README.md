@@ -31,7 +31,7 @@ scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 
 <pre>http://127.0.0.1:7860</pre>
 
-<p align="justify">If everything was okay so far, the web UI starts in the browser windwow.<p align="justify">
+<p align="justify">If everything was okay so far, the web UI starts in the browser windwow.</p>
 
 ## Control of the Web User Interface
 
@@ -49,12 +49,16 @@ and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
 
 ## PIL
 
+<p align="justify">Next to OpenCV pillow or PIL can be used to upscale images.</p>
+
 * NEAREST
 * BOX
 * BILINEAR
 * HAMMING
 * BICUBIC
 * LANCZOS"
+
+  See [12] for a description of the interpolation methods.
 
 ## Pretrained Models
 
@@ -277,6 +281,8 @@ Move to directory LazyImageUpscaler/stabilityai
 [10] https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
 
 [11] https://pillow.readthedocs.io/en/stable/reference/Image.html
+
+[12] https://pillow.readthedocs.io/en/stable/handbook/concepts.html
 
 <hr width="100%" size="2">
 
