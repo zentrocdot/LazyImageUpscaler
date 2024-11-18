@@ -192,12 +192,28 @@ I am assuming that PIP is installed. Installation:
 <pre>pip3 install upgrade pip</pre>
 
 <pre>pip3 install gradio</pre>
-<pre>pip3 install pillow<pre>
-<pre>pip3 install opencv-contrib-python<pre>    
+<pre>pip3 install pillow</pre>
+<pre>pip3 install opencv-contrib-python</pre>    
 <pre>pip3 install piexif</pre>    
 <pre>pip3 install diffuser</pre>
 <pre>pip3 install super_image</pre>
 <pre>pip3 install transformer</pre>
+
+Local installation can be found in hidden directory .local in the user's main directory. Changes here may result in problems while running the application.
+
+## Stable Diffusion Upscaler Model
+
+Move to directory LazyImageUpscaler/stabilityai
+
+<code>
+# Make sure you have git-lfs installed (https://git-lfs.com)
+git lfs install
+
+git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+
+# If you want to clone without large files - just their pointers
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+</code>
 
 ## References
 
