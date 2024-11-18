@@ -1,7 +1,7 @@
 # Lazy Image Upscaler
 
 > [!NOTE]  
-> This documentation is still under construction. The documentation will developed up to the point the application works as expected.
+> This documentation is still under construction. The documentation will developed up to the point the application works as expected. The last version of the application needs still some fine-tuning before publishing. Please excuse this.
 
 ## Preface
 
