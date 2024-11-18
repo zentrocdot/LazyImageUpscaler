@@ -1,5 +1,8 @@
 # Lazy Image Upscaler
 
+[!NOTE]  
+Highlights information that users should take into account, even when skimming.
+
 ## Preface
 
 <p align="justify">The Lazy Image Upscaler is a web user interface for the upscaling of images. At the moment the Lazy Image Upscaler offers five possibilities to upscale an image. One can use standard methods from OpenCV and PIL to upscale images. Some references states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using Machine Learning approaches. The upscaling is done using machine learning methods together with pretrained models. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
