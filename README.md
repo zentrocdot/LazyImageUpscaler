@@ -172,12 +172,30 @@ to
 
 Error:
 
-ImportError: cannot import name 'cached_download' from 'huggingface_hub'
+ImportError: cannot import name cached_download from huggingface_hub
 
 Possible Solution:
 
 pip install huggingface_hub==0.25.00
 pip3 install -U sentence-transformers
+
+### Stable Diffusion
+
+Error:
+
+cannot import name 'CpuOffload' from 'accelerate.hooks'
+
+Possible Solution:
+
+pip install git+https://github.com/huggingface/accelerate.git
+
+Error:
+
+AttributeError: StableDiffusionControlNetPipeline object has no attribute enable_vae_tiling
+
+Possible Solution:
+
+pip install git+https://github.com/huggingface/diffusers.git@main
 
 ## Installations Prerequisites
 
