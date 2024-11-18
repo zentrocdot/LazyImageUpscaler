@@ -39,10 +39,14 @@ scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
 application is shown using keyboard shortcuts. Zoom in can be done by <kbd>CTRl++</kbd>
 and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
 
-## OpenCV
+## Implemented Methods
+
+### Numerical Interpolation Methods
+
+#### OpenCV Related to First Tab
 
 <p align="justify">OpenCV can be used for upscaling images. In OpenCV
-implemented methods are:</p>
+implemented methods for doing this are:</p>
 
 * INTER_NEAREST
 * INTER_LINEAR
@@ -50,7 +54,7 @@ implemented methods are:</p>
 * INTER_CUBIC
 * INTER_CUBIC
 
-## PIL
+#### PIL Related to Second Tab
 
 <p align="justify">In addition to OpenCV, pillow or PIL can also be
 used for upscaling images. In pillow implemented methods are:</p>
