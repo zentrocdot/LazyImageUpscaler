@@ -11,9 +11,9 @@
 
 <p align="justify">The tabs are arranged according to Logic:</p>
 
-* Standard methods (nuerical interpolation methods)
-* Methods using pretrained model from Machine Learning
-* Stable Diffusion Upscaler model
+* Standard methods (numerical interpolation methods) on base of OpenCV and PIL
+* Methods using pretrained models from Machine Learning on base of OpenCV and super-image
+* Method based on Stable Diffusion upscaler models
 
 ## Installation
 
