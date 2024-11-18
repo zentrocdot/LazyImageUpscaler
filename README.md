@@ -4,6 +4,14 @@
 
 <p align="justify">The Lazy Image Upscaler is a web user interface for the upscaling of images. At the moment the Lazy Image Upscaler offers five possibilities to upscale an image. One can use standard methods from OpenCV and PIL to upscale images. Some references states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using Machine Learning approaches. The upscaling is done using machine learning methods together with pretrained models. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
 
+## Introduction
+
+<p align="justify">The tabs are arranged according to Logic:</p>
+
+* Standard methods (nuerical interpolation methods)
+* Methods using pretrained model from Machine Learning
+* Stable Diffusion Upscaler model
+
 ## Installation
 
 <p align="justify">Clone this repository to a local location of of your choice. Then you need some pertrained models, which has to placed in the directory resources. After that yu are ready to work with the web UI.</p>
@@ -119,6 +127,8 @@ Machine Learning and one is the well know AI approach.</p>
 
 ## Troubleshooting
 
+### Super Resolution
+
 The error message
 
 <code>module cv2.cv2 has no attribute dnn_superres</code>
@@ -138,6 +148,8 @@ Then install latest version of OpenCV with pip3:
 <pre>
 pip3 install opencv-contrib-python
 </pre>
+
+### Web UI
 
 <p align="justify">In the case of unexpected persistent problems, shut down the Gradio
 server in the terminal window. After relaunch of the server, refresh the Browser window.</p>
