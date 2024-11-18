@@ -153,6 +153,40 @@ to
 
 <code>webui.launch()</code>
 
+### Super Image
+
+Error:
+
+ImportError: cannot import name 'cached_download' from 'huggingface_hub'
+
+Possible Solution:
+
+pip install huggingface_hub==0.25.00
+pip3 install -U sentence-transformers
+
+## Installations Prerequisites
+
+<p align="justify">Following Python requirements have to be fulfilled, that the Lazy Image upscaler is working:</p>
+
+* gradio
+* pil
+* opencv
+* piexif
+* diffuser
+* super-image
+
+I am assuming that PIP is installed. Installation:
+
+<pre>pip3 install upgrade pip</pre>
+
+<pre>pip3 install gradio</pre>
+<pre>pip3 install pillow<pre>
+<pre>pip3 install opencv-contrib-python<pre>    
+<pre>pip3 install piexif</pre>    
+<pre>pip3 install diffuser</pre>
+<pre>pip3 install super_image</pre>
+<pre>pip3 install transformer</pre>
+
 ## References
 
 [1] https://github.com/opencv/opencv_contrib/tree/master/modules/dnn_superres
