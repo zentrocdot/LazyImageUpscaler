@@ -15,8 +15,8 @@ point of view the results using these standard methods are sufficient for most c
 third and fourth method are using pretrained models and Machine Learning approaches. To be
 able to work with the web user interface, minimum one pretrained .pb model is required for
 the third method. At OpenCV one can find the links for downloading such pretrained models [1].
-These pretrained models can also be found in [2-5]. The fourth method is using pretrained model
-which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
+These pretrained models can also be found in [2-5]. The fourth method is using pretrained
+model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
 
 <p align="justify">As I am still making small changes to the layout, it cannot be said that
 the illustrations reflect the latest version of the application.</p>
@@ -38,9 +38,9 @@ as AUTOMATIC1111.</p>
 
 ## State of the Art
 
-<p align="justify">Graphical software tools like <i>RawTherapee</i> and <i>Gimp</i> can be
-used to upscale images. During some tests I carried out, I noticed that the
-images become sometimes somewhat blurred when they are upscaled. However,
+<p align="justify">Graphical software tools like <i>RawTherapee</i> and <i>Gimp</i>
+can be used to upscale images. During some tests I carried out, I noticed that
+the images become sometimes somewhat blurred when they are upscaled. However, 
 one can only recognise this if one make a direct comparison with the original
 image.</p>
 
@@ -54,31 +54,35 @@ diffusion models such as the Stable Diffusion models for upscaling.</p>
 <p align="justify">The tabs are arranged according to Logic (see Figure 1):</p>
 
 * Standard methods (numerical interpolation methods) on base of OpenCV and PIL
-* Methods using pretrained models from Machine Learning on base of OpenCV and super-image
+* Methods using pretrained models from Machine Learning on base of OpenCV and
+  super-image
 * Method based on Stable Diffusion upscaler models
 
 ## Installation
 
 <p align="justify">Clone this repository to a local location of of your choice.
-Then you need some pertrained models, which has to placed in the directory resources.
-After that yu are ready to work with the web UI.</p>
+Then you need some pertrained models, which has to placed in the directory
+resources. After that yu are ready to work with the web UI.</p>
 
 ## Start
 
-<p align="justify">Use <code>start_webui.bash</code> in the main directory to start
-the local server. If there is a problem one can move into the subdirectory 
-scripts. From there <code>lazy_image_upscaler.py</code> can be started.</p>
+<p align="justify">Use <code>start_webui.bash</code> in the main directory
+to start the local server. If there is a problem one can move into the
+subdirectory scripts. From there <code>lazy_image_upscaler.py</code> can
+be started.</p>
 
 <p align="justify">Open a webbrowser and open localhost on</p>
 
 <pre>http://127.0.0.1:7860</pre>
 
-<p align="justify">If everything was okay so far, the web UI starts in the browser windwow.</p>
+<p align="justify">If everything was okay so far, the web UI starts 
+in the browser windwow.</p>
 
 ## Control of the Web User Interface
 
-<p align="justify">You can control the size of the visible area of the window where the
-application is shown using keyboard shortcuts. Zoom in can be done by <kbd>CTRl++</kbd>
+<p align="justify">You can control the size of the visible area of
+the window where the application is shown using keyboard shortcuts. 
+Zoom in can be done by <kbd>CTRl++</kbd>
 and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
 
 ## Implemented Methods
@@ -302,6 +306,8 @@ Local installation can be found in hidden directory .local in the user's main di
 > [!IMPORTANT]
 > Execute only one instance of Stable Diffusion on the GPU. Otherwise upscaling will fail.
 
+### Model Installation
+
 Move to directory LazyImageUpscaler/stabilityai
 
 <code># Make sure you have git-lfs installed (https://git-lfs.com)
@@ -311,6 +317,15 @@ Move to directory LazyImageUpscaler/stabilityai
       
 <code># If you want to clone without large files - just their pointers
       GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
+
+### Implemented Approaches
+
+<a target="_blank" href=""><img src="./images/pipe0.png" alt="button panel"></a>
+<p><i>Figure 2: Web userinterface in a web browser</i></p>
+
+
+<a target="_blank" href=""><img src="./images/pipe1.png" alt="button panel"></a>
+<p><i>Figure 3: Web userinterface in a web browser</i></p>
 
 ## Directory Structure
 
