@@ -169,12 +169,6 @@ LazyImageUpscaler
 
 <p align="justify">Under the main branch there are four directories. In scripts are the Python scripts for the web user interface. In resources there can be the .pb models be stored. After the installation this directory is empty. Created images are saved in outputs. images is the directory where documentation related images are stored.</p>
 
-## To_Do 
-
-<p align="justify">Improvement of this documentation. The web UI has to checked that it is more fail safe. The current work was quick and dirty programming. I need to sanitize and optimize the code.</p>
-
-<p align="justify">I need a third Tab in the interface, to use Stable Diffusion for upscaling. Then I am able to compare all these methods togeter in on web UI.</p>
-
 ## Test Environment
 
 <p align="justify">I developed and tested the Python script with following specification:</p>
@@ -413,8 +407,6 @@ Then install latest version of OpenCV with pip3:
 pip3 install opencv-contrib-python
 </pre>
 
-
-
 ### Super Image
 
 Error:
@@ -460,6 +452,10 @@ Python tool, which is able to compare images from different sources
 like <i>Gimp</i> and <i>RawTherapee</i> with the original image. This
 is important to compare the results of my web user interface with the
 state of the art software tools.</p>
+
+<p align="justify">Improvement of this documentation. The web UI has
+to checked that it is more fail safe. The current work was quick and
+dirty programming. I need to sanitize and optimize the code.</p>
 
 ## Free for Contributions
 
