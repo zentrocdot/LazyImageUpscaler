@@ -10,9 +10,16 @@
 <p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the upscaling
 of images. At the moment the <i>Lazy Image Upscaler</i>i> offers five possibilities to upscale
 an image. One can use standard methods from OpenCV and PIL to upscale images. Some references 
-states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using pretrained models and Machine Learning approaches. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
+states that this is not working well. My experience is different to this statement. From my
+point of view the results using these standard methods are sufficient for most cases. The 
+third and fourth method are using pretrained models and Machine Learning approaches. To be
+able to work with the web user interface, minimum one pretrained .pb model is required for
+the third method. At OpenCV one can find the links for downloading such pretrained models [1].
+These pretrained models can also be found in [2-5]. The fourth method is using pretrained model
+which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
 
-<p align="justify">As I am still making small changes to the layout, it cannot be said that the illustrations reflect the latest version of the application.</p>
+<p align="justify">As I am still making small changes to the layout, it cannot be said that
+the illustrations reflect the latest version of the application.</p>
 
 ## Motivation
 
@@ -31,7 +38,7 @@ as AUTOMATIC1111.</p>
 
 ## State of the Art
 
-<p align="justify">Graphical software tools like RawTherapee and Gimp can be
+<p align="justify">Graphical software tools like <i>RawTherapee</i> and <i>Gimp</i> can be
 used to upscale images. During some tests I carried out, I noticed that the
 images become sometimes somewhat blurred when they are upscaled. However,
 one can only recognise this if one make a direct comparison with the original
@@ -347,19 +354,23 @@ integrated as a function.</p>
 ## To-Do
 
 <p align="justify">So far I integrated the possibility to compare two
-images with respect to there quality. I need a seperate independent tool,
-which is able to compare images from different soureces like Gimp and
-Rawtherapee with the original image. This is importent to compare the
-results of my interface with the state of the art software tools.</p> 
-
-<p align="justify">I have to check how to use e.g. the Stable Diffusion SD 1.5 model for upscaling. The stability AI upscaling models worked out of the box, the SD 1.5 not.</p> 
+images with respect to there quality. I need a separate independent Python
+tool, which is able to compare images from different sources like <i>Gimp</i>
+and <i>RawTherapee</i> with the original image. This is important to compare
+the results of my web user interface with the state of the art software tools.</p>
 
 ## Free for Contributions
 
 <p align="justify">Due to a lack of time, I can only develop my tools
 in between. If anyone would like this tool to be developed further, the
 best way is to support me with a donation as mentioned below. Then I can
-    concentrate on these things and don't have to do anything else.</p>
+concentrate on these things and don't have to do anything else.</p>
+
+## General note
+
+<p align="justify">All company names, brands, brand names and trademarks
+mentioned in the text belong to their respective owners. This application
+is an independently developed software product by the author.</p>
 
 ## References
 
