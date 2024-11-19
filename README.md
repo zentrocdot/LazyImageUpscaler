@@ -64,6 +64,10 @@ diffusion models such as the Stable Diffusion models for upscaling.</p>
 Then you need some pertrained models, which has to placed in the directory
 resources. After that yu are ready to work with the web UI.</p>
 
+<pre>https://github.com/zentrocdot/LazyImageUpscaler.git</p>
+
+<pre>LazyImageUpscaler-main.zip</p>
+
 ## Start
 
 <p align="justify">Use <code>start_webui.bash</code> in the main directory
