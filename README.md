@@ -292,6 +292,9 @@ Local installation can be found in hidden directory .local in the user's main di
 
 ## Stable Diffusion Upscaler Model
 
+> [!IMPORTANT]
+> Execute only one instance of Stable Diffusion on the GPU. Otherwise upscaling will fail.
+
 Move to directory LazyImageUpscaler/stabilityai
 
 <code># Make sure you have git-lfs installed (https://git-lfs.com)
