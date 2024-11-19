@@ -5,7 +5,7 @@
 
 ## Preface
 
-<p align="justify">The Lazy Image Upscaler is a web user interface for the upscaling of images. At the moment the Lazy Image Upscaler offers five possibilities to upscale an image. One can use standard methods from OpenCV and PIL to upscale images. Some references states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using pretrained models and Machine Learning approaches. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
+<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the upscaling of images. At the moment the <i>Lazy Image Upscaler<i> offers five possibilities to upscale an image. One can use standard methods from OpenCV and PIL to upscale images. Some references states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using pretrained models and Machine Learning approaches. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
 
 ## Introduction
 
@@ -272,10 +272,21 @@ Move to directory LazyImageUpscaler/stabilityai
 
 ```bash
     └── LazyImageUpscaler
+        │    └── start_webui.bash
         ├── scripts
+        │    └── LazyImageUpscaler.py
         ├── configs
-        ├── tools
+        │    └── LazyImageUpscaler.config
+        ├── tools      
+        │    ├── get_edsr.py
+        │    ├── get_escpn.py
+        │    ├── get_fsrcnn.py
+        │    ├── get_lapsrn.py
+        │    └── remove-metadata.bash 
         ├── test-images
+        │    ├── vulture.jpg
+        │    ⫶
+        │    └── shedevil.jpg 
         ├── outputs
         ├── super-resolution
         ├── super-image
@@ -285,6 +296,10 @@ Move to directory LazyImageUpscaler/stabilityai
 
 <p align="justify">The folders super-resolution, super-image and stabilityai are by
 default empty. There can be the pretrained models placed as well as the upscaler model.</p> 
+
+## Spin-Off
+
+<p align="justify">The internal structure of the script is organised in such a way that the user interface can be expanded to include additional methods for upscaling. In principle, the basic structure can always be adopted. Essentially, fields for input parameters must be adapted and the upscaler integrated as a function.</p> 
 
 ## Free for Contributions
 
