@@ -266,6 +266,29 @@ Move to directory LazyImageUpscaler/stabilityai
 <code># If you want to clone without large files - just their pointers
       GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
 
+## Directory Structure
+
+<p align="justify">The directory structure of the <i>Lazy Image Upscaler</i> is as follows:</p> 
+
+```bash
+    └── LazyImageUpscaler
+        ├── scripts
+        ├── configs
+        ├── tools
+        ├── test-images
+        ├── outputs
+        ├── super-resolution
+        ├── super-image
+        ├── super-image
+        └── extension_data
+
+<p align="justify">The folders super-resolution, super-image and stabilityai are by
+default empty. There can be the pretrained models placed as well as the upscaler model.</p> 
+
+## Free for Contributions
+
+<p align="justify">Due to a lack of time, I can only develop my tools in between. If anyone would like this tool to be developed further, the best way is to support me with a donation as mentioned below. Then I can concentrate on these things and don't have to do anything else.</p>
+
 ## References
 
 [1] https://github.com/opencv/opencv_contrib/tree/master/modules/dnn_superres
