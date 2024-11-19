@@ -419,11 +419,10 @@ is looking as follows:</p>
         │    └── pan
         │         ├── pytorch_model_2x.pt
         │         └── pytorch_model_4x.pt
-        ├── stabilityai
-        │    ├── stable-diffusion-x4-upscaler
-        │    ├── sd-x2-latent-upscaler
-        │    └── stable-diffusion-v1-5
-        └── extension_data
+        └── stabilityai
+             ├── stable-diffusion-x4-upscaler
+             ├── sd-x2-latent-upscaler
+             └── stable-diffusion-v1-5
 ```
 
 <p align="justify">The folders super-resolution, super-image and stabilityai
