@@ -214,75 +214,6 @@ Machine Learning and one is the well know AI approach.</p>
 * RuntimeError
 * OutOfMemorError 
 
-## Troubleshooting
-
-### Super Resolution
-
-The error message
-
-<code>module cv2.cv2 has no attribute dnn_superres</code>
-
-or similiar error messages can be handeled as desribed bwlow. This error occured appeared from one moment to the next 
-without me being able to understand why the error message occurred.
-
-Following solved this problem:
-
-<pre>
-pip uninstall opencv-python
-pip uninstall opencv-contrib-python
-</pre>
-
-Then install latest version of OpenCV with pip3:
-
-<pre>
-pip3 install opencv-contrib-python
-</pre>
-
-### Web UI
-
-<p align="justify">In the case of unexpected persistent problems, shut down the Gradio
-server in the terminal window. After relaunch of the server, refresh the Browser window.</p>
-
-<p align="justify">In the case of unexpected persistent problems, shut down the Gradio
-server in the terminal window. After relaunch of the server, refresh the Browser window.</p>
-
-<p align="justify">If there is a problem with the server and with the port, one can chnage both values in the source code e.g. from.</p>
-
-<code>webui.launch(server_name="127.0.0.1", server_port=7865)</code>
-
-to 
-
-<code>webui.launch()</code>
-
-### Super Image
-
-Error:
-
-ImportError: cannot import name cached_download from huggingface_hub
-
-Possible Solution:
-
-pip install huggingface_hub==0.25.00
-pip3 install -U sentence-transformers
-
-### Stable Diffusion
-
-Error:
-
-cannot import name 'CpuOffload' from 'accelerate.hooks'
-
-Possible Solution:
-
-pip install git+https://github.com/huggingface/accelerate.git
-
-Error:
-
-AttributeError: StableDiffusionControlNetPipeline object has no attribute enable_vae_tiling
-
-Possible Solution:
-
-pip install git+https://github.com/huggingface/diffusers.git@main
-
 ## Installations Prerequisites
 
 <p align="justify">Following Python requirements have to be fulfilled, that the Lazy Image upscaler is working:</p>
@@ -440,6 +371,78 @@ upscaler model.</p>
 
 <p align="justify">The directory tree shows how a tree looks, wenn some files
 are downloaded.</p> 
+
+## Troubleshooting
+
+### Web UI
+
+<p align="justify">In the case of unexpected persistent problems, shut down 
+the Gradio server in the terminal window. After relaunch of the Gradio server,
+refresh the browser window.</p>
+
+<p align="justify">If there is a problem with the server and with the port, one can
+change both values in the source code e.g. from</p>
+
+<code>webui.launch(server_name="127.0.0.1", server_port=7865)</code>
+
+<p align="justify">to</p> 
+
+<code>webui.launch()</code>
+
+in the script <code>LazyImageUpscaler.py</code> in the directory <code>/scripts</code>.
+
+### Super Resolution
+
+The error message
+
+<code>module cv2.cv2 has no attribute dnn_superres</code>
+
+or similiar error messages can be handeled as desribed bwlow. This error occured appeared from one moment to the next 
+without me being able to understand why the error message occurred.
+
+Following solved this problem:
+
+<pre>
+pip uninstall opencv-python
+pip uninstall opencv-contrib-python
+</pre>
+
+Then install latest version of OpenCV with pip3:
+
+<pre>
+pip3 install opencv-contrib-python
+</pre>
+
+
+
+### Super Image
+
+Error:
+
+ImportError: cannot import name cached_download from huggingface_hub
+
+Possible Solution:
+
+pip install huggingface_hub==0.25.00
+pip3 install -U sentence-transformers
+
+### Stable Diffusion
+
+Error:
+
+cannot import name 'CpuOffload' from 'accelerate.hooks'
+
+Possible Solution:
+
+pip install git+https://github.com/huggingface/accelerate.git
+
+Error:
+
+AttributeError: StableDiffusionControlNetPipeline object has no attribute enable_vae_tiling
+
+Possible Solution:
+
+pip install git+https://github.com/huggingface/diffusers.git@main
 
 ## Spin-Off
 
