@@ -379,7 +379,8 @@ GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stable-diffusion-v1-5/sta
 
 ## Directory Structure
 
-<p align="justify">The directory structure of the <i>Lazy Image Upscaler</i> is as follows:</p> 
+<p align="justify">The directory structure of the <i>Lazy Image Upscaler</i>
+is as follows:</p> 
 
 ```bash
     └── LazyImageUpscaler
@@ -400,21 +401,45 @@ GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stable-diffusion-v1-5/sta
         │    └── shedevil.jpg 
         ├── outputs
         ├── super-resolution
+        │     ├── EDSR_x2.pb
+        │     ├── EDSR_x4.pb  
+        │     ├── ESPCN_x2.pb
+        │     ├── ESPCN_x4.pb
+        │     ├── FSRCNN_x2.pb
+        │     ├── FSRCNN_x4.pb
+        │     ├── LapSRN_x2.pb
+        │     └── LapSRN_x4.pb
         ├── super-image
-        ├── super-image
+        │    ├── carn
+        │         ├── pytorch_model_2x.pt
+        │         └── pytorch_model_4x.pt
+        │    ├── edsr
+        │         ├── pytorch_model_2x.pt
+        │         └── pytorch_model_4x.pt
+        │    └── pan
+        │         ├── pytorch_model_2x.pt
+        │         └── pytorch_model_4x.pt
+        ├── stabilityai
+        │    ├── stable-diffusion-x4-upscaler
+        │    ├── sd-x2-latent-upscaler
+        │    └── stable-diffusion-v1-5
         └── extension_data
 ```
 
-<p align="justify">The folders super-resolution, super-image and stabilityai are by
-default empty. There can be the pretrained models placed as well as the upscaler model.</p> 
+<p align="justify">The folders super-resolution, super-image and stabilityai
+are by default empty. There can be the pretrained models placed as well as the
+upscaler model.</p> 
+
+<p align="justify">The directory tree shows how a tree looks, wenn some files
+are downloaded..</p> 
 
 ## Spin-Off
 
 <p align="justify">The internal structure of the script is organised
 in such a way that the user interface can be expanded to include additional 
-methods for upscaling. In principle, the basic structure can always be adopted.
-Essentially, fields for input parameters must be adapted and the upscaler
-integrated as a function.</p> 
+methods for upscaling. In principle, the basic structure can always be 
+adopted. Essentially, fields for input parameters must be adapted and the
+upscaler integrated as a function.</p> 
 
 ## To-Do
 
@@ -428,15 +453,17 @@ state of the art software tools.</p>
 ## Free for Contributions
 
 <p align="justify">Due to a lack of time, I can only develop my tools
-in between. If anyone would like this tool to be developed further, the
-best way is to support me with a donation as mentioned below. Then I can
-concentrate on these things and don't have to do anything else.</p>
+in between. If anyone would like this tool to be developed further,
+the best way is to support me with a donation as mentioned below. Then
+I can concentrate on these things and don't have to do anything else.
+</p>
 
 ## General note
 
 <p align="justify">All company names, brands, brand names and trademarks
-mentioned in the text belong to their respective owners. This application
-is an independently developed software product by the author.</p>
+mentioned in this documentation belong to their respective owners. This
+application is an independently developed software product by the author.
+</p>
 
 ## References
 
@@ -460,9 +487,11 @@ is an independently developed software product by the author.</p>
 
 [10] https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
 
-[11] https://pillow.readthedocs.io/en/stable/reference/Image.html
+[11] https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5
 
-[12] https://pillow.readthedocs.io/en/stable/handbook/concepts.html
+[12] https://pillow.readthedocs.io/en/stable/reference/Image.html
+
+[13] https://pillow.readthedocs.io/en/stable/handbook/concepts.html
 
 <hr width="100%" size="2">
 
