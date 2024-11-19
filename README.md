@@ -31,10 +31,16 @@ as AUTOMATIC1111.</p>
 
 ## State of the Art
 
-<p align="justify">Software like RawTherapee and Gimp can be used to upscale
-images. During ome tests I carried out, I noticed that the images become somewhat
-blurred when they are scaled up. However, you can only recognise this if you make
-a direct comparison with the original image.</p>
+<p align="justify">Graphical software tools like RawTherapee and Gimp can be
+used to upscale images. During some tests I carried out, I noticed that the
+images become sometimes somewhat blurred when they are upscaled. However,
+one can only recognise this if one make a direct comparison with the original
+image.</p>
+
+<p align="justify">Another way for the upscaling of image is using Artificial
+Inteligence. A distinction can be made between two approaches. Direct use of
+pretrained models from machine learning. It is also possible to use special
+diffusion models such as the Stable Diffusion models for upscaling.</p>
 
 ## Introduction
 
@@ -329,15 +335,28 @@ default empty. There can be the pretrained models placed as well as the upscaler
 
 ## Spin-Off
 
-<p align="justify">The internal structure of the script is organised in such a way that the user interface can be expanded to include additional methods for upscaling. In principle, the basic structure can always be adopted. Essentially, fields for input parameters must be adapted and the upscaler integrated as a function.</p> 
+<p align="justify">The internal structure of the script is organised
+in such a way that the user interface can be expanded to include additional 
+methods for upscaling. In principle, the basic structure can always be adopted.
+Essentially, fields for input parameters must be adapted and the upscaler
+integrated as a function.</p> 
 
-## Spin-Off
+## To-Do
 
-<p align="justify">So far I integrated the possibility to comare two images with respect to there quality. I need a seperate independent tool, which is able to compare images from different soureces like Gimp and Rawtherapee with the original image. This is importent to compare the results of my interface with the state of the art software tools.</p> 
+<p align="justify">So far I integrated the possibility to compare two
+images with respect to there quality. I need a seperate independent tool,
+which is able to compare images from different soureces like Gimp and
+Rawtherapee with the original image. This is importent to compare the
+results of my interface with the state of the art software tools.</p> 
+
+<p align="justify">I have to check how to use e.g. the Stable Diffusion SD 1.5 model for upscaling. The stability AI upscaling models worked out of the box, the SD 1.5 not.</p> 
 
 ## Free for Contributions
 
-<p align="justify">Due to a lack of time, I can only develop my tools in between. If anyone would like this tool to be developed further, the best way is to support me with a donation as mentioned below. Then I can concentrate on these things and don't have to do anything else.</p>
+<p align="justify">Due to a lack of time, I can only develop my tools
+in between. If anyone would like this tool to be developed further, the
+best way is to support me with a donation as mentioned below. Then I can
+    concentrate on these things and don't have to do anything else.</p>
 
 ## References
 
