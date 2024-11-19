@@ -18,7 +18,7 @@ from datetime import datetime
 # Set the path variables.
 SCRIPT_PATH = pathlib.Path(__file__).parent.resolve()
 PARENT_PATH = SCRIPT_PATH.parent.absolute()
-MODEL_PATH = ''.join([str(PARENT_PATH), "/resources"])
+MODEL_PATH = ''.join([str(PARENT_PATH), "/super-resolution"])
 OUTPUTS_PATH = ''.join([str(PARENT_PATH), "/outputs"])
 
 # Initialize different interpolation methods
