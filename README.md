@@ -320,11 +320,11 @@ Move to directory LazyImageUpscaler/stabilityai
 
 ### Implemented Approaches
 
-<a target="_blank" href=""><img src="./images/pipe0.png" alt="button panel"></a>
+<a target="_blank" href=""><img style="width:300px;" src="./images/pipe0.png" alt="button panel"></a>
 <p><i>Figure 2: Web userinterface in a web browser</i></p>
 
 
-<a target="_blank" href=""><img src="./images/pipe1.png" alt="button panel"></a>
+<a target="_blank" href=""><img style="width:300px;" src="./images/pipe1.png" alt="button panel"></a>
 <p><i>Figure 3: Web userinterface in a web browser</i></p>
 
 ## Directory Structure
