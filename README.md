@@ -5,11 +5,11 @@
 
 ## Preface
 
-<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the upscaling of images. At the moment the <i>Lazy Image Upscaler<i> offers five possibilities to upscale an image. One can use standard methods from OpenCV and PIL to upscale images. Some references states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using pretrained models and Machine Learning approaches. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
+<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the upscaling of images. At the moment the <i>Lazy Image Upscaler</i>i> offers five possibilities to upscale an image. One can use standard methods from OpenCV and PIL to upscale images. Some references states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using pretrained models and Machine Learning approaches. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
 
 ## Introduction
 
-<p align="justify">The tabs are arranged according to Logic:</p>
+<p align="justify">The tabs are arranged according to Logic (see Figure 1):</p>
 
 * Standard methods (numerical interpolation methods) on base of OpenCV and PIL
 * Methods using pretrained models from Machine Learning on base of OpenCV and super-image
@@ -82,6 +82,7 @@ See [12] for a description of the interpolation methods.
 <p align="justify">The web UI is simple to use. One can select the pretrained model from a dropdown list. Per drag and drop or per upload the image can be loaded. Using the Upscale Image button scales the image up. Download Image downloads the image to the local storage.</p>
 
 <a target="_blank" href=""><img src="./images/lazyimageupscaler.png" alt="button panel"></a>
+<p><i>Figure 1: Web userinterface in a web browser</i></p>
 
 ## Download Images
 
