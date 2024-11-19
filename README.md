@@ -67,11 +67,11 @@ resources. After that yu are ready to work with the web UI.</p>
 
 <p align="justify">Clone e.g. the repository</p>
 
-<pre>https://github.com/zentrocdot/LazyImageUpscaler.git</p>
+<pre>https://github.com/zentrocdot/LazyImageUpscaler.git</pre>
 
 <p align="justify">or download the zip file:</p>
 
-<pre>LazyImageUpscaler-main.zip</p>
+<pre>LazyImageUpscaler-main.zip</pre>
 
 ## Start
 
