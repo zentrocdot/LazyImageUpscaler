@@ -320,19 +320,62 @@ Local installation can be found in hidden directory .local in the user's main di
 
 ### Model Installation
 
-<p align="justify">Move to directory LazyImageUpscaler/stabilityai.</p> 
+#### stable-diffusion-x4-upscaler
 
-Move to directory LazyImageUpscaler/stabilityai
+<p align="justify">Move to directory LazyImageUpscaler/stabilityai. Perform following steps.</p> 
 
 ```bash
-# Make sure you have git-lfs installed (https://git-lfs.com)
+# Make sure you have git-lfs installed (https://git-lfs.com).
 git lfs install
 ```
-      
-<code>git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
-      
-<code># If you want to clone without large files - just their pointers
-      GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
+
+```bash
+# Clone the repository.
+git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+```
+
+```bash
+# If you want to clone without large files - just their pointers.
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+```
+
+#### sd-x2-latent-upscaler
+
+<p align="justify">Move to directory LazyImageUpscaler/stabilityai. Perform following steps.</p> 
+
+```bash
+# Make sure you have git-lfs installed (https://git-lfs.com).
+git lfs install
+```
+
+```bash
+# Clone the repository.
+git clone https://huggingface.co/stabilityai/sd-x2-latent-upscaler
+```
+
+```bash
+# If you want to clone without large files - just their pointers.
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/sd-x2-latent-upscaler
+```
+
+#### stable-diffusion-v1-5
+
+<p align="justify">Move to directory LazyImageUpscaler/stabilityai. Perform following steps.</p> 
+
+```bash
+# Make sure you have git-lfs installed (https://git-lfs.com).
+git lfs install
+```
+
+```bash
+# Clone the repository.
+git clone https://huggingface.co/stabilityai/stable-diffusion-v1-5
+```
+
+```bash
+# If you want to clone without large files - just their pointers.
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5
+```
 
 ## Directory Structure
 
@@ -425,7 +468,9 @@ is an independently developed software product by the author.</p>
 
 ## Donation
 
-<p align="justify">If you like what I present here, or if it helps you, or if it is useful, you are welcome to donate a small contribution. Or as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
+<p align="justify">If you like what I present here, or if it helps you,
+or if it is useful, you are welcome to donate a small contribution. Or
+as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
 <pre>TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7            (TRON)
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX            (DOGE)
