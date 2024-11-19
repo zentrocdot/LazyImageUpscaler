@@ -281,6 +281,7 @@ Move to directory LazyImageUpscaler/stabilityai
         ├── super-image
         ├── super-image
         └── extension_data
+```
 
 <p align="justify">The folders super-resolution, super-image and stabilityai are by
 default empty. There can be the pretrained models placed as well as the upscaler model.</p> 
