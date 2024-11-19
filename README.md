@@ -380,7 +380,7 @@ GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stable-diffusion-v1-5/sta
 ## Directory Structure
 
 <p align="justify">The directory structure of the <i>Lazy Image Upscaler</i>
-is as follows:</p> 
+is looking as follows:</p> 
 
 ```bash
     └── LazyImageUpscaler
@@ -431,7 +431,7 @@ are by default empty. There can be the pretrained models placed as well as the
 upscaler model.</p> 
 
 <p align="justify">The directory tree shows how a tree looks, wenn some files
-are downloaded..</p> 
+are downloaded.</p> 
 
 ## Spin-Off
 
@@ -458,7 +458,7 @@ the best way is to support me with a donation as mentioned below. Then
 I can concentrate on these things and don't have to do anything else.
 </p>
 
-## General note
+## General Note
 
 <p align="justify">All company names, brands, brand names and trademarks
 mentioned in this documentation belong to their respective owners. This
