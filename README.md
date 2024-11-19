@@ -306,17 +306,7 @@ Local installation can be found in hidden directory .local in the user's main di
 > [!IMPORTANT]
 > Execute only one instance of Stable Diffusion on the GPU. Otherwise upscaling will fail.
 
-### Model Installation
 
-Move to directory LazyImageUpscaler/stabilityai
-
-<code># Make sure you have git-lfs installed (https://git-lfs.com)
-      git lfs install</code>
-      
-<code>git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
-      
-<code># If you want to clone without large files - just their pointers
-      GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
 
 ### Implemented Approaches
 
@@ -326,6 +316,23 @@ Move to directory LazyImageUpscaler/stabilityai
 
 <a target="_blank" href=""><img style="width:500px;" src="./images/pipe1.png" alt="button panel"></a>
 <p><i>Figure 3: Web userinterface in a web browser</i></p>
+
+
+### Model Installation
+
+<p align="justify">Move to directory LazyImageUpscaler/stabilityai.</p> 
+
+Move to directory LazyImageUpscaler/stabilityai
+
+```bash
+# Make sure you have git-lfs installed (https://git-lfs.com)
+git lfs install
+```
+      
+<code>git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
+      
+<code># If you want to clone without large files - just their pointers
+      GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler</code>
 
 ## Directory Structure
 
@@ -369,10 +376,11 @@ integrated as a function.</p>
 ## To-Do
 
 <p align="justify">So far I integrated the possibility to compare two
-images with respect to there quality. I need a separate independent Python
-tool, which is able to compare images from different sources like <i>Gimp</i>
-and <i>RawTherapee</i> with the original image. This is important to compare
-the results of my web user interface with the state of the art software tools.</p>
+images with respect to there quality. I need a separate independent
+Python tool, which is able to compare images from different sources 
+like <i>Gimp</i> and <i>RawTherapee</i> with the original image. This
+is important to compare the results of my web user interface with the
+state of the art software tools.</p>
 
 ## Free for Contributions
 
