@@ -1,13 +1,40 @@
 # Lazy Image Upscaler
 
 > [!NOTE]  
-> 🚧 This documentation is still under construction. The documentation will developed up to the point the application works as expected. The last version of the application needs still some fine-tuning before publishing. Please excuse this.
+> 🚧 This documentation is still under construction. The documentation will developed up
+> to the point the application works as expected. The last version of the application needs
+>  still some fine-tuning before publishing.
 
 ## Preface
 
-<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the upscaling of images. At the moment the <i>Lazy Image Upscaler</i>i> offers five possibilities to upscale an image. One can use standard methods from OpenCV and PIL to upscale images. Some references states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using pretrained models and Machine Learning approaches. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
+<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the upscaling
+of images. At the moment the <i>Lazy Image Upscaler</i>i> offers five possibilities to upscale
+an image. One can use standard methods from OpenCV and PIL to upscale images. Some references 
+states that this is not working well. My experience is different to this statement. From my point of view the results using these standard methods are sufficient for most cases. The third and fourth method are using pretrained models and Machine Learning approaches. To be able to work with the web user interface, minimum one pretrained .pb model is required for the third method. At OpenCV one can find the links for downloading such pretrained models [1]. These pretrained models can also be found in [2-5]. The fourth method is using pretrained model which can be found at Hugging Face. The last method is using Stable Diffusion.</p>
 
 <p align="justify">As I am still making small changes to the layout, it cannot be said that the illustrations reflect the latest version of the application.</p>
+
+## Motivation
+
+<p align="justify">I used the web user interface Easy Diffusion and I am 
+using currently the web user interface AUTOMATIC1111. One integrated feature
+is the possibility for upscaling of images. This is a function that is also
+required in AI image generation. Depending on the hardware equipment, the
+generation of images with a higher resolution is limited. The VRAM of the
+GPU is the limiting factor here.</p>
+
+<p align="justify">The use of AUTOMATIC1111 for upscaling images is complex.
+For example, parameters must be selected appropriately so that the desired
+result is achieved. This raised the question of whether it is possible to
+upscale images fast and reliable independently of web user interfaces such
+as AUTOMATIC1111.</p>
+
+## State of the Art
+
+<p align="justify">Software like RawTherapee and Gimp can be used to upscale
+images. During ome tests I carried out, I noticed that the images become somewhat
+blurred when they are scaled up. However, you can only recognise this if you make
+a direct comparison with the original image.</p>
 
 ## Introduction
 
@@ -303,6 +330,10 @@ default empty. There can be the pretrained models placed as well as the upscaler
 ## Spin-Off
 
 <p align="justify">The internal structure of the script is organised in such a way that the user interface can be expanded to include additional methods for upscaling. In principle, the basic structure can always be adopted. Essentially, fields for input parameters must be adapted and the upscaler integrated as a function.</p> 
+
+## Spin-Off
+
+<p align="justify">So far I integrated the possibility to comare two images with respect to there quality. I need a seperate independent tool, which is able to compare images from different soureces like Gimp and Rawtherapee with the original image. This is importent to compare the results of my interface with the state of the art software tools.</p> 
 
 ## Free for Contributions
 
