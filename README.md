@@ -512,6 +512,8 @@ application is an independently developed software product by the author.
 
 [13] https://pillow.readthedocs.io/en/stable/handbook/concepts.html
 
+[14] https://scikit-image.org/
+
 <hr width="100%" size="2">
 
 ## Donation
