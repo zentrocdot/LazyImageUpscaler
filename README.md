@@ -5,26 +5,31 @@
 > will developed up to the point the application works as expected. The last version of
 > the application needs still some fine-tuning before publishing.</p>
  
-<b>If you like what I present here, or if it helps you, or if it is useful, you are welcome
-to [donate](#Donation) a small contribution. It motivates me a lot and speeds up my work
-a much.</b>
+<b>If you like what I present here, or if it helps you, or if it is useful, you are
+welcome to [donate](#Donation) a small contribution. It motivates me a lot and speeds
+up my work a much.</b>
 
 ## Preface
 
 <p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the 
-upscaling of images. At the moment the <i>Lazy Image Upscaler</i>i> offers five
-possibilities to upscale an image. One can use standard methods from OpenCV and PIL
-to upscale images. Some references states that this is not working well. My experience
-is different to this statement. From my point of view the results using these standard
-methods are sufficient for most cases. The third and fourth method are using pretrained
-models and Machine Learning approaches. To be able to work with the web user interface,
-minimum one pretrained .pb model is required for the third method. At OpenCV one can find
-the links for downloading such pretrained models [1]. These pretrained models can also be
-found in [2-5]. The fourth method is using pretrained model which can be found at Hugging
-Face. The last method is using Stable Diffusion.</p>
+upscaling of images. At the moment the <i>Lazy Image Upscaler</i> offers six
+possibilities to upscale an image.</p>
 
-<p align="justify">As I am still making small changes to the layout, it cannot be said that
-the illustrations reflect the latest version of the application.</p>
+<p align="justify">One can use for the upscaling of images standard
+methods from OpenCV, PIL and scikit-image whereas scikit-image is a little bit exotic.
+Some references states that this is not working well. My experience is different to
+this statement. From my point of view the results using these standard methods are
+sufficient for most cases. The fourth and fifth method are using pretrained models 
+and Machine Learning approaches. To be able to work with the web user interface,
+at least minimum one of such a pretrained model is required for the fourth method.
+At OpenCV one can find the links to GitHub for downloading such pretrained models.
+The fifth method is also using pretrained model which can be found at Hugging Face.
+The last method is using Stable Diffusion. I implemented the possibility to use a
+2 times and 4 times latent upscaler for upscaling. And I added a pipline for 
+upscaling which can use sd 1.5 together with the 2 time latent upscaler.</p>
+
+<p align="justify">As I am still making small changes to the layout, it cannot be 
+said that the illustrations reflect the latest version of the application.</p>
 
 ## Motivation
 
