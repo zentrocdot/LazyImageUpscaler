@@ -40,11 +40,11 @@ is also required in AI image generation. Depending on the hardware equipment,
 the generation of images with a higher resolution is limited. The VRAM of the
 GPU is the limiting factor here.</p>
 
-<p align="justify">The use of AUTOMATIC1111 for upscaling images is complex.
+<p align="justify">The use of <i>AUTOMATIC1111</i> for upscaling images is complex.
 For example, parameters must be selected appropriately so that the desired
 result is achieved. This raised the question of whether it is possible to
 upscale images fast and reliable independently of web user interfaces such
-as AUTOMATIC1111.</p>
+as <i>AUTOMATIC1111</i>.</p>
 
 ## State of the Art
 
