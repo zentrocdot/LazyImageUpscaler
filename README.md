@@ -4,8 +4,10 @@
 > 🚧 <p align="justify">This documentation is still under construction. The documentation
 > will developed up to the point the application works as expected. The last version of
 > the application needs still some fine-tuning before publishing.</p>
-
-Support my Work.  [here](#Donation)
+ 
+If you like what I present here, or if it helps you, or if it is useful, you are welcome
+to [donate](#Donation) a small contribution. It motivates me a lot and speeds up my work
+a much.
 
 ## Preface
 
