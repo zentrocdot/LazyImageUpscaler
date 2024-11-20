@@ -48,11 +48,14 @@ as AUTOMATIC1111.</p>
 
 ## State of the Art
 
-<p align="justify">Graphical software tools like <i>RawTherapee</i> and <i>GIMP</i>
-can be used to upscale images. During some tests I carried out, I noticed that
-the images become sometimes somewhat blurred when they are upscaled. However, 
-one can only recognise this if one make a direct comparison with the original
-image.</p>
+<p align="justify">Graphical software tools like <i>RawTherapee</i> and 
+<i>GIMP</i> can be used to upscale images. During some tests I carried out,
+I noticed that the images become sometimes somewhat blurred when they are
+upscaled. However, one can only recognise this if one make a direct comparison
+with the original image.</p>
+
+<p align="justify">Every programming language has its own way to handle
+downscaling or upscaling of images.</p>
 
 <p align="justify">Another way for the upscaling of image is using Artificial
 Inteligence. A distinction can be made between two approaches. Direct use of
@@ -74,13 +77,15 @@ diffusion models such as the Stable Diffusion models for upscaling.</p>
 Then you need some pertrained models, which has to placed in the directory
 resources. After that yu are ready to work with the web UI.</p>
 
-<p align="justify">Clone e.g. the repository</p>
+<p align="justify">Clone the repository</p>
 
 <pre>https://github.com/zentrocdot/LazyImageUpscaler.git</pre>
 
-<p align="justify">or download the zip file:</p>
+<p align="justify">or download the zip file</p>
 
 <pre>LazyImageUpscaler-main.zip</pre>
+
+<p align="justify">or use one of the other possible options.</p>
 
 ## Start
 
