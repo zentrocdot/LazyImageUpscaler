@@ -5,9 +5,9 @@
 > will developed up to the point the application works as expected. The last version of
 > the application needs still some fine-tuning before publishing.</p>
  
-<b>If you like what I present here, or if it helps you, or if it is useful, you are
+<b><p align="justify">If you like what I present here, or if it helps you, or if it is useful, you are
 welcome to [donate](#Donation) a small contribution. It motivates me a lot and speeds
-up my work a much.</b>
+up my work a much.</p></b>
 
 ## Preface
 
