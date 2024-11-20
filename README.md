@@ -420,6 +420,18 @@ pip3 install -U sentence-transformers
 
 ### Stable Diffusion
 
+<p align="justify">The more I go in the direction of AI image upscaling,
+the greater the problems with setting up the computer to get the desired 
+result.</p>
+
+<p align="justify">A big problem that I had before, independent of my
+application, is a problem in the mismatch of version numbers of Python
+modules. If I install one module, the other is uninstalled. So it is
+tricky until the system runs with all required modules.</p>
+
+<p align="justify">The error messages and solution approaches reflect
+this problem.</p>
+
 Error:
 
 cannot import name 'CpuOffload' from 'accelerate.hooks'
