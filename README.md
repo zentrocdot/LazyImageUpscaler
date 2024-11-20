@@ -48,7 +48,7 @@ as AUTOMATIC1111.</p>
 
 ## State of the Art
 
-<p align="justify">Graphical software tools like <i>RawTherapee</i> and <i>Gimp</i>
+<p align="justify">Graphical software tools like <i>RawTherapee</i> and <i>GIMP</i>
 can be used to upscale images. During some tests I carried out, I noticed that
 the images become sometimes somewhat blurred when they are upscaled. However, 
 one can only recognise this if one make a direct comparison with the original
