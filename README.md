@@ -15,9 +15,9 @@ up my work a much.</p></b>
 upscaling of images. At the moment the <i>Lazy Image Upscaler</i> offers six
 possibilities to upscale an image.</p>
 
-<p align="justify">One can use for the upscaling of images standard
-methods from OpenCV, PIL and scikit-image whereas scikit-image is a little bit exotic.
-Some references states that this is not working well. My experience is different to
+<p align="justify">One can use for the upscaling of images standard methods from
+OpenCV, PIL and scikit-image whereas scikit-image is a little bit exotic. Some
+references states that this is not working well. My experience is different to
 this statement. From my point of view the results using these standard methods are
 sufficient for most cases. The fourth and fifth method are using pretrained models 
 and Machine Learning approaches. To be able to work with the web user interface,
@@ -26,7 +26,7 @@ At OpenCV one can find the links to GitHub for downloading such pretrained model
 The fifth method is also using pretrained model which can be found at Hugging Face.
 The last method is using Stable Diffusion. I implemented the possibility to use a
 2 times and 4 times latent upscaler for upscaling. And I added a pipline for 
-upscaling which can use sd 1.5 together with the 2 time latent upscaler.</p>
+upscaling which can use <i>SD 1.5</i> together with the 2 time latent upscaler.</p>
 
 <p align="justify">As I am still making small changes to the layout, it cannot be 
 said that the illustrations reflect the latest version of the application.</p>
@@ -34,10 +34,10 @@ said that the illustrations reflect the latest version of the application.</p>
 ## Motivation
 
 <p align="justify">I used the web user interface Easy Diffusion and I am 
-using currently the web user interface AUTOMATIC1111. One integrated feature
-is the possibility for upscaling of images. This is a function that is also
-required in AI image generation. Depending on the hardware equipment, the
-generation of images with a higher resolution is limited. The VRAM of the
+using currently the web user interface <i>AUTOMATIC1111</i>. One integrated
+feature is the possibility for upscaling of images. This is a function that
+is also required in AI image generation. Depending on the hardware equipment,
+the generation of images with a higher resolution is limited. The VRAM of the
 GPU is the limiting factor here.</p>
 
 <p align="justify">The use of AUTOMATIC1111 for upscaling images is complex.
