@@ -469,6 +469,13 @@ state of the art software tools.</p>
 to checked that it is more fail safe. The current work was quick and
 dirty programming. I need to sanitize and optimize the code.</p>
 
+## Outlook
+
+I need to take a deepler look in how ESRGAN works. I tried to get it
+run on the quickly, but this failed for the moment. An implementation
+in Python will give me further possibilities for upscaling. Initial
+tests show interesting results. 
+
 ## Free for Contributions
 
 <p align="justify">Due to a lack of time, I can only develop my tools
