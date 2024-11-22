@@ -249,6 +249,10 @@ I am assuming that PIP is installed. Installation:
 
 Local installation can be found in hidden directory .local in the user's main directory. Changes here may result in problems while running the application.
 
+## Super Image [![super-image - pypi](https://img.shields.io/badge/super--image-pypi-5dade2)](https://pypi.org/project/super-image/)
+
+<p align="justify">to-do ....</p> 
+
 ## Stable Diffusion Upscaler Model
 
 > [!IMPORTANT]
