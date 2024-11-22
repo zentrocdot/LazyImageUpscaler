@@ -205,6 +205,34 @@ LazyImageUpscaler
 
 <p align="justify">Under the main branch there are four directories. In scripts are the Python scripts for the web user interface. In resources there can be the .pb models be stored. After the installation this directory is empty. Created images are saved in outputs. images is the directory where documentation related images are stored.</p>
 
+## Additional Implemented Features
+
+### Implemented Features
+
+<p align="justify">In addition to upscaling images, rudimentary
+image editing is also possible with the application. These features
+are:</p>
+
++ Horizontal Flip
++ Vertical Flip
++ Rotate Left
++ Rotate Right
++ Sepia Filter
++ Sharpening
++ Smoothing
++ Denoising
++ Gamma
++ Brightness
++ Contrast
++ Inversion
++ Grayscale
+
+### Comments on the Special Features
+
+#### Horizontal and Vertical Flip
+
+<p align="justify">The horizontal and vertical flip of an image goes hand in hand with a loss of quality.</p>
+
 ## Test Environment
 
 <p align="justify">I developed and tested the Python script with following specification:</p>
