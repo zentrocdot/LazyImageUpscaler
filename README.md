@@ -76,9 +76,13 @@ diffusion models such as the Stable Diffusion models for upscaling.</p>
 <p align="justify">Clone the repository to a local location of of your choice.</p>
 
 ```bash
-
+# Clone the repository.
+git clone https://huggingface.co/stabilityai/stable-diffusion-v1-5
 ```
+
+```bash
 git clone https://github.com/zentrocdot/LazyImageUpscaler.git
+```
 
 Then you need some pertrained models, which has to placed in the directory
 resources. After that you are ready to work with the web UI.
