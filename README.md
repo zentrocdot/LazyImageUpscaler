@@ -1,6 +1,4 @@
-# Lazy Image Upscaler 
-([https://img.shields.io/badge/:badgeContent](https://img.shields.io/badge/LazyImageUpscaler
-))
+# Lazy Image Upscaler [![LazyImageUpscaler - Version 0.0.1.2](https://img.shields.io/badge/LazyImageUpscaler-Version_0.0.1.2-2ea44f)](https://)
 
 > [!NOTE]  
 > 🚧 <p align="justify">This documentation is still under construction. The documentation
