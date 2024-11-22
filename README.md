@@ -1,4 +1,4 @@
-# Lazy Image Upscaler
+# Lazy Image Upscaler <a href="[url](https://img.shields.io/badge/any_text-you_like-blue)">link text</a>
 
 > [!NOTE]  
 > 🚧 <p align="justify">This documentation is still under construction. The documentation
