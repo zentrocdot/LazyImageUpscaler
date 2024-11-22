@@ -312,7 +312,7 @@ def upscale_image_opencv(method_string, factor, image):
     # Check if image is none.
     if image is None:
         gr.Info(INFO_MSG)
-        return None
+        return None, "", ""
     # Set the start time.
     start_time = datetime.now()
     # Create a numpy image.
@@ -359,7 +359,7 @@ def upscale_image_pil(method_name, factor, imageFilePath):
     TAB = "Standard PIL"
     if imageFilePath is None:
         gr.Info(INFO_MSG)
-        return None
+        return None, "", ""
     # Set the start time.
     start_time = datetime.now()
     # On factor is 1, return original image.
@@ -408,7 +408,7 @@ def upscale_image_scikit(scikit_method, factor, image):
         # Show a warning on screen.
         gr.Info(INFO_MSG)
         # Return None.
-        return None
+        return None, "", ""
     # Set the start time.
     start_time = datetime.now()
     # Check if factor is None.
@@ -1235,7 +1235,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
     # Check if Tab should be created.
     if isOpencvTab:
         # Create a Tab in the main block.
-        with gr.Tab("Standard Methods (OpenCV)"):
+        with gr.Tab("Standard Method (OpenCV)"):
             # ------------------
             # Components section
             # ------------------
@@ -1292,11 +1292,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list = [im_input, im_output, dimension_original,
-                          dimension_upscaled, time_value, ssim_value,
-                          inter_method, scale_number, kernel_number,
-                          brightness_number, contrast_number, gamma_number,
-                          denoise_string, sepia_number]
+            clear_list_cv = [im_input, im_output, dimension_original,
+                             dimension_upscaled, time_value, ssim_value,
+                             inter_method, scale_number, kernel_number,
+                             brightness_number, contrast_number, gamma_number,
+                             denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -1405,7 +1405,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             def clear_reset_cv():
                 '''Clear & reset of interface'''
                 return [inter_methods_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
-            clear_button = gr.ClearButton(components=clear_list, value=CLEAR_RESET)
+            clear_button = gr.ClearButton(components=clear_list_cv, value=CLEAR_RESET)
             clear_button.click(
                 fn=clear_reset_cv,
                 inputs=[],
@@ -1473,9 +1473,9 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list = [im_input, im_output, dimension_original,
+            clear_list_pil = [im_input, im_output, dimension_original,
                           dimension_upscaled, time_value, ssim_value,
-                          inter_method, scale_number, kernel_number,
+                          pil_method, scale_number, kernel_number,
                           brightness_number, contrast_number, gamma_number,
                           denoise_string, sepia_number]
             # ----------------------
@@ -1586,7 +1586,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             def clear_reset_pil():
                 '''Clear & reset of interface'''
                 return [pil_methods_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
-            clear_button = gr.ClearButton(components=clear_list, value="♻️  Clear & Reset")
+            clear_button = gr.ClearButton(components=clear_list_pil, value="♻️  Clear & Reset")
             clear_button.click(
                 fn=clear_reset_pil,
                 inputs=[],
@@ -1611,8 +1611,6 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
             # Create a row in the tab.
             with gr.Row():
-                #anti_alias = ["True", "False"]
-                #anti_aliasing = gr.Dropdown(choices=anti_alias, value=anti_alias[0], label="Anti Aliasing", scale=1, min_width=100)
                 scikit_method = gr.Dropdown(choices=scikit_method_list, value=scikit_method_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 scale_number = gr.Dropdown(choices=scale_factors, value=scale_factors[0], label="Scaling", scale=1, min_width=100)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
@@ -1655,11 +1653,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list = [im_input, im_output, dimension_original,
-                          dimension_upscaled, time_value, ssim_value,
-                          inter_method, scale_number, kernel_number,
-                          brightness_number, contrast_number, gamma_number,
-                          denoise_string, sepia_number]
+            clear_list_scikit = [im_input, im_output, dimension_original,
+                                 dimension_upscaled, time_value, ssim_value,
+                                 scikit_method, scale_number, kernel_number,
+                                 brightness_number, contrast_number, gamma_number,
+                                 denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -1768,12 +1766,12 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # Create a clear & reset button.
             def clear_reset_scikit():
                 '''Clear & reset of interface'''
-                return [scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
-            clear_button = gr.ClearButton(components=clear_list, value=CLEAR_RESET)
+                return [scikit_method_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+            clear_button = gr.ClearButton(components=clear_list_scikit, value=CLEAR_RESET)
             clear_button.click(
                 fn=clear_reset_scikit,
                 inputs=[],
-                outputs=[scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[scikit_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
             )
     # ************************************************************************
     # OpenCV Super Resolution Section
