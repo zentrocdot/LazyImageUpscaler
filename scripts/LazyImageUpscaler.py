@@ -259,6 +259,8 @@ def get_model_list() -> list:
     # Prepare model list.
     _model_list = list(_model_dict.keys())
     _model_list.sort(reverse=_SortDir)
+    if not _model_list:
+        _model_list = ["no model available"]
     # Return the model list.
     return _model_list
 
@@ -472,7 +474,7 @@ def upscale_image_sr(model_name, image):
     # Check if image is None.
     if image is None:
         gr.Info(INFO_MSG)
-        return None
+        return None, "", ""
     # Set the start time.
     start_time = datetime.now()
     numpy_image = filepath2numpy(image)
@@ -480,6 +482,8 @@ def upscale_image_sr(model_name, image):
     if model_name is None:
         # Use the first entry of the model list.
         model_name = _model_list[0]
+    if model_name == "no model available":
+        return None, "", ""
     if DEBUG: print(model_name)
     # Initialise the super resolution object.
     sr = dnn_superres.DnnSuperResImpl_create()
@@ -499,7 +503,7 @@ def upscale_image_sr(model_name, image):
         upscaled = sr.upsample(numpy_image)
     except:
         gr.Warning("Could not upscale image!")
-        return None
+        return None, "", ""
     # Set the end time.
     end_time = datetime.now()
     # Elapsed time.
@@ -525,8 +529,10 @@ def upscale_image_si(imageFilePath, model_name, model_scale):
     TAB = "Super Image"
     # Check if imageFilePath is None.
     if imageFilePath is None:
+        # Show warning message.
         gr.Info(INFO_MSG)
-        return None
+        # Return None.
+        return None, "", ""
     # Set the start time.
     start_time = datetime.now()
     # Initialise cuda device.
@@ -560,7 +566,7 @@ def upscale_image_si(imageFilePath, model_name, model_scale):
             model = eval(md)
     except:
         gr.Warning("Model not installed yet!")
-        return None
+        return None, "", ""
     # Upload model and image to GPU.
     model = model.to(device)
     inputs = ImageLoader.load_image(image)
@@ -571,8 +577,6 @@ def upscale_image_si(imageFilePath, model_name, model_scale):
     except:
         gr.Warning("Could not upscale image!")
         return None, "", ""
-    #img_path = "/super-image/tmp.png"
-    #TMP_IMG_PATH = ''.join([str(PARENT_PATH), img_path])
     # Save the created image.
     ImageLoader.save_image(preds, SR_TMP_IMG_PATH)
     # Load the upscaled image
@@ -1792,10 +1796,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row.
             with gr.Row():
-                try:
-                    model_file = gr.Dropdown(choices=get_model_list(), value=_model_list[0], label="Model File List", scale=2, min_width=190)
-                except:
-                    model_file = gr.Dropdown(choices=get_model_list(), value="", label="Model File List", scale=2, min_width=190)
+                model_file = gr.Dropdown(choices=get_model_list(), value=_model_list[0], label="Model File List", scale=2, min_width=190)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
                 brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
                 contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
@@ -2343,8 +2344,13 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
 # --------------------
 def main():
     '''Main script function.'''
-    # Start the web ui.
-    webui.launch(server_name="127.0.0.1", server_port=7865)
+    # Try to start the web ui.
+    try:
+        # Default launch method.
+        webui.launch(server_name="127.0.0.1", server_port=7865)
+    except:
+        # Fallback solution on error.
+        webui.launch()
 
 # Execute the script as module or as programme.
 if __name__ == "__main__":
