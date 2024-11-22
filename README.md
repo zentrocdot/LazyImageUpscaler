@@ -253,12 +253,16 @@ Local installation can be found in hidden directory .local in the user's main di
 
 <p align="justify">to-do ....</p> 
 
+## Super Resolution [![Super Resolution - pypi](https://img.shields.io/badge/Super_Resolution-pypi-5dade2)](https://learnopencv.com/super-resolution-in-opencv/)
+
+[![Super Resolution - pypi](https://img.shields.io/static/v1?label=Super+Resolution&message=pypi&color=5dade2)](https://learnopencv.com/super-resolution-in-opencv/)
+
+<p align="justify">to-do ....</p> 
+
 ## Stable Diffusion Upscaler Model
 
 > [!IMPORTANT]
 > Execute only one instance of Stable Diffusion on the GPU. Otherwise upscaling will fail.
-
-
 
 ### Implemented Approaches
 
