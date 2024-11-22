@@ -1,1 +1,1 @@
-Here are the repository related images.
+This folder contains the repository related images.
