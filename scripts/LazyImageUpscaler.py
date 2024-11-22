@@ -1792,7 +1792,10 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row.
             with gr.Row():
-                model_file = gr.Dropdown(choices=get_model_list(), value=_model_list[0], label="Model File List", scale=2, min_width=190)
+                try:
+                    model_file = gr.Dropdown(choices=get_model_list(), value=_model_list[0], label="Model File List", scale=2, min_width=190)
+                except:
+                    model_file = gr.Dropdown(choices=get_model_list(), value="", label="Model File List", scale=2, min_width=190)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
                 brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
                 contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
