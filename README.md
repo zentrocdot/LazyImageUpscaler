@@ -73,33 +73,39 @@ diffusion models such as the Stable Diffusion models for upscaling.</p>
 
 ## Installation
 
-<p align="justify">Clone the repository to a local location of of your choice.</p>
-
-```bash
-# Clone the repository.
-git clone https://huggingface.co/stabilityai/stable-diffusion-v1-5
-```
+<p align="justify">Clone the repository to a local location of of your choice.
+Therefore move to the locoation of your choice. Then run the following command:</p>
 
 ```bash
 git clone https://github.com/zentrocdot/LazyImageUpscaler.git
 ```
+<p align="justify">Afterwards you are ready to use the application.</p>
 
-Then you need some pertrained models, which has to placed in the directory
-resources. After that you are ready to work with the web UI.
+<p align="justify">As alternative you can also download the zip-file with
+the repository.</p>
 
-<p align="justify">Clone this repository to a local location of of your choice.
-Then you need some pertrained models, which has to placed in the directory
-resources. After that you are ready to work with the web UI.</p>
+```bash
+LazyImageUpscaler-main.zip
+```
 
-<p align="justify">Clone the repository</p>
+<p align="justify">Extract the zip-file to a location of your choice. Preserve
+the directory structure. Then it is propsed to rename the main directory which is</p>
 
-<pre>https://github.com/zentrocdot/LazyImageUpscaler.git</pre>
+```bash
+LazyImageUpscaler-main
+```
 
-<p align="justify">or download the zip file</p>
+to
 
-<pre>LazyImageUpscaler-main.zip</pre>
+```bash
+LazyImageUpscaler
+```
 
-<p align="justify">or use one of the other possible options.</p>
+<p align="justify">In both cases you are ready to use the application.</p>
+
+<p align="justify">The base modules will work out of the box after installation.
+ The modules which are using pretrained models and some diffusion models will work after download of these
+ models. This is described later how to do.</p>
 
 ## Start
 
