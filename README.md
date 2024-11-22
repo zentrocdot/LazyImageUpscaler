@@ -1,4 +1,5 @@
-# Lazy Image Upscaler <a target="_blank" href=""><img src="[./images/lazyimageupscaler.png](https://img.shields.io/badge/any_text-you_like-blue)" alt="button panel"></a>
+# Lazy Image Upscaler 
+![Static Badge](https://img.shields.io/badge/:badgeContent)
 
 > [!NOTE]  
 > 🚧 <p align="justify">This documentation is still under construction. The documentation
