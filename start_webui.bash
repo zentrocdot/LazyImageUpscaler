@@ -36,7 +36,7 @@ function make_executable {
 make_executable "${FN}"
 
 # Start the Lazy Image Upscaler.
-python3 ./scripts/lazy_image_upscaler.py
+python3 ./scripts/LazyImageUpscaler.py
 
 # Exit script.
 exit 0
