@@ -1,5 +1,6 @@
 # Lazy Image Upscaler 
-![Static Badge](https://img.shields.io/badge/:badgeContent)
+([https://img.shields.io/badge/:badgeContent](https://img.shields.io/badge/LazyImageUpscaler
+))
 
 > [!NOTE]  
 > 🚧 <p align="justify">This documentation is still under construction. The documentation
