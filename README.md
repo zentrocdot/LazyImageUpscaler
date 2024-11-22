@@ -16,17 +16,19 @@ upscaling of images. At the moment the <i>Lazy Image Upscaler</i> offers six
 possibilities to upscale an image.</p>
 
 <p align="justify">One can use for the upscaling of images standard methods from
-OpenCV, PIL and scikit-image whereas scikit-image is a little bit exotic. Some
-references states that this is not working well. My experience is different to
-this statement. From my point of view the results using these standard methods are
+OpenCV, PIL and scikit-image whereas scikit-image is a little bit exotic. Some 
+references states that this is not working well. My experience is different to this
+statement. From my point of view the results using these standard methods are
 sufficient for most cases. The fourth and fifth method are using pretrained models 
-and Machine Learning approaches. To be able to work with the web user interface,
-at least minimum one of such a pretrained model is required for the fourth method.
-At OpenCV one can find the links to GitHub for downloading such pretrained models.
-The fifth method is also using pretrained model which can be found at Hugging Face.
-The last method is using Stable Diffusion. I implemented the possibility to use a
-2 times and 4 times latent upscaler for upscaling. And I added a pipline for 
-upscaling which can use <i>SD 1.5</i> together with the 2 time latent upscaler.</p>
+and Machine Learning approaches. To be able to work with the web user interface, at 
+least minimum one of such a pretrained model is required for the fourth and fifth 
+method. At OpenCV one can find the links to GitHub for downloading such pretrained
+models for the fourth method. The fifth method is also using pretrained model which
+can be found at Hugging Face. The last method is using Stable Diffusion. I implemented
+the possibility to use a 2 times and 4 times latent upscaler for upscaling. And I added
+a pipeline for upscaling which can use SD 1.5 together with the 2 time latent upscaler.
+Both upscaler models as well as the SD 1.5 needs to be downloaded and installed in the
+directory tree of the repository.</p>
 
 <p align="justify">As I am still making small changes to the layout, it cannot be 
 said that the illustrations reflect the latest version of the application.</p>
@@ -40,13 +42,22 @@ is also required in AI image generation. Depending on the hardware equipment,
 the generation of images with a higher resolution is limited. The VRAM of the
 GPU is the limiting factor here.</p>
 
-<p align="justify">The use of <i>AUTOMATIC1111</i> for upscaling images is complex.
-For example, parameters must be selected appropriately so that the desired
-result is achieved. This raised the question of whether it is possible to
-upscale images fast and reliable independently of web user interfaces such
+<p align="justify">The use of <i>AUTOMATIC1111</i> for upscaling images is
+complex. For example, parameters must be selected appropriately so that the 
+desired result is achieved. This raised the question of whether it is possible 
+to upscale images fast and reliable independently of web user interfaces such
 as <i>AUTOMATIC1111</i>.</p>
 
-## State of the Art
+## Introduction
+
+<p align="justify">The tabs of the web UI are arranged according to logic of the
+implemented methods for upscaling (see Figure 1):</p>
+
+* Standard methods (numerical interpolation methods) on base of OpenCV, PIL and scikit-image
+* Methods using pretrained models from Machine Learning on base of OpenCV and super-image
+* Methods based on a Stable Diffusion model and Stable Diffusion upscaler models
+
+## Brief Introduction of State of the Art
 
 <p align="justify">Graphical software tools like <i>RawTherapee</i> and 
 <i>GIMP</i> can be used to upscale images. During some tests I carried out,
@@ -54,22 +65,13 @@ I noticed that the images become sometimes somewhat blurred when they are
 upscaled. However, one can only recognise this if one make a direct comparison
 with the original image.</p>
 
-<p align="justify">Every programming language has its own way to handle
-downscaling or upscaling of images.</p>
-
 <p align="justify">Another way for the upscaling of image is using Artificial
 Inteligence. A distinction can be made between two approaches. Direct use of
 pretrained models from machine learning. It is also possible to use special
 diffusion models such as the Stable Diffusion models for upscaling.</p>
 
-## Introduction
-
-<p align="justify">The tabs are arranged according to Logic (see Figure 1):</p>
-
-* Standard methods (numerical interpolation methods) on base of OpenCV and PIL
-* Methods using pretrained models from Machine Learning on base of OpenCV and
-  super-image
-* Method based on Stable Diffusion upscaler models
+<p align="justify">Every programming language has its own way to handle
+downscaling or upscaling of images.</p>
 
 ## Installation
 
