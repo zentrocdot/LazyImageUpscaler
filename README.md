@@ -1,13 +1,13 @@
 # Lazy Image Upscaler [![LazyImageUpscaler - Version 0.0.1.2](https://img.shields.io/badge/LazyImageUpscaler-Version_0.0.1.2-2ea44f)]()
 
 > [!NOTE]  
-> 🚧 <p align="justify">This documentation is still under construction. The documentation
+> <p align="justify">🚧 This documentation is still under construction. The documentation
 > will developed up to the point the application works as expected. The last version of
 > the application needs still some fine-tuning before publishing.</p>
  
-<b><p align="justify">If you like what I present here, or if it helps you, or if it is useful, you are
-welcome to [donate](#Donation) a small contribution. It motivates me a lot and speeds
-up my work a much.</p></b>
+<b><p align="justify">If you like what I present here, or if it helps you, or if it is
+useful, you are welcome to [donate](#Donation) a small contribution. It motivates me a lot
+and speeds up my work a much.</p></b>
 
 ## Preface
 
