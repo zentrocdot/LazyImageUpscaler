@@ -78,9 +78,9 @@ logger = logging.get_logger("diffusers")
 logger.setLevel(logging.FATAL)
 from diffusers import DiffusionPipeline, StableDiffusionImg2ImgPipeline, StableDiffusionLatentUpscalePipeline, StableDiffusionUpscalePipeline, StableDiffusionPipeline
 
+# Create a text trap.
 import contextlib
 import io as io_stdout
-
 @contextlib.contextmanager
 def nostdout():
     save_stdout = sys.stdout
@@ -189,7 +189,9 @@ scikit_method_dict = {
 }
 scikit_method_list = list(scikit_method_dict.keys())
 
-si_list = ["a2n", "awsrn-bam", "carn", "carn-bam", "drln", "drln-bam", "edsr", "edsr-base", "han", "mdsr", "mdsr-bam", "msrn", "msnr-bam", "pan", "pan-bam", "rcan"]
+si_list = ["a2n", "awsrn-bam", "carn", "carn-bam", "drln", "drln-bam",
+           "edsr", "edsr-base", "han", "mdsr", "mdsr-bam", "msrn",
+           "msnr-bam", "pan", "pan-bam", "rcan"]
 si_scale = [2,3,4]
 
 sd_list = ["x4", "x2", "sd 1.5"]
@@ -590,10 +592,10 @@ def upscale_image_si(imageFilePath, model_name, model_scale):
     # Return the upscaled image.
     return upscaled, elapsed_time_, ssim_val
 
-# ***************************
+# ****************************************************************************
 # Function upscale_image_sd()
 # https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/latent_upscale
-# ***************************
+# ****************************************************************************
 def upscale_image_sd(image_filename, model_name):
     '''Upscale an image using Stable Diffusion.'''
     # Declare and set the value of the global variable TAB.
@@ -601,57 +603,71 @@ def upscale_image_sd(image_filename, model_name):
     TAB = "Stable Diffusion"
     # Check if image is None. If None return None.
     if image_filename is None:
+        # Show warning on screen.
         gr.Info(INFO_MSG)
-        return None
+        # Return None.
+        return None, "", ""
+    # Set the prompt.
+    #prompt = "strong colors, vibrant colors, very high-quality, accurate photo,
+    # intricate photo, highly detailed, sharp focus, colorful, 8K"
     # Check if factor is None. If None preset value.
     if model_name is None:
         model_name = "x4"
     # Set the start time.
     start_time = datetime.now()
-    # Free GPU cache.
+    # Free the GPU cache.
     torch.cuda.empty_cache()
-    # Open image.
+    # Open the image.
     image = Image.open(image_filename)
-    # Resize image.
+    # Resize the image.
     image = image.resize((512, 512))
-    # Upscale image using sd model.
+    # Upscale the image using a sd model.
     with torch.cuda.device(0):
+        # Set the prompt.
+        prompt = ""
+        # Check which pipeline should be used.
         if model_name == "sd 1.5":
-            prompt = ""
-            pipeline = StableDiffusionImg2ImgPipeline.from_pretrained(SD15_PATH,
-                           torch_dtype=torch.float16, use_safetensors=False)
+            try:
+                pipeline = StableDiffusionImg2ImgPipeline.from_pretrained(SD15_PATH,
+                               torch_dtype=torch.float16, use_safetensors=False)
+            except:
+                return None, "", ""
             pipeline = pipeline.to("cuda")
             pipeline.enable_vae_tiling()
             pipeline.enable_sequential_cpu_offload()
-            lowres_latents = pipeline(prompt=prompt, image=image, strength=0.0, guidance_scale=1.0,
-                            num_inference_steps=20).images[0]
-            upscaler = StableDiffusionLatentUpscalePipeline.from_pretrained(SDx2_PATH, torch_dtype=torch.float16)
+            lowres_latents = pipeline(prompt=prompt, image=image, strength=0.0,
+                                 guidance_scale=1.0, num_inference_steps=20).images[0]
+            upscaler = StableDiffusionLatentUpscalePipeline.from_pretrained(SDx2_PATH,
+                           torch_dtype=torch.float16)
             upscaler.to("cuda")
             upscaler.enable_vae_tiling()
             upscaler.enable_sequential_cpu_offload()
-            #prompt = "strong colors, vibrant colors, very high-quality, accurate photo, intricate photo, highly detailed, sharp focus, colorful, 8K"
-            upscaled = upscaler(prompt=prompt, image=lowres_latents, num_inference_steps=20).images[0]
+            upscaled = upscaler(prompt=prompt, image=lowres_latents,
+                           num_inference_steps=20).images[0]
         else:
             if model_name == "x4":
                 SD_PATH = SDx4_PATH
             elif model_name == "x2":
                 SD_PATH = SDx2_PATH
-            pipe = DiffusionPipeline.from_pretrained(SD_PATH, torch_dtype=torch.float16, use_safetensors=False)
+            try:
+                pipe = DiffusionPipeline.from_pretrained(SD_PATH, torch_dtype=torch.float16,
+                           use_safetensors=False)
+            except:
+                return None, "", ""
             pipe = pipe.to("cuda")
             pipe.enable_vae_tiling()
             pipe.enable_sequential_cpu_offload()
-            #prompt = "strong colors, vibrant colors, very high-quality, accurate photo, intricate photo, highly detailed, sharp focus, colorful, 8K"
-            prompt = ""
             upscaled = pipe(prompt=prompt, image=image,
                             num_inference_steps=25).images[0]
-    # Convert upscaled image.
+    # Convert upscaled image to a numpy array.
     upscaled = np.array(upscaled)
     # Set the end time.
     end_time = datetime.now()
-    # Elapsed time.
+    # Get the elapsed time.
     elapsed_time_ = elapsed_time(start_time, end_time)
+    # Calculate the ssim.
     ssim_val = ssim_calc(upscaled)
-    # Return the upscaled image.
+    # Return the upscaled image, the elapsed time and the ssim.
     return upscaled, elapsed_time_, ssim_val
 
 # ****************************************************************************
@@ -827,8 +843,9 @@ def sharpen_image(old_img, kernel_name):
 # https://stackoverflow.com/questions/32609098/how-to-fast-change-image-brightness-with-python-opencv
 # **************************
 def smoothing_image(image):
-    '''Smoothing image.'''
+    '''Smoothing the image.'''
     if image is None:
+        # Show warning on screen.
         gr.Warning(WARN_MSG)
         # Do nothing. Return None.
         return None
@@ -843,6 +860,7 @@ def smoothing_image(image):
 def brighten(image, bn):
     '''Brighten image.'''
     if image is None:
+        # Show warning on screen.
         gr.Warning(WARN_MSG)
         # Do nothing. Return None.
         return None
@@ -883,8 +901,9 @@ def contrast(image, alpha, beta):
 # Function inversion()
 # ********************
 def inversion(image):
-    '''Inversion of image.'''
+    '''Invert the image.'''
     if image is None:
+        # Show a warning on screen.
         gr.Warning(WARN_MSG)
         # Do nothing. Return None.
         return None
@@ -897,10 +916,13 @@ def inversion(image):
 def grayscale(image):
     '''Grayscale image.'''
     if image is None:
+        # Show a warning on screen.
         gr.Warning(WARN_MSG)
+        # Do nothing. Return None.
         return None
         # Do nothing. Return None.
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # Return the grayscale image.
     return gray
 
 # ********************
@@ -924,6 +946,7 @@ def denoising(src, string):
     searchWindowSize = int(val[3])
     #dst = cv2.fastNlMeansDenoisingColored(src,None,10,10,7,21)
     dst = cv2.fastNlMeansDenoisingColored(src,None,h,hcolor,templateWindowSize,searchWindowSize)
+    # Return the denoised image.
     return dst
 
 # ****************************************************************************
@@ -1059,8 +1082,11 @@ def ssim_calc(numpyImage):
         ssim_value = compare_ssim(img1, img2, GPU=False)
         # Return the ssim value.
     except Exception as err:
-        print(err)
-        ssim_value = "n/a"
+        # Print an error message.
+        if DEBUG: print("SSIM Calculation Error:", err)
+        # Set the ssim value.
+        ssim_value = ""
+    # Return the SSIM.
     return ssim_value
 
 # ********************
@@ -1099,7 +1125,7 @@ def check_dim(image):
     # Check if image is None.
     if image is None:
         return ""
-    # Check type of image.
+    # Check the type of the image.
     if isinstance(image, str):
         pilImage = Image.open(image)
         numpyImage = np.array(pilImage)
@@ -1138,7 +1164,7 @@ def preprocess_image(imageFilePath):
     global ORIGINAL_IMAGE
     # Check if tmp_file_path is None.
     if imageFilePath is None:
-        return "", ""
+        return ["", ""]
     # Set the global variable.
     ORIGINAL_IMAGE = imageFilePath
     # Get the image dimensions.
@@ -1147,52 +1173,10 @@ def preprocess_image(imageFilePath):
     return [imageFilePath, imageDimensions]
 
 # ***********************
-# Function check_dim_0()
-# Obsolete in the future!
-# ***********************
-def check_dim_0(img):
-    '''Check image dimensions.'''
-    # Check if img is None.
-    if img is None:
-        return ""
-    # Create a numpy image.
-    img = filepath2numpy(img)
-    # Get image dimensions.
-    text = check_dim(img)
-    # Return a text string.
-    return text
-
-# ***********************
-# Function check_dim_1()
-# Obsolete in the future!
-# ***********************
-def check_dim_1(img):
-    '''Check image dimensions.'''
-    # Check if img is None.
-    if img is None:
-        return ""
-    # Get image dimensions.
-    text = check_dim(img)
-    # Return a text string.
-    return text
-
-# ************************
-# Function get_file_path()
-# Obsolete in the future!
-# ************************
-def get_file_path(tmp_file_path):
-    '''Get the temporary image file path.'''
-    # Check if tmp_file_path is None.
-    if tmp_file_path is None:
-        return ""
-    # Return the temporary file path.
-    return tmp_file_path
-
-# ***********************
 # Function refresh_list()
 # ***********************
 def refresh_list(model_file):
-    '''Refresh the model list.'''
+    '''Refresh the model file list.'''
     # Update the choices list.
     updated_choices = get_model_list()
     # Update the drop-down menue.
@@ -1982,7 +1966,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
             # Create a row in the tab.
             with gr.Row():
-                superimage_model = gr.Dropdown(choices=si_list, value=si_list[0], label="Upscaling Methods", scale=2, min_width=190)
+                superimage_method = gr.Dropdown(choices=si_list, value=si_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 superimage_scale = gr.Dropdown(choices=si_scale, value=si_scale[0], label="Scaling", scale=1, min_width=100)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
                 brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
@@ -2024,16 +2008,16 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list = [im_input, im_output, dimension_original,
-                          dimension_upscaled, time_value, ssim_value,
-                          inter_method, scale_number, kernel_number,
-                          brightness_number, contrast_number, gamma_number,
-                          denoise_string, sepia_number]
+            clear_list_si = [im_input, im_output, dimension_original,
+                             dimension_upscaled, time_value, ssim_value,
+                             superimage_method, superimage_scale,
+                             kernel_number, brightness_number,
+                             contrast_number, gamma_number,
+                             denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
             # Image input and output event listener.
-            # Consecutively running image input event listener.
             im_input.change(
                 preprocess_image,
                 inputs=[im_input],
@@ -2047,7 +2031,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # Image upscale listener.
             upscale_button_si.click(
                 fn=upscale_image_si,
-                inputs=[im_input, superimage_model, superimage_scale],
+                inputs=[im_input, superimage_method, superimage_scale],
                 outputs=[im_output, time_value, ssim_value]
             )
             # Image flip button listener.
@@ -2138,11 +2122,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             def clear_reset_si():
                 '''Clear & reset of interface'''
                 return [si_list[0], si_scale[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
-            clear_button = gr.ClearButton(components=clear_list, value=CLEAR_RESET)
+            clear_button = gr.ClearButton(components=clear_list_si, value=CLEAR_RESET)
             clear_button.click(
                 fn=clear_reset_si,
                 inputs=[],
-                outputs=[superimage_model, superimage_scale, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[superimage_method, superimage_scale, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
             )
     # ************************************************************************
     # Stable Diffusion Section
@@ -2164,7 +2148,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
             # Create a row in the tab.
             with gr.Row():
-                inter_method = gr.Dropdown(choices=sd_list, value=sd_list[0], label="Upscaling Methods", scale=2, min_width=190)
+                sd_method = gr.Dropdown(choices=sd_list, value=sd_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
                 brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
                 contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
@@ -2207,7 +2191,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                             ssim_button = gr.Button(value=CALC_SSIM)
             clear_list = [im_input, im_output, dimension_original,
                           dimension_upscaled, time_value, ssim_value,
-                          inter_method, scale_number, kernel_number,
+                          sd_method, scale_number, kernel_number,
                           brightness_number, contrast_number, gamma_number,
                           denoise_string, sepia_number]
             # ----------------------
@@ -2226,7 +2210,7 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # Image upscale button listener. Adapt to Upscaler!
             upscale_button_sd.click(
                 fn=upscale_image_sd,
-                inputs=[im_input, inter_method],
+                inputs=[im_input, sd_method],
                 outputs=[im_output, time_value, ssim_value]
             )
             # Image flip button listener.
@@ -2315,13 +2299,13 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             )
             # Create a clear & reset button.
             def clear_reset_sd():
-                '''Clear & reset of interface'''
-                return [inter_methods_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+                '''Clear & reset of interface.'''
+                return [sd_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
             clear_button = gr.ClearButton(components=clear_list, value=CLEAR_RESET)
             clear_button.click(
                 fn=clear_reset_sd,
                 inputs=[],
-                outputs=[inter_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[sd_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
             )
     # Create a footer line.
     with gr.Row():
@@ -2337,14 +2321,14 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
         # Create a HTML component.
         gr.HTML(footer_text)
 
-# --------------------
+# ----------------------------------------------------------------------------
 # Main script function
-# --------------------
+# ----------------------------------------------------------------------------
 def main():
-    '''Main script function.'''
+    '''Main script function. Start the web UI.'''
     # Try to start the web ui.
     try:
-        # Default launch method.
+        # Start the web UI using the default values.
         webui.launch(server_name="127.0.0.1", server_port=7865)
     except:
         # Fallback solution on error.
@@ -2352,5 +2336,5 @@ def main():
 
 # Execute the script as module or as programme.
 if __name__ == "__main__":
-    # Call main function.
+    # Call the main function.
     main()
