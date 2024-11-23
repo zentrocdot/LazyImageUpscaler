@@ -192,9 +192,7 @@ python -m pip install -U scikit-image
 
 <p align="justify">Everything will be installed to a local location, which ma look like:</p>
 
-<code>
-./.local/lib/python3.10/site-packages
-</code> 
+<code>./.local/lib/python3.10/site-packages</code> 
 
 > [!TIP]  
 > <p align="justify">If you do not want to install <i>torch</i> or
