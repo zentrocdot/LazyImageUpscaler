@@ -726,7 +726,9 @@ or if it is useful, you are welcome to donate a small contribution. Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:
 </p>
 
-$${\color{red}Tron}$$
+$${\color{red}Tron$${
+
+$${\color{red}\normalfont\Large\bfseries$${
 
 <sub>Tron</sub>
 ```
