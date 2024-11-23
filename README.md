@@ -719,7 +719,7 @@ application is an independently developed software product by the author.
 or if it is useful, you are welcome to donate a small contribution. Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
-![Bitcoin](https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white)<pre>12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5</pre>            (BITCOIN)
+![Bitcoin](https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white)```12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5```    (BITCOIN)
 
 <pre>TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7            (TRON)
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX            (DOGE)
