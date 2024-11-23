@@ -728,7 +728,7 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:
 
 
 
-<p align="left">$${\textnormal{\color{red}\textbf{Tron}}}$$</p>
+<p align="left">${\textnormal{\color{red}\textbf{Tron}}}$</p>
 
 <sub>Tron</sub>
 ```
