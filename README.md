@@ -56,8 +56,8 @@ application provides an answer to this question.</p>
 
 > [!NOTE]  
 > <p align="justify">I assume in all descriptions that a computer system with Linux is used
-as the installed Linux operating system. Basic knowledge of installing software is a prerequisite,
-as is the use of terminal emulators.</p>
+> as the installed Linux operating system. Basic knowledge of installing software is a prerequisite,
+> as is the use of terminal emulators.</p>
 
 ## Introduction
 
