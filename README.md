@@ -143,7 +143,7 @@ LazyImageUpscaler
 The modules which are using pretrained models and the diffusion models will work
 after download of these models. How to do this is described later.</p>
 
-## Install the required Python Dependencies
+## Installation of the Required Python Dependencies
 
 <p align="justify">Following Python requirements have to be fulfilled,
 that the Lazy Image upscaler is working:</p>
