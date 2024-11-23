@@ -13,11 +13,6 @@
 useful, you are welcome to [donate](#Donation) a small contribution. It motivates me a lot
 and speeds up my work a much.</p></b>
 
-> [!NOTE]  
-> <p align="justify">🚧 This documentation is still under construction. The documentation
-> will developed up to the point the application works as expected. The last version of
-> the application needs also some fine-tuning after publishing here.</p>
-
 ## Preface
 
 <p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the 
@@ -56,8 +51,13 @@ is complex, time-consuming and energy-intensive.  The time required for a conven
 computer system should not be underestimated, even if energy consumption is not an issue.
 For example, parameters have to be selected appropriately to achieve the desired result.
 These points raised the question of whether it is possible to scale up images appropriately,
-quickly and reliably independently of user interfaces such as <i>AUTOMATIC1111</i>. This application
-provides an answer to this question.</p>
+quickly and reliably independently of user interfaces such as <i>AUTOMATIC1111</i>. This
+application provides an answer to this question.</p>
+
+> [!NOTE]  
+> <p align="justify">I assume in all descriptions that a computer system with Linux is used
+as the installed Linux operating system. Basic knowledge of installing software is a prerequisite,
+as is the use of terminal emulators.</p>
 
 ## Introduction
 
