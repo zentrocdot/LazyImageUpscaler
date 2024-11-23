@@ -16,9 +16,10 @@ and speeds up my work a much.</p></b>
 ## Preface
 
 <p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface
-for the upscaling of images. A bunch of Internet browsers can be used to 
-run the <i>Lazy Image Upscaler</i>. At the moment the <i>Lazy Image 
-Upscaler</i> offers six possibilities to upscale an image.</p>
+for the upscaling of images written using the programming language Python.
+A bunch of Internet browsers can be used to run the <i>Lazy Image Upscaler</i>.
+At the moment the <i>Lazy Image Upscaler</i> offers six possibilities to upscale
+an image.</p>
 
 <p align="justify">One can use for the upscaling of images standard methods from
 OpenCV, PIL and scikit-image whereas scikit-image is a little bit exotic. Some 
@@ -340,7 +341,7 @@ are:</p>
 * Gradio 5.6.0
 * Torch 2.4.1+cu121
 * Numpy  2.1.3
-* Chromium Browser (and others)
+* Chromium Browser, Firefox and Google Chrome
 * Monitor with a resolution of 1366 x 768 pixel
 
 ## Time Consumption
