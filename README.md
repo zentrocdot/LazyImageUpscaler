@@ -77,7 +77,9 @@ pretrained models from machine learning. It is also possible to use special
 diffusion models such as the Stable Diffusion models for upscaling.</p>
 
 <p align="justify">Every programming language has its own way to handle
-downscaling or upscaling of images.</p>
+downscaling or upscaling of images. In the context of this application, I will
+limit myself to the possibilities offered by  <i>Bash</i> in combination with 
+<i>Python</i>.</p>
 
 ## Installation
 
