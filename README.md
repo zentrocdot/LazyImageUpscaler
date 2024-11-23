@@ -59,9 +59,9 @@ application provides an answer to this question.</p>
 </i>.</p>
 
 > [!NOTE]  
-> <p align="justify">I assume in all descriptions that a computer system with Linux is 
-> used as the installed Linux operating system. Basic knowledge of installing software
-> is a prerequisite, as is the use of terminal emulators.</p>
+> <p align="justify">I assume in all descriptions that a computer system with
+> <i>Linux</i> as operating system is used. Basic knowledge of installing software
+> on such a computer system is a prerequisite, as is the use of terminal emulators.</p>
 
 ## Introduction
 
