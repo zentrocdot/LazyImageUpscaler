@@ -15,9 +15,10 @@ and speeds up my work a much.</p></b>
 
 ## Preface
 
-<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface for the 
-upscaling of images. At the moment the <i>Lazy Image Upscaler</i> offers six
-possibilities to upscale an image.</p>
+<p align="justify">The <i>Lazy Image Upscaler</i> is a web user interface
+for the upscaling of images. A bunch of Internet browsers can be used to 
+run the <i>Lazy Image Upscaler</i>. At the moment the <i>Lazy Image 
+Upscaler</i> offers six possibilities to upscale an image.</p>
 
 <p align="justify">One can use for the upscaling of images standard methods from
 OpenCV, PIL and scikit-image whereas scikit-image is a little bit exotic. Some 
@@ -211,14 +212,14 @@ be started.</p>
 <pre>http://127.0.0.1:7865</pre>
 
 <p align="justify">If everything was okay so far, the web UI starts 
-in the browser windwow.</p>
+in the browser window.</p>
 
 ## Control of the Web User Interface
 
 <p align="justify">You can control the size of the visible area of
 the window where the application is shown using keyboard shortcuts. 
 Zoom in can be done by <kbd>CTRl++</kbd> and zoom out can be done by
- <kbd>CTRl+-</kbd>.</p>
+<kbd>CTRl+-</kbd>.</p>
 
 ## Implemented Methods
 
