@@ -1,7 +1,7 @@
 # Lazy Image Upscaler [![LazyImageUpscaler - Version 0.0.1.2](https://img.shields.io/badge/LazyImageUpscaler-Version_0.0.1.2-2ea44f)]()
 
 [![Python - 3.10.14](https://img.shields.io/badge/Python-3.10.14-3399ff)](https://www.python.org/downloads/release/python-31014/)
-[![Gradio - 5.6.0](https://img.shields.io/badge/Gradio-5.6.0-ff9933)](https://www.python.org/downloads/release/python-31014/)
+[![Gradio - 5.6.0](https://img.shields.io/badge/Gradio-5.6.0-ff9933)](https://www.gradio.app/)
 
 > [!NOTE]  
 > <p align="justify">🚧 This documentation is still under construction. The documentation
