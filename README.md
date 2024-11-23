@@ -179,8 +179,8 @@ pip3 install piexif
 pip3 install SSIM_PIL
 pip3 install diffusers
 pip3 install torch
-
 ```
+
 <p align="justify">For scikit-image you have to perform following steps.</p>
 
 ```bash
