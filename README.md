@@ -46,13 +46,13 @@ that is in general required in nowadays AI image generation. Depending on the ex
 hardware equipment, the generation of AI images with a higher resolution is limited.
 The VRAM  memory of the GPU on the graphic card in use is the limiting factor here.</p>
 
-<p align="justify">Using a web user interface such as <i>AUTOMATIC1111</i> to upscale images
-is complex, time-consuming and energy-intensive.  The time required for a conventional
-computer system should not be underestimated, even if energy consumption is not an issue.
-For example, parameters have to be selected appropriately to achieve the desired result.
-These points raised the question of whether it is possible to scale up images appropriately,
-quickly and reliably independently of user interfaces such as <i>AUTOMATIC1111</i>. This
-application provides an answer to this question.</p>
+<p align="justify">Using a web user interface such as <i>AUTOMATIC1111</i> to upscale 
+images is complex, time-consuming and energy-intensive.  The time required for a
+conventional computer system should not be underestimated, even if energy consumption
+is not an issue. For example, parameters have to be selected appropriately to achieve
+the desired result. These points raised the question of whether it is possible to scale
+up images appropriately, quickly and reliably independently of user interfaces such as
+<i>AUTOMATIC1111</i>. This application provides an answer to this question.</p>
 
 <p align="justify">It is important to note that it is important to preserve the original 
 <i>Exif metadata</i> when upscaling. This is not possible by default with <i>AUTOMATIC1111
@@ -70,13 +70,15 @@ Base don the fact that the application is intendet for use with AI generated ima
 the upscaling factor is an integer. Floating point numbers cannot be used for upscaling.  
 </p>
 
-
 <p align="justify">The tabs of the web UI are arranged according to logic of the
 implemented methods for upscaling (see Figure 1):</p>
 
-* Standard methods (numerical interpolation methods) on base of OpenCV, PIL and scikit-image
-* Methods using pretrained models from Machine Learning on base of OpenCV and super-image
-* Methods based on a Stable Diffusion model and Stable Diffusion upscaler models
+* Tab 1 to Tab 3
+  + Standard methods (numerical interpolation methods) on base of OpenCV, PIL and scikit-image
+* Tab 4 to Tab 5 
+  + Methods using pretrained models from Machine Learning on base of OpenCV and super-image
+* Tab 6 
+  + Methods based on a Stable Diffusion model and Stable Diffusion upscaler models
 
 ## Presumption
 
