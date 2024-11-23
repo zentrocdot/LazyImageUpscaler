@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 '''Lazy Image Upscaler'''
+# pylint: disable=import-error
 # pylint: disable=line-too-long
 # pylint: disable=no-member
 # pylint: disable=invalid-name
@@ -11,21 +12,20 @@
 # pylint: disable=unused-argument
 # pylint: disable=unused-import
 # pylint: disable=too-many-lines
-# pylint: disable=useless-return
+##pylint:#disable=useless-return
 # pylint: disable=consider-using-f-string
 # pylint: disable=too-many-locals
-# pylint: disable=wrong-import-position
+##pylint:#disable=wrong-import-position
 # pylint: disable=bare-except
 # pylint: disable=broad-except
 # pylint: disable=eval-used
 # pylint: disable=no-name-in-module
-# pylint: disable=multiple-statements
-# pylint: disable=import-error
+##pylint# disable=multiple-statements
 # pylint: disable=format-string-without-interpolation
 # pylint: disable=unused-variable
 #
 # LazyImageUpscaler
-# Version 0.0.1.2
+# Version 0.0.1.3
 #
 # Check Image quality:
 # identify -format %Q filename.jpg
@@ -41,74 +41,58 @@
 #geninfo = "mushroom in outer space.\nSteps: 20, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 7, Seed: 285838015, Size: 512x512, Model hash: 463d6a9fe8, Model: absolutereality_v181, Version: v1.10.0"
 
 # Set version string.
-__Version__ = "Version 0.0.1.2"
+__Version__ = "Version 0.0.1.3"
 
-# Suppress warnings to reduce output on screen. Comment this out if it is not necessary.
-import warnings
-warnings.simplefilter("ignore", category=Warning)
-
-# Set tensorflow log level to reduce output on screen. Comment this out if it is not necessary.
+# Import some standard Python modules.
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
-# Import the Python modules.
 import sys
 import pathlib
+import warnings
 from pathlib import Path
 from datetime import datetime
-import torch
+import contextlib
+import io as io_stdout
+
+# Import the third party Python modules.
 import gradio as gr
+import numpy as np
 import cv2
 from cv2 import dnn_superres
-import numpy as np
 from PIL import Image, ImageChops, ImageOps
-import piexif
-import piexif.helper
-from SSIM_PIL import compare_ssim
 import skimage as ski
 from skimage import data, color
 from skimage.transform import rescale, resize
 from skimage import io
-from super_image import A2nModel, AwsrnModel, CarnModel, DrlnModel, EdsrModel, HanModel, MdsrModel, MsrnModel, PanModel, RcanModel, ImageLoader
+import piexif
+import piexif.helper
+from SSIM_PIL import compare_ssim
 
-# Import Diffuser modules. Supress some warnings.
-from diffusers.utils import logging
-logging.set_verbosity_info()
-logger = logging.get_logger("diffusers")
-logger.setLevel(logging.FATAL)
-from diffusers import DiffusionPipeline, StableDiffusionImg2ImgPipeline, StableDiffusionLatentUpscalePipeline, StableDiffusionUpscalePipeline, StableDiffusionPipeline
+# Suppress warnings to reduce output on screen. Comment this out if it is not necessary.
+warnings.simplefilter("ignore", category=Warning)
 
-# Create a text trap.
-import contextlib
-import io as io_stdout
-@contextlib.contextmanager
-def nostdout():
-    save_stdout = sys.stdout
-    sys.stdout = io_stdout.StringIO()
-    yield
-    sys.stdout = save_stdout
+# Set tensorflow log level to reduce output on screen. Comment this out if it is not necessary.
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-# Set the path variables.
+# Set the path variables for the script.
 SCRIPT_PATH = pathlib.Path(__file__).parent.resolve()
 PARENT_PATH = SCRIPT_PATH.parent.absolute()
+CONFIG_PATH = ''.join([str(PARENT_PATH), "/configs"])
 MODEL_PATH = ''.join([str(PARENT_PATH), "/super-resolution"])
 SUPER_IMAGE_PATH = ''.join([str(PARENT_PATH), "/super-image"])
 SUPER_RESOLUTION_PATH = ''.join([str(PARENT_PATH), "/super-resolution"])
 STABLE_DIFFUSION_PATH = ''.join([str(PARENT_PATH), "/diffusion-models"])
 OUTPUTS_PATH = ''.join([str(PARENT_PATH), "/outputs"])
-CONFIG_PATH = ''.join([str(PARENT_PATH), "/configs"])
 
-# Special path variables.
+# Set the path to the config file.
+config_file = Path(CONFIG_PATH + "/LazyImageUpscaler.config")
+
+# Set the special path variables for the script..
 SD15_PATH = ''.join([str(PARENT_PATH), "/diffusion-models/stable-diffusion-v1-5"])
 SDx2_PATH = ''.join([str(PARENT_PATH), "/diffusion-models/sd-x2-latent-upscaler"])
 SDx4_PATH = ''.join([str(PARENT_PATH), "/diffusion-models/stable-diffusion-x4-upscaler"])
 SR_TMP_IMG_PATH = ''.join([str(PARENT_PATH), "/super-image/tmp.png"])
 
-# For internal use while development only.
-#DEBUG = True
-DEBUG = False
-
-# Tab list names.
+# Config list names.
 config_list=["isRawImage", "isExifImage", "isChopsImage", "isScikitTab",
              "isPilTab", "isOpencvTab", "isSuperResolutionTab",
              "isSuperImageTab", "isStableDiffusionTab", "isRawImage",
@@ -125,9 +109,6 @@ isSuperResolutionTab = True
 isSuperImageTab = True
 isStableDiffusionTab = True
 SafeTensor = False
-
-# Set config file location.
-config_file = Path(CONFIG_PATH + "/LazyImageUpscaler.config")
 
 # Read config file if existing.
 if config_file.is_file():
@@ -147,6 +128,29 @@ if config_file.is_file():
                         if cfg_ele == "JpgQuality":
                             JpgQuality = int(cfg_list[1].strip())
 
+if isStableDiffusionTab or isSuperImageTab:
+    # Import torch.
+    import torch
+    # Import Diffuser modules. Supress some warnings.
+    from diffusers.utils import logging
+    logging.set_verbosity_info()
+    logger = logging.get_logger("diffusers")
+    logger.setLevel(logging.FATAL)
+    from diffusers import DiffusionPipeline, \
+                          StableDiffusionImg2ImgPipeline, \
+                          StableDiffusionLatentUpscalePipeline, \
+                          StableDiffusionUpscalePipeline, \
+                          StableDiffusionPipeline
+
+if isSuperImageTab:
+    from super_image import A2nModel, AwsrnModel, CarnModel, DrlnModel, \
+                            EdsrModel, HanModel, MdsrModel, MsrnModel, \
+                            PanModel, RcanModel, ImageLoader
+
+# For internal use while development only.
+# Value of DEBUG -> True or False
+DEBUG = False
+
 # Variable fo the temporary filename (quasi constant).
 ORIGINAL_IMGAGE = None
 
@@ -163,7 +167,9 @@ inter_methods_dict = {
     "INTER_LINEAR": cv2.INTER_LINEAR,
     "INTER_AREA": cv2.INTER_AREA,
     "INTER_CUBIC": cv2.INTER_CUBIC,
-    "INTER_LANCZOS4": cv2.INTER_LANCZOS4
+    "INTER_LANCZOS4": cv2.INTER_LANCZOS4,
+    "INTER_LINEAR_EXACT": cv2.INTER_LINEAR_EXACT,
+    "INTER_NEAREST_EXACT": cv2.INTER_NEAREST_EXACT
 }
 inter_methods_list = list(inter_methods_dict.keys())
 
@@ -189,11 +195,13 @@ scikit_method_dict = {
 }
 scikit_method_list = list(scikit_method_dict.keys())
 
+# Super image lists.
 si_list = ["a2n", "awsrn-bam", "carn", "carn-bam", "drln", "drln-bam",
            "edsr", "edsr-base", "han", "mdsr", "mdsr-bam", "msrn",
            "msnr-bam", "pan", "pan-bam", "rcan"]
 si_scale = [2,3,4]
 
+# Stable Diffusion list.
 sd_list = ["x4", "x2", "sd 1.5"]
 
 # Set the scale factors.
@@ -226,6 +234,17 @@ _model_list = []
 
 # Define the user comment.
 geninfo = "42 is the answer to all questions of the universe!"
+
+# ##################
+# Create a text trap
+# ##################
+@contextlib.contextmanager
+def nostdout():
+    '''Store and restore stdout.'''
+    save_stdout = sys.stdout
+    sys.stdout = io_stdout.StringIO()
+    yield
+    sys.stdout = save_stdout
 
 # *********************
 # Function model_scan()
@@ -319,7 +338,8 @@ def upscale_image_opencv(method_string, factor, image):
     start_time = datetime.now()
     # Create a numpy image.
     numpy_image = filepath2numpy(image)
-    if DEBUG: print("Upscaled image type ->", numpy_image.dtype)
+    if DEBUG:
+        print("Upscaled image type ->", numpy_image.dtype)
     # On factor is 1, return original image.
     if factor == 1:
         end_time = datetime.now()
@@ -337,7 +357,8 @@ def upscale_image_opencv(method_string, factor, image):
     # Get the method value.
     method_value = inter_methods_dict.get(method_string)
     # Print method name and value.
-    if DEBUG: print(method_string, "->", method_value)
+    if DEBUG:
+        print(method_string, "->", method_value)
     # Upscale the numpy image.
     val0 = numpy_image.shape[1] * factor
     val1 = numpy_image.shape[0] * factor
@@ -378,7 +399,8 @@ def upscale_image_pil(method_name, factor, imageFilePath):
         # Use the first entry of the model list.
         method_name = pil_methods_list[0]
         method = 0
-    if DEBUG: print(method_name, "->", method)
+    if DEBUG:
+        print(method_name, "->", method)
     if factor is None:
         factor = 1
     # Upscale the numpy image.
@@ -425,16 +447,19 @@ def upscale_image_scikit(scikit_method, factor, image):
     anti_alias = False
     # Create a numpy array from the image using scikit-image.
     numpyImage = io.imread(image)
-    if DEBUG: print("Upscaled image type ->", numpyImage.dtype)
+    if DEBUG:
+        print("Upscaled image type ->", numpyImage.dtype)
     # On factor is 1, return original image.
     if factor == 1:
-        if DEBUG: print(scikit_method, "->", scikit_method_num)
+        if DEBUG:
+            print(scikit_method, "->", scikit_method_num)
         end_time = datetime.now()
         elapsed_time_ = elapsed_time(start_time, end_time)
         ssim_val = ssim_calc(numpyImage)
         return image, elapsed_time_, ssim_val
     # Print on debug.
-    if DEBUG: print(scikit_method, "->", scikit_method_num)
+    if DEBUG:
+        print(scikit_method, "->", scikit_method_num)
     # Get numpy diomension data.
     width = numpyImage.shape[1]
     height = numpyImage.shape[0]
@@ -453,13 +478,15 @@ def upscale_image_scikit(scikit_method, factor, image):
     tmp_arr = upscaled
     match img_type:
         case "uint8":
-            if DEBUG: print("Upscaled image type ->", upscaled.dtype)
-            pass
+            if DEBUG:
+                print("Upscaled image type ->", upscaled.dtype)
         case "float64":
-            if DEBUG: print("Upscaled image type ->", upscaled.dtype)
+            if DEBUG:
+                print("Upscaled image type ->", upscaled.dtype)
             tmp_arr = (tmp_arr * 255).astype(np.uint8)
         case _:
-            if DEBUG: print("Upscaled image type ->", upscaled.dtype)
+            if DEBUG:
+                print("Upscaled image type ->", upscaled.dtype)
             tmp_arr = (tmp_arr * 127).astype(np.uint8)
     ssim_val = ssim_calc(tmp_arr)
     # Return the upscaled image, elapsed time and the ssim.
@@ -486,7 +513,8 @@ def upscale_image_sr(model_name, image):
         model_name = _model_list[0]
     if model_name == "no model available":
         return None, "", ""
-    if DEBUG: print(model_name)
+    if DEBUG:
+        print(model_name)
     # Initialise the super resolution object.
     sr = dnn_superres.DnnSuperResImpl_create()
     # Get path to model.
@@ -567,7 +595,9 @@ def upscale_image_si(imageFilePath, model_name, model_scale):
             md = module + ".from_pretrained(SD_PATH, scale=model_scale)"
             model = eval(md)
     except:
-        gr.Warning("Model not installed yet!")
+        # Show warning.
+        gr.Warning("Model possibly not installed yet!")
+        # Return None.
         return None, "", ""
     # Upload model and image to GPU.
     model = model.to(device)
@@ -576,8 +606,11 @@ def upscale_image_si(imageFilePath, model_name, model_scale):
     # Try to upscale the image.
     try:
         preds = model(inputs)
-    except:
-        gr.Warning("Could not upscale image!")
+    except Exception as err:
+        if DEBUG:
+            print("Super Image Error:", err)
+        # Show warning.
+        gr.Warning("Could not upscale image! Check if something is blocking the usage of the GPU!")
         return None, "", ""
     # Save the created image.
     ImageLoader.save_image(preds, SR_TMP_IMG_PATH)
@@ -631,6 +664,7 @@ def upscale_image_sd(image_filename, model_name):
                 pipeline = StableDiffusionImg2ImgPipeline.from_pretrained(SD15_PATH,
                                torch_dtype=torch.float16, use_safetensors=False)
             except:
+                gr.Warning("Could not upscale image! Check if something is blocking the usage of the GPU!")
                 return None, "", ""
             pipeline = pipeline.to("cuda")
             pipeline.enable_vae_tiling()
@@ -653,12 +687,17 @@ def upscale_image_sd(image_filename, model_name):
                 pipe = DiffusionPipeline.from_pretrained(SD_PATH, torch_dtype=torch.float16,
                            use_safetensors=False)
             except:
+                gr.Warning("Could not upscale image! Check if the model is installed!")
                 return None, "", ""
             pipe = pipe.to("cuda")
             pipe.enable_vae_tiling()
             pipe.enable_sequential_cpu_offload()
-            upscaled = pipe(prompt=prompt, image=image,
-                            num_inference_steps=25).images[0]
+            try:
+                upscaled = pipe(prompt=prompt, image=image,
+                                num_inference_steps=25).images[0]
+            except:
+                gr.Warning("Could not upscale image! Check if something is blocking the usage of the GPU!")
+                return None, "", ""
     # Convert upscaled image to a numpy array.
     upscaled = np.array(upscaled)
     # Set the end time.
@@ -750,7 +789,8 @@ def sepia_filter(image: np.ndarray, sepia_value: str) -> Image:
             matrix = np.add(arr0, arr1)
     #lmap = np.matrix(matrix)
     lmap = matrix
-    if DEBUG: print(lmap)
+    if DEBUG:
+        print(lmap)
     # Calculate the filtered image.
     filtered_image = np.array([x * lmap.T for x in image])
     # Check wich entries have a value greather than 255 and set it to 255
@@ -1083,7 +1123,8 @@ def ssim_calc(numpyImage):
         # Return the ssim value.
     except Exception as err:
         # Print an error message.
-        if DEBUG: print("SSIM Calculation Error:", err)
+        if DEBUG:
+            print("SSIM Calculation Error:", err)
         # Set the ssim value.
         ssim_value = ""
     # Return the SSIM.
