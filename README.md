@@ -636,7 +636,9 @@ AttributeError: StableDiffusionControlNetPipeline object has no attribute enable
 
 Possible Solution:
 
+```
 pip install git+https://github.com/huggingface/diffusers.git@main
+```
 
 ## Spin-Off
 
