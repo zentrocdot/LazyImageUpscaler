@@ -297,7 +297,7 @@ methods are:</p>
 <a target="_blank" href=""><img src="./images/lazyimageupscaler.png" alt="button panel"></a>
 <p><i>Figure 1: Web userinterface in a web browser</i></p>
 
-## Download Images
+## Download Upscaled Images and Name Convention
 
 <p align="justify">When a download is done image names looks like:</p>
 
@@ -308,24 +308,6 @@ methods are:</p>
 <pre>"%Y-%m-%d_%H:%M:%S.%f"</pre>
 
 <p align="justify">The downloaded images can be found in the folder <code>outputs</code>.</p>
-
-## Repository Structure
-
-The repository structure is as follows
-
-```
-LazyImageUpscaler
-    ├── scripts
-    ├── resources
-    ├── outputs
-    ├── test_images
-    ├── upscaler_examples
-    └── images
-```
-
-<p align="justify">In the folder <code>scripts</code> there are four Python scripts, which can be used to download the models into the <code>resources</code> folder directly.</p>
-
-<p align="justify">Under the main branch there are four directories. In scripts are the Python scripts for the web user interface. In resources there can be the .pb models be stored. After the installation this directory is empty. Created images are saved in outputs. images is the directory where documentation related images are stored.</p>
 
 ## Additional Implemented Features
 
@@ -416,8 +398,7 @@ Machine Learning and one is the well know AI approach.</p>
 <a target="_blank" href=""><img style="width:500px;" src="./images/pipe1.png" alt="button panel"></a>
 <p><i>Figure 3: Web userinterface in a web browser</i></p>
 
-
-### Model Installation
+## Pretrained Model Installation
 
 #### stable-diffusion-x4-upscaler
 
@@ -476,9 +457,9 @@ git clone https://huggingface.co/stabilityai/stable-diffusion-v1-5
 GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5
 ```
 
-## Directory Structure
+## Repository & Directory Structure
 
-<p align="justify">The directory structure of the <i>Lazy Image Upscaler</i>
+<p align="justify">The repository and directory structure of the <i>Lazy Image Upscaler</i>
 is looking as follows:</p> 
 
 ```bash
@@ -524,12 +505,20 @@ is looking as follows:</p>
              └── stable-diffusion-v1-5
 ```
 
+<p align="justify">In the folder <code>scripts</code> there are four Python scripts,
+which can be used to download the models into the <code>resources</code> folder directly.</p>
+
+<p align="justify">Under the main branch there are four directories. In scripts are the
+ Python scripts for the web user interface. In resources there can be the .pb models be 
+ stored. After the installation this directory is empty. Created images are saved in outputs.
+ images is the directory where documentation related images are stored.</p>
+
 <p align="justify">The folders super-resolution, super-image and stabilityai
 are by default empty. There can be the pretrained models placed as well as the
 upscaler model.</p> 
 
 <p align="justify">The directory tree shows how a tree looks, wenn some files
-are downloaded.</p> 
+are downloaded.</p>
 
 ## Troubleshooting
 
