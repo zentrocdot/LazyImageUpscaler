@@ -232,7 +232,7 @@ Zoom in can be done by <kbd>CTRl++</kbd> and zoom out can be done by
 
 ### Numerical Interpolation Methods
 
-#### OpenCV Related to the First Tab [![OpenCV - resize](https://img.shields.io/badge/OpenCV-resize-cc3300)](https://docs.opencv.org/4.10.0/da/d54/group__imgproc__transform.html)
+#### OpenCV Interpolation Methods Related to the First Tab [![OpenCV - resize()](https://img.shields.io/badge/OpenCV-resize-cc3300)](https://docs.opencv.org/4.10.0/da/d54/group__imgproc__transform.html)
 
 <p align="justify">OpenCV can be used for upscaling images. The in OpenCV
 implemented interpolation methods for resizing are:</p>
@@ -247,17 +247,52 @@ implemented interpolation methods for resizing are:</p>
 
 <p align="justify">The interpolation methods can by selected over a drop-down menu.</p>
 
-#### PIL Related to Second Tab
+#### PIL Interpolation Methods Related to the Second Tab [![PIL - resize()](https://img.shields.io/badge/PIL-resize-009933)](https://pillow.readthedocs.io/en/stable/reference/Image.html)
 
 <p align="justify">In addition to OpenCV, pillow or PIL can also be
-used for upscaling images. In pillow implemented methods are:</p>
+used for upscaling of images. The in pillow implemented interpolation
+methods are:</p>
 
 * NEAREST
 * BOX
 * BILINEAR
 * HAMMING
 * BICUBIC
-* LANCZOS"
+* LANCZOS
+
+* Resampling.NEAREST
+
+⭐⭐⭐⭐⭐
+
+Resampling.BOX
+
+⭐
+
+⭐⭐⭐⭐
+
+Resampling.BILINEAR
+
+⭐
+
+⭐
+
+⭐⭐⭐
+
+Resampling.HAMMING
+
+⭐⭐
+
+⭐⭐⭐
+
+Resampling.BICUBIC
+
+⭐⭐⭐
+
+⭐⭐⭐
+
+⭐⭐
+
+Resampling.LANCZOS
 
 See [12] for a description of the interpolation methods.
 
