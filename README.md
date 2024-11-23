@@ -104,7 +104,7 @@ limit myself to the possibilities offered by  <i>Bash</i> in combination with
 
 > [!CAUTION]  
 > <p align="justify">The installed Python must bei 3.10 or higher. Otherwise 
-the application is possibly not working.</p>
+> the application is possibly not working.</p>
 
 ## Installation of The Web UI
 
