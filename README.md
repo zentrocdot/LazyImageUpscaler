@@ -191,9 +191,14 @@ python -m pip install -U pip
 python -m pip install -U scikit-image
 ```
 
-<p align="justify">Everything will be installed to a local location, which ma look like:</p>
+<p align="justify">Everything will be installed to a local location,
+which ma look like:</p>
 
 <code>./.local/lib/python3.10/site-packages</code> 
+
+<p align="justify">The local installation can be found in the hidden
+directory <code>.local</code> in the user's main directory. Changes
+here may result in problems while running the application.</p>
 
 > [!TIP]  
 > <p align="justify">If you do not want to install <i>torch</i> or
@@ -362,26 +367,6 @@ Machine Learning and one is the well know AI approach.</p>
 
 * RuntimeError
 * OutOfMemorError 
-
-## Installations Prerequisites
-
-
-
-I am assuming that PIP is installed. Installation:
-
-<pre>pip3 install upgrade pip</pre>
-
-<pre>
-    pip3 install gradio
-    pip3 install pillow
-    pip3 install opencv-contrib-python
-    pip3 install piexif
-    pip3 install diffuser
-    pip3 install super_image
-    pip3 install transformer
-</pre>
-
-Local installation can be found in hidden directory .local in the user's main directory. Changes here may result in problems while running the application.
 
 ## Super Image [![super-image - pypi](https://img.shields.io/badge/super--image-pypi-5dade2)](https://pypi.org/project/super-image/)
 
