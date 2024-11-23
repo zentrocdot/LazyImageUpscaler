@@ -729,8 +729,11 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 ```
 TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7
 ```
-
-
-<pre>            (TRON)
-DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX            (DOGE)
-0x31042e2F3AE241093e0387b41C6910B11d94f7ec    (Ethereum)</pre>
+![Doge](https://img.shields.io/badge/Cryptocurrency%20Doge-ff9900)
+```
+DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX
+```
+![Ethereum](https://img.shields.io/badge/Cryptocurrency%20Ethereum-0066ff)
+```
+0x31042e2F3AE241093e0387b41C6910B11d94f7ec
+```
