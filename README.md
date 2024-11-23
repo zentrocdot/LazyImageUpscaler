@@ -54,12 +54,22 @@ These points raised the question of whether it is possible to scale up images ap
 quickly and reliably independently of user interfaces such as <i>AUTOMATIC1111</i>. This
 application provides an answer to this question.</p>
 
+<p align="justify">It is important to note that it is important to preserve the original 
+<i>Exif metadata</i> when upscaling. This is not possible by default with <i>AUTOMATIC1111</i>.
+</p>
+
 > [!NOTE]  
-> <p align="justify">I assume in all descriptions that a computer system with Linux is used
-> as the installed Linux operating system. Basic knowledge of installing software is a prerequisite,
-> as is the use of terminal emulators.</p>
+> <p align="justify">I assume in all descriptions that a computer system with Linux is 
+> used as the installed Linux operating system. Basic knowledge of installing software
+> is a prerequisite, as is the use of terminal emulators.</p>
 
 ## Introduction
+
+<p align="justify">The Lazy Image Upscaler offers the possibility to upscale images.
+Base don the fact that the application is intendet for use with AI generated images
+the upscaling factor is an integer. Floating point numbers cannot be used for upscaling.  
+</p>
+
 
 <p align="justify">The tabs of the web UI are arranged according to logic of the
 implemented methods for upscaling (see Figure 1):</p>
@@ -68,7 +78,9 @@ implemented methods for upscaling (see Figure 1):</p>
 * Methods using pretrained models from Machine Learning on base of OpenCV and super-image
 * Methods based on a Stable Diffusion model and Stable Diffusion upscaler models
 
-## Brief Introduction of State of the Art
+## Presumption
+
+## Brief Introduction of the State of the Art
 
 <p align="justify">Graphical software tools like <i>RawTherapee</i> and 
 <i>GIMP</i> can be used to upscale images. During some tests I carried out,
