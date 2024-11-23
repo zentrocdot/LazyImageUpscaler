@@ -148,12 +148,38 @@ be started.</p>
 <p align="justify">If everything was okay so far, the web UI starts 
 in the browser windwow.</p>
 
+> [!TIP]  
+> <p align="justify">If you do not want to install torch or diffuser,
+> disable super-image and Stable Diffusion in the config file.</p>
+
 ## Control of the Web User Interface
 
 <p align="justify">You can control the size of the visible area of
 the window where the application is shown using keyboard shortcuts. 
 Zoom in can be done by <kbd>CTRl++</kbd>
 and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
+
+## Install Python Dependencies
+
+./.local/lib/python3.10/site-packages
+
+<p align="justify">Install the Python dependencies using pip (pip3).</p>
+
+First
+
+```bash
+pip3 install --upgrade pip
+```
+Then
+
+```bash
+pip3 gradio
+```
+Optional
+
+```bash
+pip3 torch
+```
 
 ## Implemented Methods
 
