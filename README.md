@@ -726,9 +726,9 @@ or if it is useful, you are welcome to donate a small contribution. Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:
 </p>
 
-$${\textnormal{\color{red}\textbf{Tron}}}$$
 
-$${\raggedleft{\color{red}Tron}}$$
+
+<p align="left">$${\textnormal{\color{red}\textbf{Tron}}}$$</p>
 
 <sub>Tron</sub>
 ```
