@@ -5,9 +5,10 @@
 [![Gradio - 5.6.0](https://img.shields.io/badge/Gradio-5.6.0-ff9933)](https://www.gradio.app/)
 
 > [!IMPORTANT]  
-> <p align="justify">🚧 This documentation is still under construction. The documentation
-> will developed up to the point the application works as expected. The last version of
-> the application needs also some fine-tuning after publishing here.</p>
+> <p align="justify">🚧 This documentation is still under construction. The
+> documentation will developed up to the point the application works as expected.
+> The last version of the application needs also some fine-tuning after publishing
+> here.</p>
  
 <b><p align="justify">If you like what I present here, or if it helps you, or if it is
 useful, you are welcome to [donate](#Donation) a small contribution. It motivates me a lot
@@ -231,7 +232,7 @@ Zoom in can be done by <kbd>CTRl++</kbd> and zoom out can be done by
 
 ### Numerical Interpolation Methods
 
-#### OpenCV Related to First Tab
+#### OpenCV Related to First Tab [![OpenCV - resize](https://img.shields.io/badge/OpenCV-resize-cc3300)](https://docs.opencv.org/4.10.0/da/d54/group__imgproc__transform.html)
 
 <p align="justify">OpenCV can be used for upscaling images. In OpenCV
 implemented methods for doing this are:</p>
