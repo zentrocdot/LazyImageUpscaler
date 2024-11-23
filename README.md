@@ -232,16 +232,20 @@ Zoom in can be done by <kbd>CTRl++</kbd> and zoom out can be done by
 
 ### Numerical Interpolation Methods
 
-#### OpenCV Related to First Tab [![OpenCV - resize](https://img.shields.io/badge/OpenCV-resize-cc3300)](https://docs.opencv.org/4.10.0/da/d54/group__imgproc__transform.html)
+#### OpenCV Related to the First Tab [![OpenCV - resize](https://img.shields.io/badge/OpenCV-resize-cc3300)](https://docs.opencv.org/4.10.0/da/d54/group__imgproc__transform.html)
 
-<p align="justify">OpenCV can be used for upscaling images. In OpenCV
-implemented methods for doing this are:</p>
+<p align="justify">OpenCV can be used for upscaling images. The in OpenCV
+implemented interpolation methods for resizing are:</p>
 
 * INTER_NEAREST
 * INTER_LINEAR
 * INTER_AREA
 * INTER_CUBIC
-* INTER_CUBIC
+* INTER_LANCZOS4
+* INTER_LINEAR_EXACT
+* INTER_NEAREST_EXACT
+
+<p align="justify">The interpolation methods can by selected over a drop-down menu.</p>
 
 #### PIL Related to Second Tab
 
