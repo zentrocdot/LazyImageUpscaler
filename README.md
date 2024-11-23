@@ -599,14 +599,16 @@ pip3 install opencv-contrib-python
 
 ### Super Image
 
-Error:
+<p align="justify">Error:<p align="justify">
 
 ImportError: cannot import name cached_download from huggingface_hub
 
-Possible Solution:
+<p align="justify">Possible Solution:<p align="justify">
 
-pip install huggingface_hub==0.25.00
+```
+pip3 install huggingface_hub==0.25.00
 pip3 install -U sentence-transformers
+```
 
 ### Stable Diffusion
 
@@ -622,19 +624,21 @@ tricky until the system runs with all required modules.</p>
 <p align="justify">The error messages and solution approaches reflect
 this problem.</p>
 
-Error:
+<p align="justify">Error:<p align="justify">
 
 cannot import name 'CpuOffload' from 'accelerate.hooks'
 
-Possible Solution:
+<p align="justify">Possible Solution:<p align="justify">
 
+```
 pip install git+https://github.com/huggingface/accelerate.git
+```
 
-Error:
+<p align="justify">Error:<p align="justify">
 
 AttributeError: StableDiffusionControlNetPipeline object has no attribute enable_vae_tiling
 
-Possible Solution:
+<p align="justify">Possible Solution:<p align="justify">
 
 ```
 pip install git+https://github.com/huggingface/diffusers.git@main
@@ -643,10 +647,10 @@ pip install git+https://github.com/huggingface/diffusers.git@main
 ## Spin-Off
 
 <p align="justify">The internal structure of the script is organised
-in such a way that the user interface can be expanded to include additional 
-methods for upscaling. In principle, the basic structure can always be 
-adopted. Essentially, fields for input parameters must be adapted and the
-upscaler integrated as a function.</p> 
+in such a way that the user interface can be expanded to include 
+additional methods for upscaling. In principle, the basic structure 
+can always be adopted. Essentially, fields for input parameters must
+be adapted and the upscaler integrated as a function.</p> 
 
 ## To-Do
 
@@ -719,7 +723,8 @@ application is an independently developed software product by the author.
 
 <p align="justify">If you like what I present here, or if it helps you,
 or if it is useful, you are welcome to donate a small contribution. Or
-as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
+as you might say: Every TRON counts! Many thanks in advance! :smiley:
+</p>
 
 <sub>Tron</sub>
 ```
