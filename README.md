@@ -4,7 +4,7 @@
 [![pip - 24.3.1](https://img.shields.io/badge/pip-24.3.1-cc66ff)](https://pypi.org/)
 [![Gradio - 5.6.0](https://img.shields.io/badge/Gradio-5.6.0-ff9933)](https://www.gradio.app/)
 
-> [!NOTE]  
+> [!IMPORTANT]  
 > <p align="justify">🚧 This documentation is still under construction. The documentation
 > will developed up to the point the application works as expected. The last version of
 > the application needs also some fine-tuning after publishing here.</p>
@@ -12,6 +12,11 @@
 <b><p align="justify">If you like what I present here, or if it helps you, or if it is
 useful, you are welcome to [donate](#Donation) a small contribution. It motivates me a lot
 and speeds up my work a much.</p></b>
+
+> [!NOTE]  
+> <p align="justify">🚧 This documentation is still under construction. The documentation
+> will developed up to the point the application works as expected. The last version of
+> the application needs also some fine-tuning after publishing here.</p>
 
 ## Preface
 
