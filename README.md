@@ -271,7 +271,9 @@ methods are:</p>
 * BI-QUARTIC
 * BI-QUINTIC
 
-## Pretrained Models
+### Machine Learning Methods
+
+#### Pretrained Models (OpenCV)
 
 <p align="justify">Pretrained models which can be used are:<p align="justify">
 
@@ -279,6 +281,14 @@ methods are:</p>
 * ESPCN
 * FSRCNN
 * LAPSRN
+
+#### Pretrained Models (super-image)
+
+<p align="justify">to-do ...<p align="justify">
+
+### Stable Diffusion Methods
+
+<p align="justify">to-do ...<p align="justify">
 
 ## Web UI
 
