@@ -725,7 +725,7 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 ```
 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5
 ```
-![Tron](https://img.shields.io/badge/CryptocurrencyTron-ff0000)
+![Tron](https://img.shields.io/badge/Cryptocurrency Tron-ff0000)
 ```
 TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7
 ```
