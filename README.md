@@ -727,6 +727,8 @@ https://img.shields.io/badge/just%20the%20message-8A2BE2
 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5
 ```
 
+| Juicy Apples | 1.99      | 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5 |
+
 Bitcoin
 ![Bitcoin](https://img.shields.io/badge/Bitcoin-000000?style=for-the-badge&logo=bitcoin&logoColor=white)```12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5```
 
