@@ -55,8 +55,8 @@ quickly and reliably independently of user interfaces such as <i>AUTOMATIC1111</
 application provides an answer to this question.</p>
 
 <p align="justify">It is important to note that it is important to preserve the original 
-<i>Exif metadata</i> when upscaling. This is not possible by default with <i>AUTOMATIC1111</i>.
-</p>
+<i>Exif metadata</i> when upscaling. This is not possible by default with <i>AUTOMATIC1111
+</i>.</p>
 
 > [!NOTE]  
 > <p align="justify">I assume in all descriptions that a computer system with Linux is 
@@ -98,7 +98,7 @@ downscaling or upscaling of images. In the context of this application, I will
 limit myself to the possibilities offered by  <i>Bash</i> in combination with 
 <i>Python</i>.</p>
 
-## Installation
+## Installation of The Web UI
 
 <p align="justify">Clone the repository to a local location of of your choice.
 Therefore move to the locoation of your choice. Then run the following command:</p>
@@ -131,8 +131,70 @@ LazyImageUpscaler
 <p align="justify">In both cases you are ready to use the application.</p>
 
 <p align="justify">The base modules will work out of the box after installation.
- The modules which are using pretrained models and some diffusion models will work after download of these
- models. This is described later how to do.</p>
+The modules which are using pretrained models and the diffusion models will work
+after download of these models. This is described later how to do.</p>
+
+> [!CAUTION]  
+> <p align="justify">The installed Python must bei 3.10 or higher. Otherwise 
+the application is possibly not working.</p>
+
+## Install the required Python Dependencies
+
+<p align="justify">Following Python requirements have to be fulfilled,
+that the Lazy Image upscaler is working:</p>
+
+* gradio
+* numpy
+* PIL
+* opencv
+* skimage
+* piexif
+* SSIM_PIL
+* super_image
+* diffusers
+* torch
+
+<p align="justify">Install the Python dependencies using pip (pip3). Do not
+install the modules as sudo.</p>
+
+<p align="justify">First update pip. It could be that you have to update 
+pip also in between.</p>
+
+```bash
+pip3 install --upgrade pip
+```
+<p align="justify">Afterwards you can install most of the dependencies.</p>
+
+```bash
+pip3 install gradio
+pip3 install opencv-contrib-python
+pip3 install numpy
+pip3 install pillow
+pip3 install piexif
+pip3 install SSIM_PIL
+pip3 install diffusers
+pip3 install torch
+
+```
+<p align="justify">For scikit-image you have to perform following steps.</p>
+
+```bash
+# Update pip
+python -m pip install -U pip
+# Install scikit-image
+python -m pip install -U scikit-image
+```
+
+<p align="justify">Everything will be installed to a local location, which ma look like:</p>
+
+<code>
+./.local/lib/python3.10/site-packages
+</code> 
+
+> [!TIP]  
+> <p align="justify">If you do not want to install <i>torch</i> or
+> <i>diffusers</i>, disable super-image and Stable Diffusion in the
+> config file.</p>
 
 ## Start
 
@@ -148,38 +210,12 @@ be started.</p>
 <p align="justify">If everything was okay so far, the web UI starts 
 in the browser windwow.</p>
 
-> [!TIP]  
-> <p align="justify">If you do not want to install torch or diffuser,
-> disable super-image and Stable Diffusion in the config file.</p>
-
 ## Control of the Web User Interface
 
 <p align="justify">You can control the size of the visible area of
 the window where the application is shown using keyboard shortcuts. 
-Zoom in can be done by <kbd>CTRl++</kbd>
-and zoom out can be done by <kbd>CTRl+-</kbd>.</p>
-
-## Install Python Dependencies
-
-./.local/lib/python3.10/site-packages
-
-<p align="justify">Install the Python dependencies using pip (pip3).</p>
-
-First
-
-```bash
-pip3 install --upgrade pip
-```
-Then
-
-```bash
-pip3 gradio
-```
-Optional
-
-```bash
-pip3 torch
-```
+Zoom in can be done by <kbd>CTRl++</kbd> and zoom out can be done by
+ <kbd>CTRl+-</kbd>.</p>
 
 ## Implemented Methods
 
@@ -325,14 +361,7 @@ Machine Learning and one is the well know AI approach.</p>
 
 ## Installations Prerequisites
 
-<p align="justify">Following Python requirements have to be fulfilled, that the Lazy Image upscaler is working:</p>
 
-* gradio
-* pil
-* opencv
-* piexif
-* diffuser
-* super-image
 
 I am assuming that PIP is installed. Installation:
 
