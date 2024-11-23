@@ -95,14 +95,17 @@ diffusion models such as the Stable Diffusion models for upscaling.</p>
 
 <p align="justify">Every programming language has its own way to handle
 downscaling or upscaling of images. In the context of this application, I will
-limit myself to the possibilities offered by  <i>Bash</i> in combination with 
+limit myself to the possibilities offered by <i>Bash</i> in combination with 
 <i>Python</i>.</p>
 
 ## Presumption
 
-<p align="justify">to-do ...</p>
+<p align="justify">Use a computer system with a Linux version as operating system
+which is state of the art. Install Python 3.10 or higher if you want to use the
+Lazy Image Upscaler. Some third-party modules are also required. Prtrained models 
+as well as diffusion models can be installed later.</p>
 
-> [!CAUTION]  
+> [!Note]  
 > <p align="justify">The installed Python version must bei 3.10 or higher.
 > Otherwise the application will not working. The in the code used Match
 > Case statement was introduced in Python 3.10.</p>
@@ -138,8 +141,7 @@ LazyImageUpscaler
 
 <p align="justify">The base modules will work out of the box after installation.
 The modules which are using pretrained models and the diffusion models will work
-after download of these models. This is described later how to do.</p>
-
+after download of these models. How to do this is described later.</p>
 
 ## Install the required Python Dependencies
 
