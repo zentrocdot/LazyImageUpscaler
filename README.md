@@ -228,6 +228,42 @@ the window where the application is shown using keyboard shortcuts.
 Zoom in can be done by <kbd>CTRl++</kbd> and zoom out can be done by
 <kbd>CTRl+-</kbd>.</p>
 
+## Configuration of the Interface
+
+<p align="justify">In the directory <code>/configs</code>there is a 
+configuration file that can be used to make various settings</p>
+
+```bash
+# Lazy Image Upscaler configuration file
+# --------------------------------------
+
+# Output related parameter.
+isRawImage = False
+isExifImage = True
+isChopsImage = False
+
+# Image related parameter
+JpgQuality = 70
+
+# Tab related parameter.
+isOpencvTab = True
+isPilTab = True
+isScikitTab = True
+isSuperResolutionTab = True
+isSuperImageTab = True
+isStableDiffusionTab = True
+
+# Safetensor related parameter.
+SafeTensor = False 
+
+Scikit related parameter.
+AntiAliasing = False
+```
+
+<p align="justify">By setting the corresponding value 
+to False, individual Tabs can be deactivated in the 
+user interface.</p>
+
 ## Implemented Methods
 
 ### Numerical Interpolation Methods
