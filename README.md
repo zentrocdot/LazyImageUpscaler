@@ -721,10 +721,10 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
 https://img.shields.io/badge/just%20the%20message-8A2BE2
 
-[![skimage - resize](https://img.shields.io/badge/Bitcoin-8A2BE2)]
+![skimage - resize](https://img.shields.io/badge/Bitcoin-8A2BE2)
 
 
-[![Bitcoin](https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white)]```12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5```
+![Bitcoin](https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white)```12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5```
 
 <pre>TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7            (TRON)
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX            (DOGE)
