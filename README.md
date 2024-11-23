@@ -721,7 +721,7 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
 https://img.shields.io/badge/just%20the%20message-8A2BE2
 
-![skimage - resize](https://img.shields.io/badge/Bitcoin-8A2BE2)
+![skimage - resize](https://img.shields.io/badge/Bitcoin-000000)
 
 
 ![Bitcoin](https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white)```12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5```
