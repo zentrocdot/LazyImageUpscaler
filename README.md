@@ -601,7 +601,9 @@ pip3 install opencv-contrib-python
 
 <p align="justify">Error:<p align="justify">
 
+```
 ImportError: cannot import name cached_download from huggingface_hub
+```
 
 <p align="justify">Possible Solution:<p align="justify">
 
