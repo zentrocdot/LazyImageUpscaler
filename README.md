@@ -728,7 +728,7 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:
 
 The background color is `#ffffff` for light mode and `#000000` for dark mode.
 
-$${\color{red}Tron}$$
+<b>$${\color{red}Tron}$$</b>
 
 $${\color{red}\normalfont\Large\bfseries}$$
 
