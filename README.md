@@ -727,6 +727,9 @@ https://img.shields.io/badge/just%20the%20message-8A2BE2
 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5
 ```
 
+##
+<tab><tab>code/text here
+
  Crypto Currency                  | # In stock |
 |--------------------|------------|
 | ![Bitcoin](https://img.shields.io/badge/Bitcoin-000000)  | ```12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5``` |
