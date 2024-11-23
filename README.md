@@ -719,21 +719,19 @@ application is an independently developed software product by the author.
 or if it is useful, you are welcome to donate a small contribution. Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
-
-Cryptocurrency ![Bitcoin](https://img.shields.io/badge/Bitcoin-000000)
-
+###### Bitcoin
 ```
 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5
 ```
-![Tron](https://img.shields.io/badge/Cryptocurrency%20Tron-ff0000)
+###### Tron
 ```
 TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7
 ```
-![Doge](https://img.shields.io/badge/Cryptocurrency%20Doge-ff9900)
+###### Doge
 ```
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX
 ```
-![Ethereum](https://img.shields.io/badge/Cryptocurrency%20Ethereum-0066ff)
+###### Ethereum
 ```
 0x31042e2F3AE241093e0387b41C6910B11d94f7ec
 ```
