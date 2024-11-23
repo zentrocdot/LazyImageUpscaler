@@ -720,12 +720,12 @@ or if it is useful, you are welcome to donate a small contribution. Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
 
-![Bitcoin](https://img.shields.io/badge/Cryptocurrency Bitcoin-000000)
+![Bitcoin](https://img.shields.io/badge/Cryptocurrency%20Bitcoin-000000)
 
 ```
 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5
 ```
-![Tron](https://img.shields.io/badge/Cryptocurrency Tron-ff0000)
+![Tron](https://img.shields.io/badge/Cryptocurrency%20Tron-ff0000)
 ```
 TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7
 ```
