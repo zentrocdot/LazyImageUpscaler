@@ -627,7 +627,7 @@ this problem.</p>
 <p align="justify">Error:<p align="justify">
 
 ```
-cannot import name 'CpuOffload' from 'accelerate.hooks'
+cannot import name CpuOffload from accelerate.hooks
 ```
 
 <p align="justify">Possible Solution:<p align="justify">
@@ -638,7 +638,9 @@ pip install git+https://github.com/huggingface/accelerate.git
 
 <p align="justify">Error:<p align="justify">
 
+```
 AttributeError: StableDiffusionControlNetPipeline object has no attribute enable_vae_tiling
+```
 
 <p align="justify">Possible Solution:<p align="justify">
 
