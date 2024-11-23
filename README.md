@@ -80,8 +80,6 @@ implemented methods for upscaling (see Figure 1):</p>
 * Tab 6 
   + Methods based on a Stable Diffusion model and Stable Diffusion upscaler models
 
-## Presumption
-
 ## Brief Introduction of the State of the Art
 
 <p align="justify">Graphical software tools like <i>RawTherapee</i> and 
@@ -99,6 +97,14 @@ diffusion models such as the Stable Diffusion models for upscaling.</p>
 downscaling or upscaling of images. In the context of this application, I will
 limit myself to the possibilities offered by  <i>Bash</i> in combination with 
 <i>Python</i>.</p>
+
+## Presumption
+
+<p align="justify">to-do ...</p>
+
+> [!CAUTION]  
+> <p align="justify">The installed Python must bei 3.10 or higher. Otherwise 
+the application is possibly not working.</p>
 
 ## Installation of The Web UI
 
@@ -121,7 +127,6 @@ the directory structure. Then it is propsed to rename the main directory which i
 ```bash
 LazyImageUpscaler-main
 ```
-
 to
 
 ```bash
@@ -134,9 +139,6 @@ LazyImageUpscaler
 The modules which are using pretrained models and the diffusion models will work
 after download of these models. This is described later how to do.</p>
 
-> [!CAUTION]  
-> <p align="justify">The installed Python must bei 3.10 or higher. Otherwise 
-the application is possibly not working.</p>
 
 ## Install the required Python Dependencies
 
