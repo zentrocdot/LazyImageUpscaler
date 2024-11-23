@@ -731,7 +731,6 @@ TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7
 ```
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX
 ```
-###### Ethereum
-```
+###### Ethereum```
 0x31042e2F3AE241093e0387b41C6910B11d94f7ec
 ```
