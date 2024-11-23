@@ -260,41 +260,7 @@ methods are:</p>
 * BICUBIC
 * LANCZOS
 
-* Resampling.NEAREST
-
-⭐⭐⭐⭐⭐
-
-Resampling.BOX
-
-⭐
-
-⭐⭐⭐⭐
-
-Resampling.BILINEAR
-
-⭐
-
-⭐
-
-⭐⭐⭐
-
-Resampling.HAMMING
-
-⭐⭐
-
-⭐⭐⭐
-
-Resampling.BICUBIC
-
-⭐⭐⭐
-
-⭐⭐⭐
-
-⭐⭐
-
-Resampling.LANCZOS
-
-See [12] for a description of the interpolation methods.
+<p align="justify">The interpolation methods can by selected over a drop-down menu.</p>
 
 ## Pretrained Models
 
@@ -705,8 +671,8 @@ application is an independently developed software product by the author.
 
 ## Donation
 
-<p align="justify">If you like what I present here, or if it helps you,
-or if it is useful, you are welcome to donate a small contribution. Or
+<p align="justify">⭐ If you like what I present here, or if it helps you,
+or if it is useful, you are welcome to donate a small contribution. ⭐ Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
 <pre>TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7            (TRON)
