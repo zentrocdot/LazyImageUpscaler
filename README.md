@@ -39,18 +39,20 @@ said that the illustrations reflect the latest version of the application.</p>
 
 ## Motivation
 
-<p align="justify">I used the web user interface Easy Diffusion and I am 
-using currently the web user interface <i>AUTOMATIC1111</i>. One integrated
-feature is the possibility for upscaling of images. This is a function that
-is also required in AI image generation. Depending on the hardware equipment,
-the generation of images with a higher resolution is limited. The VRAM of the
-GPU is the limiting factor here.</p>
+<p align="justify">I used the web user interface <i>Easy Diffusion</i> and I am using
+currently the web user interface <i>AUTOMATIC1111</i>. One integrated feature of both
+web user interfaces  is the possibility for upscaling of images. This is a function 
+that is in general required in nowadays AI image generation. Depending on the existing
+hardware equipment, the generation of AI images with a higher resolution is limited.
+The VRAM  memory of the GPU on the graphic card in use is the limiting factor here.</p>
 
-<p align="justify">The use of <i>AUTOMATIC1111</i> for upscaling images is
-complex. For example, parameters must be selected appropriately so that the 
-desired result is achieved. This raised the question of whether it is possible 
-to upscale images fast and reliable independently of web user interfaces such
-as <i>AUTOMATIC1111</i>.</p>
+<p align="justify">Using a web user interface such as <i>AUTOMATIC1111</i> to upscale images
+is complex, time-consuming and energy-intensive.  The time required for a conventional
+computer system should not be underestimated, even if energy consumption is not an issue.
+For example, parameters have to be selected appropriately to achieve the desired result.
+These points raised the question of whether it is possible to scale up images appropriately,
+quickly and reliably independently of user interfaces such as <i>AUTOMATIC1111</i>. This application
+provides an answer to this question.</p>
 
 ## Introduction
 
