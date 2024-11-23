@@ -728,7 +728,7 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:
 
 $${\textnormal{\color{red}\textbf{Tron}}}$$
 
-$${\textbf{\color{red}Tron}}$$
+$${\raggedleft{\color{red}Tron}}$$
 
 <sub>Tron</sub>
 ```
