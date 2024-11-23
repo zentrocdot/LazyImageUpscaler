@@ -262,6 +262,15 @@ methods are:</p>
 
 <p align="justify">The interpolation methods can by selected over a drop-down menu.</p>
 
+#### skimage Interpolation Methods Related to the Second Tab [![skimage - resize](https://img.shields.io/badge/skimage-resize-ff6600)](https://scikit-image.org/docs/stable/api/skimage.transform.html#skimage.transform.resize)
+
+* NEAREST-NEIGHBOR
+* BI-LINEAR
+* BI-QUDRATIC
+* BI-CUBIC
+* BI-QUARTIC
+* BI-QUINTIC
+
 ## Pretrained Models
 
 <p align="justify">Pretrained models which can be used are:<p align="justify">
