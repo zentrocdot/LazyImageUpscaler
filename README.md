@@ -728,6 +728,8 @@ as you might say: Every TRON counts! Many thanks in advance! :smiley:
 
 $${\textnormal{\color{red}\textbf{Tron}}}$$
 
+$${\textbf{\color{red}Tron}}$$
+
 <sub>Tron</sub>
 ```
 TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7
