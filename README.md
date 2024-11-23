@@ -108,10 +108,8 @@ Therefore move to the locoation of your choice. Then run the following command:<
 ```bash
 git clone https://github.com/zentrocdot/LazyImageUpscaler.git
 ```
-<p align="justify">Afterwards you are ready to use the application.</p>
-
-<p align="justify">As alternative you can also download the zip-file with
-the repository.</p>
+<p align="justify">Afterwards you are ready to use the application.
+As alternative you can also download the zip-file with the repository.</p>
 
 ```bash
 LazyImageUpscaler-main.zip
