@@ -103,8 +103,9 @@ limit myself to the possibilities offered by  <i>Bash</i> in combination with
 <p align="justify">to-do ...</p>
 
 > [!CAUTION]  
-> <p align="justify">The installed Python must bei 3.10 or higher. Otherwise 
-> the application is possibly not working.</p>
+> <p align="justify">The installed Python version must bei 3.10 or higher.
+> Otherwise the application will not working. The in the code used Match
+> Case statement was introduced in Python 3.10.</p>
 
 ## Installation of The Web UI
 
