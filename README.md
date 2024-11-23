@@ -626,7 +626,9 @@ this problem.</p>
 
 <p align="justify">Error:<p align="justify">
 
+```
 cannot import name 'CpuOffload' from 'accelerate.hooks'
+```
 
 <p align="justify">Possible Solution:<p align="justify">
 
