@@ -719,15 +719,15 @@ application is an independently developed software product by the author.
 or if it is useful, you are welcome to donate a small contribution. Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
 
-###### <sub>Bitcoin</sub>
+<sub>Bitcoin</sub>
 ```
 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5
 ```
-###### <sub>Tron</sub>
+<sub>Tron</sub>
 ```
 TQamF8Q3z63sVFWiXgn2pzpWyhkQJhRtW7
 ```
-###### <sub>Doge<sub>
+<sub>Doge<sub>
 ```
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX
 ```
