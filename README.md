@@ -726,11 +726,7 @@ or if it is useful, you are welcome to donate a small contribution. Or
 as you might say: Every TRON counts! Many thanks in advance! :smiley:
 </p>
 
-The background color is `#ffffff` for light mode and `#000000` for dark mode.
-
-<b>$${\color{red}Tron}$$</b>
-
-$${\color{red}\normalfont\Large\bfseries}$$
+$${\normalfont\{\color{red}}Tron}$$
 
 <sub>Tron</sub>
 ```
