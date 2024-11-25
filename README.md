@@ -391,6 +391,11 @@ are:</p>
 + Sepia Filter
 + Color Filter
 
+### Rotate Lef and Right
+
+<p align="justify">Rotate Left and Rotate Right are rotating an image in clockwise and anti-clockwise by an angle of 90°
+</p>
+
 ### Sepia Filter
 
 <p align="justify">The sepia filter looks like:</p>
