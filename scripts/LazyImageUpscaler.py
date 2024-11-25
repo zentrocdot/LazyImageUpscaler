@@ -81,6 +81,10 @@ warnings.simplefilter("ignore", category=Warning)
 # Set tensorflow log level to reduce output on screen. Comment this out if it is not necessary.
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+# Paths can be a list of strings or pathlib.Path objects
+# corresponding to filenames or directories.
+#gr.set_static_paths(paths=["LazyImageUpscaler/images/"])
+
 # Set the path variables for the script.
 SCRIPT_PATH = pathlib.Path(__file__).parent.resolve()
 PARENT_PATH = SCRIPT_PATH.parent.absolute()
@@ -1321,8 +1325,17 @@ num_width = 90
 # Set component parameter.
 step_size = 0.1
 denoising_string = "(10,10,7,21)"
+# Set themes.
+#THEME = gr.themes.Citrus()
+#THEME = gr.themes.Glass()
+#THEME = gr.themes.Origin()
+#THEME = gr.themes.Base()
+#THEME = gr.themes.Monochrome()
+#THEME = gr.themes.Soft()
+#THEME = gr.themes.Ocean()
 # The Gardio footer is removed by use of css style!
-with gr.Blocks(css="footer{display:none !important}", fill_width=True,
+THEME = gr.themes.Default()
+with gr.Blocks(css="footer{display:none !important}", title="LazyImageUpscaler", theme=THEME, fill_width=True,
                fill_height=False) as webui:
     # Create the header line.
     with gr.Row():
@@ -2541,7 +2554,7 @@ def main():
     # Try to start the web ui.
     try:
         # Start the web UI using the default values.
-        webui.launch(server_name="127.0.0.1", server_port=7865)
+        webui.launch(server_name="127.0.0.1", server_port=7865, debug=False)
     except:
         # Fallback solution on error.
         webui.launch()
