@@ -330,12 +330,11 @@ methods are:</p>
 + drln-bam
 + edsr
 + edsr-base
-+ han 
++ han
++ mdsr
++ mdsr-bam
 + msrn
 + msrn-bam
-+ mdsr
-+ msrn-bam
-+ mdsr-bam
 + pan
 + pan-bam
 + rcan-bam
@@ -382,26 +381,43 @@ are:</p>
 + Vertical Flip
 + Rotate Left
 + Rotate Right
-+ Sepia Filter
-+ Sharpening
-+ Smoothing
-+ Denoising
-+ Gamma
-+ Brightness
-+ Contrast
 + Inversion
 + Grayscale
++ Brightness
++ Contrast
++ Sharpening
++ Smoothing
++ Gamma
++ Denoising
 + Sepia Filter
 + Color Filter
-
-### Rotate Lef and Right
-
-<p align="justify">Rotate Left and Rotate Right are rotating an image in clockwise and anti-clockwise by an angle of 90°
-</p>
++ Sharpening
++ Smoothing
 
 ### Horizontal and Vertical Flip
 
 <p align="justify">Horizontal Flip and Vertical Flip are mirroring an image in horizontal and vertical direction.</p>
+
+### Rotate Left and Right
+
+<p align="justify">Rotate Left and Rotate Right are rotating an image in clockwise and anti-clockwise by an angle of 90°
+</p>
+
+### Inversion
+
+<p align="justify">Inversion is inverting an image.</p>
+
+### Grayscale
+
+<p align="justify">Grayscale creates an image in grayscale from the original.</p>
+
+### Gamma
+
+<p align="justify">to-do ...</p>
+
+### Denoising
+
+<p align="justify">to-do ...</p>
  
 ### Sepia Filter
 
