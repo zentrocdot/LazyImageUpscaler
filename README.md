@@ -402,7 +402,7 @@ shift the colors. The colors range from red (0) to magenta (1). To check this ou
 
 <code>
     (0.5,1,1)
-</codes>
+</code>
 
 <p align="justify">If Saturation is 1 and Value is also one, the color is shifted to green/cyan value.</p>
 
@@ -422,13 +422,13 @@ shift the colors. The colors range from red (0) to magenta (1). To check this ou
 
 <code>
     (1,0,1)
-</codes>
+</code>
 
 <p align="justify">A value for the Value 0f 0.0 will give a pure black image.</p>
 
 <code>
     (1,1,0)
-</codes>
+</code>
 
 <p align="justify">Values outside the interval [0,1] will lead to colour distortion and false colours for Saturation and Value.</p>
 
