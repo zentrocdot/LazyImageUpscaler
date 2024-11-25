@@ -371,7 +371,21 @@ are:</p>
 
 ### Sepia Filter
 
-<p align="justify">to-do ...</p>
+<p align="justify">The sepia filter looks like:</p>
+
+<code>
+    sepia_matrix = [[0.393, 0.769, 0.189],
+                    [0.349, 0.686, 0.168],
+                    [0.272, 0.534, 0.131]]
+
+    correct_matrix = [[0.607, -0.769, -0.189],
+                      [-0.349, 0.314, -0.168],
+                      [-0.349, -0.534, 0.869]]
+</code>
+
+<code> sepia_filter = sepia_matrix + scalar * correct_matrix </code>
+
+<p align="justify">Valid values are in a range [0,1]</p>
 
 ### Color Filter
 
@@ -424,12 +438,13 @@ shift the colors. The colors range from red (0) to magenta (1). To check this ou
 
 <p align="justify">Values outside the interval [0,1] will lead to colour distortion and false colours for Saturation and Value.</p>
 
-<p align="justify">Color models next to HSV e.g.:</p>
+<p align="justify">Other color models next to HSV e.g. are:</p>
 
 - RGB (red, green, blue) 
 - BGR (blue, green, red)
 - CMYK (cyan, magenta, yellow, black)
 - HSL (hue, saturation, lightness)
+- YIQ (luminance, in-phase, quadrature)
 
 ### Comments on the Special Features
 
