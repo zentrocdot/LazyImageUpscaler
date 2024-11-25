@@ -1,4 +1,4 @@
-# Lazy Image Upscaler [![LazyImageUpscaler - Version 0.0.1.2](https://img.shields.io/badge/LazyImageUpscaler-Version_0.0.1.2-2ea44f)]()
+# Lazy Image Upscaler [![LazyImageUpscaler - Version 0.0.1.2](https://img.shields.io/badge/LazyImageUpscaler-Version_0.0.0.1-2ea44f)]()
 
 [![Python - 3.10.14](https://img.shields.io/badge/Python-3.10.14-3399ff)](https://www.python.org/downloads/release/python-31014/)
 [![pip - 24.3.1](https://img.shields.io/badge/pip-24.3.1-cc66ff)](https://pypi.org/)
