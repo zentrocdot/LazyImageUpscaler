@@ -360,6 +360,12 @@ methods are:</p>
 <p align="justify">The web user interface is organised in several logical parts.
 There is a header and a footer. Both are not of interest for the functioanlity of the web UI.</p>
 
+<p align="justify">Directly below the header are buttons that provide basic functions. Below this
+are buttons for the parameters that need to be set.
+</p>
+
+In the centre there is an area on the left-hand side for entering an image and on the right-hand side for outputting an image.
+
 ## Download Upscaled Images and Name Convention
 
 <p align="justify">When a download is done image names looks like:</p>
