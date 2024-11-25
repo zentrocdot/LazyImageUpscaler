@@ -391,8 +391,6 @@ are:</p>
 + Denoising
 + Sepia Filter
 + Color Filter
-+ Sharpening
-+ Smoothing
 
 ### Horizontal and Vertical Flip
 
@@ -411,9 +409,24 @@ are:</p>
 
 <p align="justify">Grayscale creates an image in grayscale from the original.</p>
 
-### Gamma
+### Brightness
 
 <p align="justify">to-do ...</p>
+### Contrast
+
+<p align="justify">to-do ...</p>
+
+### Sharpening
+
+<p align="justify">to-do ...</p>
+
+### Smoothing
+
+<p align="justify">to-do ...</p>
+
+### Gamma
+
+<p align="justify">Gamma is a classical Gamma correction.</p>
 
 ### Denoising
 
