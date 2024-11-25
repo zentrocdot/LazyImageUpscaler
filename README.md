@@ -399,6 +399,10 @@ are:</p>
 <p align="justify">Rotate Left and Rotate Right are rotating an image in clockwise and anti-clockwise by an angle of 90°
 </p>
 
+### Horizontal and Vertical Flip
+
+<p align="justify">Horizontal Flip and Vertical Flip are mirroring an image in horizontal and vertical direction.</p>
+ 
 ### Sepia Filter
 
 <p align="justify">The sepia filter looks like:</p>
