@@ -426,10 +426,10 @@ shift the colors. The colors range from red (0) to magenta (1). To check this ou
 
 <p align="justify">Color models next to HSV e.g.:</p>
 
-% RGB (red, green, blue) 
-% BGR (blue, green, red)
-% CMYK (cyan, magenta, yellow, black)
-% HSL (hue, saturation, lightness)
+- RGB (red, green, blue) 
+- BGR (blue, green, red)
+- CMYK (cyan, magenta, yellow, black)
+- HSL (hue, saturation, lightness)
 
 ### Comments on the Special Features
 
