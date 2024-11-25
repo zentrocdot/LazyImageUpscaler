@@ -390,8 +390,7 @@ These parameters/values are:</p>
 
 <p align="justify">By default this vaules are set to:</p>
 
-<code>(0.75,1.5,0.5)
-</codes>
+<code>(0.75,1.5,0.5)</code>
 
 <p align="justify">The values have to be given as a tuple (triple).
 If not no image is modified and a warning is shown.</p>
@@ -399,8 +398,7 @@ If not no image is modified and a warning is shown.</p>
 <p align="justify">Simply spoken, the Color filter is able, to modify or
 shift the colors. The colors range from red (0) to magenta (1). To check this out use:</p>
 
-<code>(0.5,1,1)
-</code>
+<code>(0.5,1,1)</code>
 
 <p align="justify">If Saturation is 1 and Value is also one, the color is shifted to green/cyan value.</p>
 
@@ -418,14 +416,11 @@ shift the colors. The colors range from red (0) to magenta (1). To check this ou
 
 <p align="justify">A value for the Saturation 0f 0.0 will give a grayscale image.</p>
 
-<code>(1,0,1)
-</code>
+<code>(1,0,1)</code>
 
 <p align="justify">A value for the Value 0f 0.0 will give a pure black image.</p>
 
-<code>
-    (1,1,0)
-</code>
+<code>(1,1,0)</code>
 
 <p align="justify">Values outside the interval [0,1] will lead to colour distortion and false colours for Saturation and Value.</p>
 
