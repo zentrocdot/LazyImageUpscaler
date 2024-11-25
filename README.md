@@ -366,6 +366,71 @@ are:</p>
 + Contrast
 + Inversion
 + Grayscale
++ Sepia Filter
++ Color Filter
+
+### Sepia Filter
+
+<p align="justify">to-do ...</p>
+
+### Color Filter
+
+<p align="justify">The color filter is using a HSV color model.
+HSV is the abbreviation for Hue-Saturation-Value. This color model 
+is different to the well known RGB or BGR color which is often used. 
+models. The HSV color model is using Hue, Saturation and Value for
+the description of the colors as the abbreviation states.</p> 
+ 
+<p align="justify">To use the color filter one needs some parameters.
+These parameters/values are:</p>
+
+- Hue
+- Saturation
+- Value
+
+<p align="justify">By default this vaules are set to:</p>
+
+<code>
+    (0.75,1.5,0.5)
+</codes>
+
+<p align="justify">The values have to be given as a tuple (triple).
+If not no image is modified and a warning is shown.</p>
+
+<p align="justify">Simply spoken, the Color filter is able, to modify or
+shift the colors. The colors range from red (0) to magenta (1). To check this out use:</p>
+
+<code>
+    (0.5,1,1)
+</codes>
+
+<p align="justify">If Saturation is 1 and Value is also one, the color is shifted to green/cyan value.</p>
+
+<p align="justify">The following values can be taken as a guide.</p>
+
+* Red 0.0 - 0.17
+* Yellow 0.17 - 0.33
+* Green 0.33 - 0.5
+* Cyan 0.5 - 0.67
+* blue 0.67 - 0.83
+* Magenta 0.83 - 1.0
+* 1.0 (image colors remains unchanged)
+
+<p align="justify">Values outside the interval [0,1] will lead to colour distortion and false colours</p>
+
+<p align="justify">A value for the Saturation 0f 0.0 will give a grayscale image.</p>
+
+<code>
+    (1,0,1)
+</codes>
+
+<p align="justify">A value for the Value 0f 0.0 will give a pure black image.</p>
+
+<code>
+    (1,1,0)
+</codes>
+
+<p align="justify">Values outside the interval [0,1] will lead to colour distortion and false colours for Saturation and Value.</p>
 
 ### Comments on the Special Features
 
