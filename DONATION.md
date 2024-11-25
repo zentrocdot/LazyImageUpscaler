@@ -5,10 +5,7 @@ presenting in this context, or if it helps you, or if it is useful, you
 are welcome to donate a small contribution. The best way is to make a
 small donation via my favourite cryptocurrencies.</p>
 
-<p align="justify">If you like the application I prepared and what I am
-presenting in this context, or if it helps you, or if it is useful, you 
-are welcome to donate a small contribution. The best way is to make a
-small donation via my favourite cryptocurrencies.</p>
+<p align="justify">Use copy and paste or the QR-code.</p>
 
 <p align="left">${\textnormal{\color{navy}Tron}}$</p>
 
