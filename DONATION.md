@@ -10,12 +10,10 @@ small donation via my favourite cryptocurrencies.</p>
 ```
 TQHgMpVzWkf3Lkd68QS7tcn7S5Y9ayg6Fu
 ```
-<a target="_blank" href=""><img src="./images/tron.jpg" alt="tron"></a>
+<a target="_blank" href=""><img src="/images/tron.jpg" alt="tron"></a>
 <p align="left">${\textnormal{\color{navy}Doge}}$</p>
 
 ```
-
-
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX
 ```
 <p align="left">${\textnormal{\color{navy}Bitcoin}}$</p>
