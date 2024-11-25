@@ -311,7 +311,7 @@ methods are:</p>
 
 #### Pretrained Models (OpenCV)
 
-<p align="justify">Pretrained models which can be used are:<p align="justify">
+<p align="justify">Pretrained models which can be used are:</p>
 
 * EDSR
 * ESPCN
@@ -320,11 +320,33 @@ methods are:</p>
 
 #### Pretrained Models (super-image)
 
-<p align="justify">to-do ...<p align="justify">
+<p align="justify">Predefined in the directory structure are:</p>
+
++ a2n
++ awsrn-bam
++ carn
++ carn-bam
++ drln 
++ drln-bam
++ edsr
++ edsr-base
++ han 
++ msrn
++ msrn-bam
++ mdsr
++ msrn-bam
++ mdsr-bam
++ pan
++ pan-bam
++ rcan-bam
 
 ### Stable Diffusion Methods
 
-<p align="justify">to-do ...<p align="justify">
+<p align="justify"> Stable Diffusion model and Upscalers are:</p>
+
++ stable-diffusion-v1-5
++ sd-x2-latent-upscaler
++ stable-diffusion-x4-upscaler 
 
 ## Web UI
 
