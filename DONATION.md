@@ -13,7 +13,7 @@ TQHgMpVzWkf3Lkd68QS7tcn7S5Y9ayg6Fu
 <p align="left">${\textnormal{\color{navy}Doge}}$</p>
 
 ```
-<img title="Tron" alt="Tron" src="./images/tron.jpg">
+<a target="_blank" href=""><img src="./images/tron.jpg" alt="tron"></a>
 
 DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX
 ```
