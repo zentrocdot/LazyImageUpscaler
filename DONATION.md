@@ -14,15 +14,18 @@ TQHgMpVzWkf3Lkd68QS7tcn7S5Y9ayg6Fu
 <p align="left">${\textnormal{\color{navy}Doge}}$</p>
 
 ```
-DMh7EXf7XbibFFsqaAetdQQ77Zb5TVCXiX
+DQYkNGW8VfCuUbM9Womnp6KiFdtMa4NUkD
 ```
+<a target="_blank" href=""><img src="/images/doge.jpg" alt="doge"></a>
 <p align="left">${\textnormal{\color{navy}Bitcoin}}$</p>
 
 ```
 12JsKesep3yuDpmrcXCxXu7EQJkRaAvsc5
 ```
+<a target="_blank" href=""><img src="/images/bitcoin.jpg" alt="bitcoin"></a>
 <p align="left">${\textnormal{\color{navy}Ethereum}}$</p>
 
 ```
 0x31042e2F3AE241093e0387b41C6910B11d94f7ec
 ```
+<a target="_blank" href=""><img src="/images/ethereum.jpg" alt="ethereum"></a>
