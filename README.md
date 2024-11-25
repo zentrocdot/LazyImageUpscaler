@@ -352,12 +352,11 @@ methods are:</p>
 
 <p align="justify">The web UI is simple to use. One can select the pretrained model from a dropdown list. Per drag and drop or per upload the image can be loaded. Using the Upscale Image button scales the image up. Download Image downloads the image to the local storage.</p>
 
-<a target="_blank" href=""><img src="./images/lazyimageupscaler_01.png" alt="button panel"></a>
-<p><i>Figure 1: Web userinterface in a web browser</i></p>
-
 <a target="_blank" href=""><img src="./images/lazyimageupscaler_00.png" alt="button panel"></a>
-<p><i>Figure 1: Web userinterface in a web browser</i></p>
+<p><i>Figure 1: Web userinterface in a web browser without image</i></p>
 
+<a target="_blank" href=""><img src="./images/lazyimageupscaler_01.png" alt="button panel"></a>
+<p><i>Figure 2: Web userinterface in a web browser with image and upscaled image</i></p>
 
 ## Download Upscaled Images and Name Convention
 
