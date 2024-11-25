@@ -357,6 +357,9 @@ methods are:</p>
 <a target="_blank" href=""><img src="./images/lazyimageupscaler_01.png" alt="button panel"></a>
 <p><i>Figure 2: Web userinterface in a web browser with image and upscaled image</i></p>
 
+<p align="justify">The web user interface is organised in several logical parts.
+There is a header and a footer. Both are not of interest for the functioanlity of the web UI.</p>
+
 ## Download Upscaled Images and Name Convention
 
 <p align="justify">When a download is done image names looks like:</p>
