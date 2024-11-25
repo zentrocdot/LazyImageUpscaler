@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-'''Lazy Image Upscaler'''
+'''Lazy Image Upscaler
+
+Version 0.0.0.1
+'''
 # pylint: disable=import-error
 # pylint: disable=line-too-long
 # pylint: disable=no-member
@@ -12,20 +15,17 @@
 # pylint: disable=unused-argument
 # pylint: disable=unused-import
 # pylint: disable=too-many-lines
-##pylint:#disable=useless-return
 # pylint: disable=consider-using-f-string
 # pylint: disable=too-many-locals
-##pylint:#disable=wrong-import-position
 # pylint: disable=bare-except
 # pylint: disable=broad-except
 # pylint: disable=eval-used
 # pylint: disable=no-name-in-module
-##pylint# disable=multiple-statements
 # pylint: disable=format-string-without-interpolation
 # pylint: disable=unused-variable
 #
 # LazyImageUpscaler
-# Version 0.0.1.3
+# Version 0.0.0.1
 #
 # Check Image quality:
 # identify -format %Q filename.jpg
@@ -36,12 +36,20 @@
 #
 # CIVITAI and Prompt Extraction:
 # CIVITAI reads only the string of UserComment as Prompt:
-#geninfo = "mushroom in outer space. Steps: 20, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 7, Seed: 285838015, Size: 512x512, Model hash: 463d6a9fe8, Model: absolutereality_v181, Version: v1.10.0"
+# Example:
+# metadata = "mushroom in outer space. Steps: 20, Sampler: DPM++ 2M,
+#             Schedule type: Karras, CFG scale: 7, Seed: 285838015,
+#             Size: 512x512, Model hash: 463d6a9fe8,
+#             Model: absolutereality_v181, Version: v1.10.0"
 # CIVITAI reads string of UserComment as Prompt and Resources:
-#geninfo = "mushroom in outer space.\nSteps: 20, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 7, Seed: 285838015, Size: 512x512, Model hash: 463d6a9fe8, Model: absolutereality_v181, Version: v1.10.0"
+# Example:
+# metadata = "mushroom in outer space.\nSteps: 20, Sampler: DPM++ 2M,
+#             Schedule type: Karras, CFG scale: 7, Seed: 285838015,
+#             Size: 512x512, Model hash: 463d6a9fe8,
+#             Model: absolutereality_v181, Version: v1.10.0"
 
 # Set version string.
-__Version__ = "Version 0.0.1.3"
+__Version__ = "Version 0.0.1.4"
 
 # Import some standard Python modules.
 import os
@@ -128,6 +136,7 @@ if config_file.is_file():
                         if cfg_ele == "JpgQuality":
                             JpgQuality = int(cfg_list[1].strip())
 
+# Check configuration value of parameter.
 if isStableDiffusionTab or isSuperImageTab:
     # Import torch.
     import torch
@@ -142,6 +151,7 @@ if isStableDiffusionTab or isSuperImageTab:
                           StableDiffusionUpscalePipeline, \
                           StableDiffusionPipeline
 
+# Check configuration value of parameter.
 if isSuperImageTab:
     from super_image import A2nModel, AwsrnModel, CarnModel, DrlnModel, \
                             EdsrModel, HanModel, MdsrModel, MsrnModel, \
@@ -302,7 +312,7 @@ def read_exif_metadata(image: Image.Image) -> tuple[str | None, dict]:
             exif = piexif.load(exif_data)
         except OSError:
             exif = None
-        # Try to extract the meta tag UserComment.
+        # Try to extract the meta data of tag UserComment.
         exif_comment = (exif or {}).get("Exif", {}).get(piexif.ExifIFD.UserComment, b'')
         try:
             exif_comment = piexif.helper.UserComment.load(exif_comment)
@@ -710,34 +720,7 @@ def upscale_image_sd(image_filename, model_name):
     return upscaled, elapsed_time_, ssim_val
 
 # ****************************************************************************
-# Function rotate_image_l()
-#
-# np.ndarray -> numpy.ndarray
-# Image      -> PIL.Image.Image
-#
-# Gradio accepts per definition as output to a component a numpy array as
-# well as a PIL image. The input from the output image component is so far
-# all the time a numpy array.
-#
-# See: https://www.gradio.app/docs/gradio/image
-# ****************************************************************************
-def rotate_image_l(image: np.ndarray) -> Image:
-    '''90° left rotation of an image.'''
-    # Check if the input image is None.
-    if image is None:
-        # Show warning on screen.
-        gr.Warning(WARN_MSG)
-        # Do nothing. Return None.
-        return None
-    # Rotate image left.
-    rotated_image = Image.fromarray(np.rot90(image, k=1, axes=(0,1)))
-    # Return flipped image.
-    #rotated_image = np.array(rotated_image) <- numpy array equivalent
-    # Return rotated PIL image.
-    return rotated_image
-
-# ****************************************************************************
-# Function sepia_filter()
+# Function color_filter()
 #
 # np.ndarray -> numpy.ndarray
 # Image      -> PIL.Image.Image
@@ -799,6 +782,83 @@ def sepia_filter(image: np.ndarray, sepia_value: str) -> Image:
     filtered_image = Image.fromarray(filtered_image.astype('uint8'))
     # Return rotated PIL image.
     return filtered_image
+
+# ****************************************************************************
+# Function color_filter()
+#
+# np.ndarray -> numpy.ndarray
+# Image      -> PIL.Image.Image
+#
+# Gradio accepts per definition as output to a component a numpy array as
+# well as a PIL image. The input from the output image component is so far
+# all the time a numpy array.
+#
+# See: https://www.gradio.app/docs/gradio/image
+# ****************************************************************************
+def color_filter(image: np.ndarray, color_value: str) -> Image:
+    '''Apply sepia filter on the  image.'''
+    # Check if the input image is None.
+    if image is None:
+        # Show warning on screen.
+        gr.Warning(WARN_MSG)
+        # Do nothing. Return None.
+        return None
+    # Check if color value is None.
+    if color_value is None:
+        color_value = 0.0
+    # Adjust the hue, saturation, and value of the image
+    try:
+        string = color_value.replace("(", "")
+        string = string.replace(")", "")
+        val = string.split(",")
+        hue = float(val[0])
+        saturation = float(val[1])
+        value = float(val[2])
+    except:
+        # Show warning on screen.
+        gr.Warning("Value must look like (1.0, 1.0, 1.0) of type (float, float, float).")
+        # Do nothing. Return None.
+        return None
+    # Convert the image from RGB to HSV color space
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
+    # Adjusts the hue by multiplying it by a float.
+    image[:, :, 0] = image[:, :, 0] * hue
+    # Adjusts the saturation by multiplying it by a float.
+    image[:, :, 1] = image[:, :, 1] * saturation
+    # Adjusts the value by multiplying it by a float.
+    image[:, :, 2] = image[:, :, 2] * value
+    # Convert the image back to color space (BGR or RGB).
+    #image2 = cv2.cvtColor(image, cv2.COLOR_HSV2BGR)
+    color_image = cv2.cvtColor(image, cv2.COLOR_HSV2RGB)
+    # Return the image.
+    return color_image
+
+# ****************************************************************************
+# Function rotate_image_l()
+#
+# np.ndarray -> numpy.ndarray
+# Image      -> PIL.Image.Image
+#
+# Gradio accepts per definition as output to a component a numpy array as
+# well as a PIL image. The input from the output image component is so far
+# all the time a numpy array.
+#
+# See: https://www.gradio.app/docs/gradio/image
+# ****************************************************************************
+def rotate_image_l(image: np.ndarray) -> Image:
+    '''90° left rotation of an image.'''
+    # Check if the input image is None.
+    if image is None:
+        # Show warning on screen.
+        gr.Warning(WARN_MSG)
+        # Do nothing. Return None.
+        return None
+    # Rotate image left.
+    rotated_image = Image.fromarray(np.rot90(image, k=1, axes=(0,1)))
+    # Return flipped image.
+    #rotated_image = np.array(rotated_image) <- numpy array equivalent
+    # Return rotated PIL image.
+    return rotated_image
 
 # ****************************************************************************
 # Function rotate_image_r()
@@ -868,7 +928,9 @@ def sharpen_image(old_img, kernel_name):
         return None
     # Check if kernel is set.
     if kernel_name is None:
-        kernel = np.array([[-0.0023, -0.0432, -0.0023], [-0.0432, 1.182, -0.0432], [-0.0023, -0.0432, -0.0023]])
+        kernel = np.array([[-0.0023, -0.0432, -0.0023],
+                           [-0.0432, 1.182, -0.0432],
+                           [-0.0023, -0.0432, -0.0023]])
     else:
         kernel = kernel_dict[kernel_name]
     # Sharpen image.
@@ -977,13 +1039,19 @@ def denoising(src, string):
     if src is None:
         gr.Warning(WARN_MSG)
         return None
-    string = string.replace("(", "")
-    string = string.replace(")", "")
-    val = string.split(",")
-    h = float(val[0])
-    hcolor = float(val[1])
-    templateWindowSize = int(val[2])
-    searchWindowSize = int(val[3])
+    try:
+        string = string.replace("(", "")
+        string = string.replace(")", "")
+        val = string.split(",")
+        h = float(val[0])
+        hcolor = float(val[1])
+        templateWindowSize = int(val[2])
+        searchWindowSize = int(val[3])
+    except:
+        # Show warning on screen.
+        gr.Warning("Value must look like (10,10,7,21) of type (float, float, int, int).")
+        # Do nothing. Return None.
+        return None
     #dst = cv2.fastNlMeansDenoisingColored(src,None,10,10,7,21)
     dst = cv2.fastNlMeansDenoisingColored(src,None,h,hcolor,templateWindowSize,searchWindowSize)
     # Return the denoised image.
@@ -1228,7 +1296,6 @@ def refresh_list(model_file):
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Set the string constants.
 UPSCALE_ORIGINAL = "📐 Upscale Original"
-SEPIA_FILTER = "📊 Sepia Filter"
 DOWNLOAD_IMAGE = "📥 Download Image"
 CALC_SSIM = "🔰 Calculate SSIM"
 CLEAR_RESET = "♻️  Clear & Reset"
@@ -1236,7 +1303,7 @@ HFLIP = "🔄 Horizontal Flip"
 VFLIP = "🔃 Vertical Flip"
 LROT = "↪️  Rotate Left"
 RROT = "↩️  Rotate Right"
-REFRESH_MODELS = "🔁 Refresh Model List"
+REFRESH_MODELS = "🔁 Refresh Models"
 SHARP_BUTTON = "📈 Sharpening"
 SMOOTH_BUTTON = "📉 Smoothing"
 DENOISE_BUTTON = "📝 Denoising"
@@ -1245,6 +1312,15 @@ BRIGHT_BUTTON = "🌕 Brightness"
 CONTRAST_BUTTON = "🌑 Contrast"
 INVERT_BUTTON = "✏️  Inversion"
 GRAYSCALE_BUTTON = "✒️  Grayscale"
+SEPIA_FILTER = "📊 Sepia Filter"
+COLOR_FILTER = "🎨 Color Filter"
+# Set layout values.
+cw = 135
+bw = 125
+num_width = 90
+# Set component parameter.
+step_size = 0.1
+denoising_string = "(10,10,7,21)"
 # The Gardio footer is removed by use of css style!
 with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                fill_height=False) as webui:
@@ -1266,39 +1342,45 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # ------------------
             # Create a row in the tab.
             with gr.Row():
-                upscale_button_cv = gr.Button(value=UPSCALE_ORIGINAL, scale=2)
+                # Buttons equal over all Tabs.
+                upscale_button_cv = gr.Button(value=UPSCALE_ORIGINAL, scale=1)
                 flip_button_h = gr.Button(value=HFLIP, scale=1)
                 flip_button_v = gr.Button(value=VFLIP, scale=1)
                 rotate_button_l = gr.Button(value=LROT, scale=1)
                 rotate_button_r = gr.Button(value=RROT, scale=1)
-                sepia_button = gr.Button(value=SEPIA_FILTER, scale=1)
-                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
+                inversion_button = gr.Button(value=INVERT_BUTTON, scale=1)
+                grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1)
+                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row in the tab.
             with gr.Row():
                 inter_method = gr.Dropdown(choices=inter_methods_list, value=inter_methods_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 scale_number = gr.Dropdown(choices=scale_factors, value=scale_factors[0], label="Scaling", scale=1, min_width=100)
-                kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
-                brightness_number = gr.Number(value=0, label="Brightness", scale=0, interactive=True, min_width=90, step=0.1)
-                contrast_number = gr.Number(value=1, label="Contrast", scale=0, interactive=True, min_width=90, step=0.1)
-                gamma_number = gr.Number(value=1, label="Gamma", scale=0, interactive=True, min_width=90, step=0.1)
-                denoise_string = gr.Textbox(value="(10,10,7,21)", max_lines=1, label="Denoising", scale=1, interactive=True, min_width=100)
-                sepia_number = gr.Number(value="0", label="Sepia", scale=0, min_width=90, step=0.1)
+                kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", interactive=False, scale=0, min_width=140)
+                # Number fields equal in all Tabs.
+                # Start -->
+                brightness_number = gr.Number(value=0, label="Brightness", scale=0, interactive=True, min_width=num_width, step=step_size)
+                contrast_number = gr.Number(value=1, label="Contrast", scale=0, interactive=True, min_width=num_width, step=step_size)
+                gamma_number = gr.Number(value=1, label="Gamma", scale=0, interactive=True, min_width=num_width, step=step_size)
+                sepia_number = gr.Number(value="0", label="Sepia", scale=0, interactive=True, min_width=num_width, step=step_size)
+                # <-- End
+                denoise_string = gr.Textbox(value=denoising_string, max_lines=1, label="Denoising", scale=1, interactive=True, min_width=100)
+                color_string = gr.Textbox(value="(0.75,1.5,0.5)", max_lines=1, label="Color Adjust", scale=1, interactive=True, min_width=100)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=60)
-                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=bw)
+                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=60)
-                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=bw)
+                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=60)
-                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=bw)
+                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    inversion_button = gr.Button(value=INVERT_BUTTON, scale=1, min_width=60)
-                    grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sepia_button = gr.Button(value=SEPIA_FILTER, scale=1, min_width=bw)
+                    color_button = gr.Button(value=COLOR_FILTER, scale=1, min_width=bw)
             # Create a row in the tab.
             with gr.Row():
                 # Create a column in the row.
@@ -1317,11 +1399,6 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list_cv = [im_input, im_output, dimension_original,
-                             dimension_upscaled, time_value, ssim_value,
-                             inter_method, scale_number, kernel_number,
-                             brightness_number, contrast_number, gamma_number,
-                             denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -1370,6 +1447,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output, sepia_number],
                 outputs=[im_output]
             )
+            color_button.click(
+                fn=color_filter,
+                inputs=[im_output, color_string],
+                outputs=[im_output]
+            )
             # Image download button listener.
             download_button.click(
                 fn=download_image,
@@ -1426,15 +1508,23 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output],
                 outputs=[ssim_value]
             )
-            # Create a clear & reset button.
+            # Define the clear & reset function.
             def clear_reset_cv():
-                '''Clear & reset of interface'''
-                return [inter_methods_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+                '''Clear & reset of interface components.'''
+                return [inter_methods_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, denoising_string, "0", "(0.75, 1.5, 0.5)"]
+            # Define the list with the components to clear.
+            clear_list_cv = [im_input, im_output, dimension_original,
+                             dimension_upscaled, time_value, ssim_value,
+                             inter_method, scale_number, kernel_number,
+                             brightness_number, contrast_number, gamma_number,
+                             denoise_string, sepia_number, color_string]
+            # Create a clear & reset button.
             clear_button = gr.ClearButton(components=clear_list_cv, value=CLEAR_RESET)
+            # Create an event listener.
             clear_button.click(
                 fn=clear_reset_cv,
                 inputs=[],
-                outputs=[inter_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[inter_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number, color_string]
             )
     # ************************************************************************
     # PIL Section
@@ -1447,39 +1537,45 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # Components section
             # ------------------
             with gr.Row():
-                upscale_button_pil = gr.Button(value=UPSCALE_ORIGINAL, scale=2)
+                # Buttons equal over all Tabs.
+                upscale_button_pil = gr.Button(value=UPSCALE_ORIGINAL, scale=1)
                 flip_button_h = gr.Button(value=HFLIP, scale=1)
                 flip_button_v = gr.Button(value=VFLIP, scale=1)
                 rotate_button_l = gr.Button(value=LROT, scale=1)
                 rotate_button_r = gr.Button(value=RROT, scale=1)
-                sepia_button = gr.Button(value=SEPIA_FILTER, scale=1)
-                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
+                inversion_button = gr.Button(value=INVERT_BUTTON, scale=1)
+                grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1)
+                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row in the tab.
             with gr.Row():
                 pil_method = gr.Dropdown(choices=pil_methods_list, value=pil_methods_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 scale_number = gr.Dropdown(choices=scale_factors, value=scale_factors[0], label="Scaling", scale=1, min_width=100)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
-                brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
-                contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
-                gamma_number = gr.Number(value=1, label="Gamma", scale=1, interactive=True, min_width=100, step=0.1)
+                # Number fields equal in all Tabs.
+                # Start -->
+                brightness_number = gr.Number(value=0, label="Brightness", scale=0, interactive=True, min_width=num_width, step=step_size)
+                contrast_number = gr.Number(value=1, label="Contrast", scale=0, interactive=True, min_width=num_width, step=step_size)
+                gamma_number = gr.Number(value=1, label="Gamma", scale=0, interactive=True, min_width=num_width, step=step_size)
+                sepia_number = gr.Number(value="0", label="Sepia", scale=0, interactive=True, min_width=num_width, step=step_size)
+                # <-- End
                 denoise_string = gr.Textbox(value="(10,10,7,21)", max_lines=1, label="Denoising", scale=1, interactive=True, min_width=100)
-                sepia_number = gr.Number(value="0", label="Sepia", scale=0, min_width=90, step=0.1)
+                color_string = gr.Textbox(value="(0.75,1.5,0.5)", max_lines=1, label="Color Adjust", scale=1, interactive=True, min_width=100)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=60)
-                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=bw)
+                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=60)
-                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=bw)
+                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=60)
-                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=bw)
+                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    inversion_button = gr.Button(value=INVERT_BUTTON, scale=1, min_width=60)
-                    grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sepia_button = gr.Button(value=SEPIA_FILTER, scale=1, min_width=bw)
+                    color_button = gr.Button(value=COLOR_FILTER, scale=1, min_width=bw)
             # Create a row in the tab.
             with gr.Row():
                 # Create a column in the row.
@@ -1498,11 +1594,6 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list_pil = [im_input, im_output, dimension_original,
-                          dimension_upscaled, time_value, ssim_value,
-                          pil_method, scale_number, kernel_number,
-                          brightness_number, contrast_number, gamma_number,
-                          denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -1551,6 +1642,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output, sepia_number],
                 outputs=[im_output]
             )
+            color_button.click(
+                fn=color_filter,
+                inputs=[im_output, color_string],
+                outputs=[im_output]
+            )
             # Image download button listener.
             download_button.click(
                 fn=download_image,
@@ -1607,15 +1703,25 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output],
                 outputs=[ssim_value]
             )
-            # Create a clear & reset button.
+            # Define the clear & reset function.
             def clear_reset_pil():
                 '''Clear & reset of interface'''
-                return [pil_methods_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+                return [pil_methods_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0", "(0.75, 1.5, 0.5)"]
+            # Define the list with the components to clear.
+            clear_list_pil = [im_input, im_output, dimension_original,
+                          dimension_upscaled, time_value, ssim_value,
+                          pil_method, scale_number, kernel_number,
+                          brightness_number, contrast_number, gamma_number,
+                          denoise_string, sepia_number, color_string]
+            # Create a clear & reset button.
             clear_button = gr.ClearButton(components=clear_list_pil, value="♻️  Clear & Reset")
+            # Create an event listener.
             clear_button.click(
                 fn=clear_reset_pil,
                 inputs=[],
-                outputs=[pil_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[pil_method, scale_number, kernel_number,
+                         brightness_number, contrast_number, gamma_number,
+                         denoise_string, sepia_number, color_string]
             )
         # ************************************************************************
         # Scikit Section
@@ -1627,39 +1733,45 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # ------------------
             # Create a row in the tab.
             with gr.Row():
-                upscale_button_sk = gr.Button(value=UPSCALE_ORIGINAL, scale=2)
+                # Buttons equal over all Tabs.
+                upscale_button_sk = gr.Button(value=UPSCALE_ORIGINAL, scale=1)
                 flip_button_h = gr.Button(value=HFLIP, scale=1)
                 flip_button_v = gr.Button(value=VFLIP, scale=1)
                 rotate_button_l = gr.Button(value=LROT, scale=1)
                 rotate_button_r = gr.Button(value=RROT, scale=1)
-                sepia_button = gr.Button(value=SEPIA_FILTER, scale=1)
-                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
+                inversion_button = gr.Button(value=INVERT_BUTTON, scale=1)
+                grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1)
+                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row in the tab.
             with gr.Row():
                 scikit_method = gr.Dropdown(choices=scikit_method_list, value=scikit_method_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 scale_number = gr.Dropdown(choices=scale_factors, value=scale_factors[0], label="Scaling", scale=1, min_width=100)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
-                brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
-                contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
-                gamma_number = gr.Number(value=1, label="Gamma", scale=1, interactive=True, min_width=100, step=0.1)
+                # Number fields equal in all Tabs.
+                # Start -->
+                brightness_number = gr.Number(value=0, label="Brightness", scale=0, interactive=True, min_width=num_width, step=step_size)
+                contrast_number = gr.Number(value=1, label="Contrast", scale=0, interactive=True, min_width=num_width, step=step_size)
+                gamma_number = gr.Number(value=1, label="Gamma", scale=0, interactive=True, min_width=num_width, step=step_size)
+                sepia_number = gr.Number(value="0", label="Sepia", scale=0, interactive=True, min_width=num_width, step=step_size)
+                # <-- End
                 denoise_string = gr.Textbox(value="(10,10,7,21)", max_lines=1, label="Denoising", scale=1, interactive=True, min_width=100)
-                sepia_number = gr.Number(value="0", label="Sepia", scale=0, min_width=90, step=0.1)
+                color_string = gr.Textbox(value="(0.75,1.5,0.5)", max_lines=1, label="Color Adjust", scale=1, interactive=True, min_width=100)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=60)
-                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=bw)
+                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=60)
-                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=bw)
+                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=60)
-                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=bw)
+                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    inversion_button = gr.Button(value=INVERT_BUTTON, scale=1, min_width=60)
-                    grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sepia_button = gr.Button(value=SEPIA_FILTER, scale=1, min_width=bw)
+                    color_button = gr.Button(value=COLOR_FILTER, scale=1, min_width=bw)
             # Create a row in the tab.
             with gr.Row():
                 # Create a column in the row.
@@ -1678,11 +1790,6 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list_scikit = [im_input, im_output, dimension_original,
-                                 dimension_upscaled, time_value, ssim_value,
-                                 scikit_method, scale_number, kernel_number,
-                                 brightness_number, contrast_number, gamma_number,
-                                 denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -1732,6 +1839,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output, sepia_number],
                 outputs=[im_output]
             )
+            color_button.click(
+                fn=color_filter,
+                inputs=[im_output, color_string],
+                outputs=[im_output]
+            )
             # Image download button listener.
             download_button.click(
                 fn=download_image,
@@ -1788,15 +1900,25 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output],
                 outputs=[ssim_value]
             )
-            # Create a clear & reset button.
+            # Define the clear & reset function.
             def clear_reset_scikit():
                 '''Clear & reset of interface'''
-                return [scikit_method_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+                return [scikit_method_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0", "(0.75, 1.5, 0.5)"]
+            # Define the list with the components to clear.
+            clear_list_scikit = [im_input, im_output, dimension_original,
+                                 dimension_upscaled, time_value, ssim_value,
+                                 scikit_method, scale_number, kernel_number,
+                                 brightness_number, contrast_number, gamma_number,
+                                 denoise_string, sepia_number, color_string]
+            # Create a clear & reset button.
             clear_button = gr.ClearButton(components=clear_list_scikit, value=CLEAR_RESET)
+            # Create an event listener.
             clear_button.click(
                 fn=clear_reset_scikit,
                 inputs=[],
-                outputs=[scikit_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[scikit_method, scale_number, kernel_number,
+                brightness_number, contrast_number, gamma_number,
+                denoise_string, sepia_number, color_string]
             )
     # ************************************************************************
     # OpenCV Super Resolution Section
@@ -1809,39 +1931,46 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # ------------------
             # Create a row.
             with gr.Row():
-                refresh_button = gr.Button(value=REFRESH_MODELS, min_width=20, scale=1)
-                upscale_button_sr = gr.Button(value=UPSCALE_ORIGINAL, scale=2)
+                # Method specific button.
+                refresh_button = gr.Button(value=REFRESH_MODELS, scale=1)
+                # Buttons equal over all Tabs.
+                upscale_button_sr = gr.Button(value=UPSCALE_ORIGINAL, scale=1)
                 flip_button_h = gr.Button(value=HFLIP, scale=1)
                 flip_button_v = gr.Button(value=VFLIP, scale=1)
                 rotate_button_l = gr.Button(value=LROT, scale=1)
                 rotate_button_r = gr.Button(value=RROT, scale=1)
-                sepia_button = gr.Button(value=SEPIA_FILTER, scale=1)
+                inversion_button = gr.Button(value=INVERT_BUTTON, scale=1)
+                grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1)
                 download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row.
             with gr.Row():
                 model_file = gr.Dropdown(choices=get_model_list(), value=_model_list[0], label="Model File List", scale=2, min_width=190)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
-                brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
-                contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
-                gamma_number = gr.Number(value=1, label="Gamma", scale=1, interactive=True, min_width=100, step=0.1)
+                # Number fields equal in all Tabs.
+                # Start -->
+                brightness_number = gr.Number(value=0, label="Brightness", scale=0, interactive=True, min_width=num_width, step=step_size)
+                contrast_number = gr.Number(value=1, label="Contrast", scale=0, interactive=True, min_width=num_width, step=step_size)
+                gamma_number = gr.Number(value=1, label="Gamma", scale=0, interactive=True, min_width=num_width, step=step_size)
+                sepia_number = gr.Number(value="0", label="Sepia", scale=0, interactive=True, min_width=num_width, step=step_size)
+                # <-- End
                 denoise_string = gr.Textbox(value="(10,10,7,21)", max_lines=1, label="Denoising", scale=1, interactive=True, min_width=100)
-                sepia_number = gr.Number(value="0", label="Sepia", scale=0, min_width=90, step=0.1)
+                color_string = gr.Textbox(value="(0.75,1.5,0.5)", max_lines=1, label="Color Adjust", scale=1, interactive=True, min_width=100)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=60)
-                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=bw)
+                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=60)
-                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=bw)
+                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=60)
-                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=bw)
+                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    inversion_button = gr.Button(value=INVERT_BUTTON, scale=1, min_width=60)
-                    grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sepia_button = gr.Button(value=SEPIA_FILTER, scale=1, min_width=bw)
+                    color_button = gr.Button(value=COLOR_FILTER, scale=1, min_width=bw)
             # Create a row in the tab.
             with gr.Row():
                 # Create a column in the row.
@@ -1860,12 +1989,6 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            # Define the components which should be cleared on reset.
-            clear_list_sr = [im_input, im_output, dimension_original,
-                             dimension_upscaled, time_value, ssim_value,
-                             model_file, kernel_number,
-                             brightness_number, contrast_number, gamma_number,
-                             denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -1919,6 +2042,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             sepia_button.click(
                 fn=sepia_filter,
                 inputs=[im_output, sepia_number],
+                outputs=[im_output]
+            )
+            color_button.click(
+                fn=color_filter,
+                inputs=[im_output, color_string],
                 outputs=[im_output]
             )
             # Image download button listener.
@@ -1977,15 +2105,25 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output],
                 outputs=[ssim_value]
             )
-            # Create a clear & reset button.
+            # Define the clear & reset function.
             def clear_reset_sr():
                 '''Clear & reset of interface'''
-                return [_model_list[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+                return [_model_list[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0", "(0.75, 1.5, 0.5)"]
+            # Define the components which should be cleared on reset.
+            clear_list_sr = [im_input, im_output, dimension_original,
+                             dimension_upscaled, time_value, ssim_value,
+                             model_file, kernel_number,
+                             brightness_number, contrast_number, gamma_number,
+                             denoise_string, sepia_number]
+            # Create a clear & reset button.
             clear_button = gr.ClearButton(components=clear_list_sr, value=CLEAR_RESET)
+            # Create an event listener.
             clear_button.click(
                 fn=clear_reset_sr,
                 inputs=[],
-                outputs=[model_file, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[model_file, kernel_number, brightness_number,
+                contrast_number, gamma_number, denoise_string, sepia_number,
+                color_string]
             )
     # ************************************************************************
     # Super Image Section
@@ -1998,39 +2136,45 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # ------------------
             # Create a row in the tab.
             with gr.Row():
-                upscale_button_si = gr.Button(value=UPSCALE_ORIGINAL, scale=2)
+                # Buttons equal over all Tabs.
+                upscale_button_si = gr.Button(value=UPSCALE_ORIGINAL, scale=1)
                 flip_button_h = gr.Button(value=HFLIP, scale=1)
                 flip_button_v = gr.Button(value=VFLIP, scale=1)
                 rotate_button_l = gr.Button(value=LROT, scale=1)
                 rotate_button_r = gr.Button(value=RROT, scale=1)
-                sepia_button = gr.Button(value=SEPIA_FILTER, scale=1)
-                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
+                inversion_button = gr.Button(value=INVERT_BUTTON, scale=1)
+                grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1)
+                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row in the tab.
             with gr.Row():
                 superimage_method = gr.Dropdown(choices=si_list, value=si_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 superimage_scale = gr.Dropdown(choices=si_scale, value=si_scale[0], label="Scaling", scale=1, min_width=100)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
-                brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
-                contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
-                gamma_number = gr.Number(value=1, label="Gamma", scale=1, interactive=True, min_width=100, step=0.1)
+                # Number fields equal in all Tabs.
+                # Start -->
+                brightness_number = gr.Number(value=0, label="Brightness", scale=0, interactive=True, min_width=num_width, step=step_size)
+                contrast_number = gr.Number(value=1, label="Contrast", scale=0, interactive=True, min_width=num_width, step=step_size)
+                gamma_number = gr.Number(value=1, label="Gamma", scale=0, interactive=True, min_width=num_width, step=step_size)
+                sepia_number = gr.Number(value="0", label="Sepia", scale=0, interactive=True, min_width=num_width, step=step_size)
+                # <-- End
                 denoise_string = gr.Textbox(value="(10,10,7,21)", max_lines=1, label="Denoising", scale=1, interactive=True, min_width=100)
-                sepia_number = gr.Number(value="0", label="Sepia", scale=0, min_width=90, step=0.1)
+                color_string = gr.Textbox(value="(0.75,1.5,0.5)", max_lines=1, label="Color Adjust", scale=1, interactive=True, min_width=100)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=60)
-                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=bw)
+                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=60)
-                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=bw)
+                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=60)
-                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=bw)
+                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    inversion_button = gr.Button(value=INVERT_BUTTON, scale=1, min_width=60)
-                    grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sepia_button = gr.Button(value=SEPIA_FILTER, scale=1, min_width=bw)
+                    color_button = gr.Button(value=COLOR_FILTER, scale=1, min_width=bw)
             # Create a row in the tab.
             with gr.Row():
                 # Create a column in the row.
@@ -2049,12 +2193,6 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list_si = [im_input, im_output, dimension_original,
-                             dimension_upscaled, time_value, ssim_value,
-                             superimage_method, superimage_scale,
-                             kernel_number, brightness_number,
-                             contrast_number, gamma_number,
-                             denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -2103,6 +2241,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output, sepia_number],
                 outputs=[im_output]
             )
+            color_button.click(
+                fn=color_filter,
+                inputs=[im_output, color_string],
+                outputs=[im_output]
+            )
             # Image download button listener.
             download_button.click(
                 fn=download_image,
@@ -2159,15 +2302,26 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output],
                 outputs=[ssim_value]
             )
-            # Create a clear & reset button.
+            # Define the clear & reset function.
             def clear_reset_si():
                 '''Clear & reset of interface'''
-                return [si_list[0], si_scale[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+                return [si_list[0], si_scale[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0", "(0.75, 1.5, 0.5)"]
+            # Define the list with the components to clear.
+            clear_list_si = [im_input, im_output, dimension_original,
+                             dimension_upscaled, time_value, ssim_value,
+                             superimage_method, superimage_scale,
+                             kernel_number, brightness_number,
+                             contrast_number, gamma_number,
+                             denoise_string, sepia_number, color_string]
+            # Create a clear & reset button.
             clear_button = gr.ClearButton(components=clear_list_si, value=CLEAR_RESET)
+            # Create an event listener.
             clear_button.click(
                 fn=clear_reset_si,
                 inputs=[],
-                outputs=[superimage_method, superimage_scale, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[superimage_method, superimage_scale, kernel_number,
+                         brightness_number, contrast_number, gamma_number,
+                         denoise_string, sepia_number, color_string]
             )
     # ************************************************************************
     # Stable Diffusion Section
@@ -2180,38 +2334,44 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
             # ------------------
             # Create a row in the tab.
             with gr.Row():
-                upscale_button_sd = gr.Button(value=UPSCALE_ORIGINAL, scale=2)
+                # Buttons equal over all Tabs.
+                upscale_button_sd = gr.Button(value=UPSCALE_ORIGINAL, scale=1)
                 flip_button_h = gr.Button(value=HFLIP, scale=1)
                 flip_button_v = gr.Button(value=VFLIP, scale=1)
                 rotate_button_l = gr.Button(value=LROT, scale=1)
                 rotate_button_r = gr.Button(value=RROT, scale=1)
-                sepia_button = gr.Button(value=SEPIA_FILTER, scale=1)
-                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=2)
+                inversion_button = gr.Button(value=INVERT_BUTTON, scale=1)
+                grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1)
+                download_button = gr.Button(value=DOWNLOAD_IMAGE, scale=1)
             # Create a row in the tab.
             with gr.Row():
                 sd_method = gr.Dropdown(choices=sd_list, value=sd_list[0], label="Upscaling Methods", scale=2, min_width=190)
                 kernel_number = gr.Dropdown(choices=kernel_list, label="Sharpening Kernel", scale=0, min_width=140)
-                brightness_number = gr.Number(value=0, label="Brightness", scale=1, interactive=True, min_width=100, step=0.1)
-                contrast_number = gr.Number(value=1, label="Contrast", scale=1, interactive=True, min_width=100, step=0.1)
-                gamma_number = gr.Number(value=1, label="Gamma", scale=1, interactive=True, min_width=100, step=0.1)
+                # Number fields equal in all Tabs.
+                # Start -->
+                brightness_number = gr.Number(value=0, label="Brightness", scale=0, interactive=True, min_width=num_width, step=step_size)
+                contrast_number = gr.Number(value=1, label="Contrast", scale=0, interactive=True, min_width=num_width, step=step_size)
+                gamma_number = gr.Number(value=1, label="Gamma", scale=0, interactive=True, min_width=num_width, step=step_size)
+                sepia_number = gr.Number(value="0", label="Sepia", scale=0, interactive=True, min_width=num_width, step=step_size)
+                # <-- End
                 denoise_string = gr.Textbox(value="(10,10,7,21)", max_lines=1, label="Denoising", scale=1, interactive=True, min_width=100)
-                sepia_number = gr.Number(value="0", label="Sepia", scale=0, min_width=90, step=0.1)
+                color_string = gr.Textbox(value="(0.75,1.5,0.5)", max_lines=1, label="Color Adjust", scale=1, interactive=True, min_width=100)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=60)
-                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sharpen_button = gr.Button(value=SHARP_BUTTON, scale=1, min_width=bw)
+                    smoothing_button = gr.Button(value=SMOOTH_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=60)
-                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    denoising_button = gr.Button(value=DENOISE_BUTTON, scale=1, min_width=bw)
+                    gamma_button = gr.Button(value=GAMMA_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=60)
-                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    brighten_button = gr.Button(value=BRIGHT_BUTTON, scale=1, min_width=bw)
+                    contrast_button = gr.Button(value=CONTRAST_BUTTON, scale=1, min_width=bw)
                 # Create a column in the row.
-                with gr.Column(scale=0, min_width=170):
-                    inversion_button = gr.Button(value=INVERT_BUTTON, scale=1, min_width=60)
-                    grayscale_button = gr.Button(value=GRAYSCALE_BUTTON, scale=1, min_width=60)
+                with gr.Column(scale=0, min_width=cw):
+                    sepia_button = gr.Button(value=SEPIA_FILTER, scale=1, min_width=bw)
+                    color_button = gr.Button(value=COLOR_FILTER, scale=1, min_width=bw)
             # Create a row in the tab.
             with gr.Row():
                 # Create a column in the row.
@@ -2230,11 +2390,6 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                         with gr.Column(min_width=250, scale=1):
                             ssim_dummy = gr.HTML(" ")
                             ssim_button = gr.Button(value=CALC_SSIM)
-            clear_list = [im_input, im_output, dimension_original,
-                          dimension_upscaled, time_value, ssim_value,
-                          sd_method, scale_number, kernel_number,
-                          brightness_number, contrast_number, gamma_number,
-                          denoise_string, sepia_number]
             # ----------------------
             # Event listener section
             # ----------------------
@@ -2282,6 +2437,11 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output, sepia_number],
                 outputs=[im_output]
             )
+            color_button.click(
+                fn=color_filter,
+                inputs=[im_output, color_string],
+                outputs=[im_output]
+            )
             # Image download button listener.
             download_button.click(
                 fn=download_image,
@@ -2338,15 +2498,26 @@ with gr.Blocks(css="footer{display:none !important}", fill_width=True,
                 inputs=[im_output],
                 outputs=[ssim_value]
             )
-            # Create a clear & reset button.
+            # Define the clear & reset function.
             def clear_reset_sd():
                 '''Clear & reset of interface.'''
-                return [sd_list[0], scale_factors[0], kernel_list[0], 0, 1, 1, "(10,10,7,21)", "0"]
+                return [sd_list[0], scale_factors[0], kernel_list[0],
+                        0, 1, 1, "(10,10,7,21)", "0", "(0.75, 1.5, 0.5)"]
+            # Define the list with the components to clear.
+            clear_list = [im_input, im_output, dimension_original,
+                          dimension_upscaled, time_value, ssim_value,
+                          sd_method, scale_number, kernel_number,
+                          brightness_number, contrast_number, gamma_number,
+                          denoise_string, sepia_number, color_string]
+            # Create a clear & reset button.
             clear_button = gr.ClearButton(components=clear_list, value=CLEAR_RESET)
+            # Create an event listener.
             clear_button.click(
                 fn=clear_reset_sd,
                 inputs=[],
-                outputs=[sd_method, scale_number, kernel_number, brightness_number, contrast_number, gamma_number, denoise_string, sepia_number]
+                outputs=[sd_method, scale_number, kernel_number,
+                         brightness_number, contrast_number, gamma_number,
+                         denoise_string, sepia_number, color_string]
             )
     # Create a footer line.
     with gr.Row():
